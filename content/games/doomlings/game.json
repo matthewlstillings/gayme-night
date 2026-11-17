@@ -1,0 +1,19 @@
+{
+  "slug": "doomlings",
+  "name": "Doomlings",
+  "aliases": ["Doomling"],
+  "publisher": "Doomlings",
+  "year": 2021,
+  "players": [2, 6],
+  "minutes": [20, 45],
+  "description": "Play traits to evolve the funniest creature before 3 catastrophes end the world. Most points when it ends wins.",
+  "accent": "#ff6f91",
+  "added": "2026-11-17T21:50:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** posted by Doomlings on its [How to Play page](https://www.doomlings.com/how). This is the current base game rulebook, matching the 3rd edition cards.",
+      "The text was transcribed from the PDF's pages. Icons are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "This covers the base game. Expansions add their own traits and ages."
+    ]
+  }
+}
