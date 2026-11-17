@@ -39,7 +39,7 @@ export default async function RulebookPage({ params }: Props) {
             <h1>{game.name} <span>Rulebook</span></h1>
             {game.hasGuide && <Link className="btn" href={`/${slug}/guide`}>Quick guide</Link>}
             <button className="btn icon swap search-btn" id="searchBtn" type="button" aria-expanded="false" aria-controls="searchArea" aria-label="Search the rules">
-              <span className="when-closed"><SearchIcon /></span><span className="when-open"><CloseIcon /></span>
+              <SearchIcon />
             </button>
             <button className="btn icon swap toc-btn" id="tocBtn" type="button" aria-expanded="false" aria-controls="toc" aria-label="Contents">
               <span className="when-closed"><MenuIcon /></span><span className="when-open"><CloseIcon /></span>
