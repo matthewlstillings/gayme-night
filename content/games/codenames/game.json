@@ -1,0 +1,19 @@
+{
+  "slug": "codenames",
+  "name": "Codenames",
+  "aliases": ["Code Names"],
+  "publisher": "Czech Games Edition",
+  "year": 2015,
+  "players": [4, 8],
+  "minutes": [15, 15],
+  "description": "Two teams race to find their secret agents. Spymasters give one-word clues, and touching the assassin loses on the spot.",
+  "accent": "#6c7cf5",
+  "added": "2026-11-17T22:10:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** posted by Czech Games Edition ([PDF](https://filemanager.czechgames.com/storage/files/codenames/rules/CN%20rulebook%20EN%2030.pdf)). This is the current English rulebook.",
+      "The text was transcribed from the PDF's pages. Tap any page image to see it as printed.",
+      "The rules ask for at least 2 players per team, so 4 is the real minimum. The box says 2–8+ because the free Codenames Companion app adds smaller-group options."
+    ]
+  }
+}
