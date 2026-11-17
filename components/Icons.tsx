@@ -21,3 +21,9 @@ export const PlayersIcon = () => (
 export const ClockIcon = () => (
   <svg {...base}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
 );
+export const MenuIcon = () => (
+  <svg {...base}><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+);
+export const CloseIcon = () => (
+  <svg {...base}><path d="M6 6l12 12M18 6 6 18" /></svg>
+);

@@ -3,8 +3,9 @@
 import { useEffect } from 'react';
 
 /**
- * Wires up the rulebook page that the server rendered: search with highlights,
- * "only matching paragraphs", contents drawer and current section, and the page image viewer.
+ * Wires up the rulebook page that the server rendered: search with highlights (showing only
+ * matching paragraphs while a search is active), the small-screen search and contents toggles,
+ * the current section, and the page image viewer.
  * It works on the DOM directly because the rulebook text is static HTML.
  */
 export function RulebookReader({ slug, images }: { slug: string; images: number[] }) {
@@ -20,9 +21,8 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
     const prevB = $<HTMLButtonElement>('prev');
     const nextB = $<HTMLButtonElement>('next');
     const countEl = $('count');
-    const only = $<HTMLInputElement>('only');
     const empty = $('empty');
-    if (!main || !q || !clearB || !prevB || !nextB || !countEl || !only || !empty) return;
+    if (!main || !q || !clearB || !prevB || !nextB || !countEl || !empty) return;
     const idleText = countEl.dataset.idle ?? '';
 
     const sections = [...main.querySelectorAll<HTMLElement>('section.page')];
@@ -102,7 +102,7 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       marks = [];
       idx = -1;
       clearB.hidden = !q.value;
-      const filtering = only.checked && term.length > 0;
+      const filtering = term.length > 0;
       main.classList.toggle('filtering', filtering);
       blocks.forEach((b) => b.classList.remove('hide'));
       sections.forEach((s) => s.classList.remove('hide'));
@@ -151,22 +151,38 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       }
       if (e.key === 'Escape') { q.value = ''; run(); }
     });
-    on(only, 'change', () => { const keepIdx = idx; run(); if (keepIdx > 0) go(keepIdx); });
     on(prevB, 'click', () => go(idx - 1));
     on(nextB, 'click', () => go(idx + 1));
     on(clearB, 'click', () => { q.value = ''; run(); q.focus(); });
 
-    // Contents drawer on small screens, and the current section highlight.
+    // Small screens: the search panel and the contents drawer each open from an icon button.
+    const header = document.querySelector<HTMLElement>('header.bar');
+    const searchBtn = $('searchBtn');
     const toc = $('toc');
     const tocBtn = $('tocBtn');
-    const closeToc = () => { toc?.classList.remove('open'); tocBtn?.setAttribute('aria-expanded', 'false'); if (tocBtn) tocBtn.textContent = 'Contents'; };
-    on(tocBtn, 'click', () => {
-      const open = toc!.classList.toggle('open');
-      tocBtn!.setAttribute('aria-expanded', String(open));
-      tocBtn!.textContent = open ? 'Close' : 'Contents';
-    });
-    on(toc, 'click', (e: MouseEvent) => { if ((e.target as HTMLElement).closest('a') && toc!.classList.contains('open')) closeToc(); });
-    on(window, 'keydown', (e: KeyboardEvent) => { if (e.key === 'Escape' && toc?.classList.contains('open')) closeToc(); });
+    const setSearch = (open: boolean) => {
+      header?.classList.toggle('searching', open);
+      searchBtn?.setAttribute('aria-expanded', String(open));
+      searchBtn?.setAttribute('aria-label', open ? 'Close search' : 'Search the rules');
+      if (open) q.focus();
+      else if (q.value) { q.value = ''; run(); }
+    };
+    const setToc = (open: boolean) => {
+      toc?.classList.toggle('open', open);
+      tocBtn?.setAttribute('aria-expanded', String(open));
+      tocBtn?.setAttribute('aria-label', open ? 'Close contents' : 'Contents');
+    };
+    on(searchBtn, 'click', () => { setToc(false); setSearch(!header?.classList.contains('searching')); });
+    on(tocBtn, 'click', () => setToc(!toc?.classList.contains('open')));
+    on(toc, 'click', (e: MouseEvent) => { if ((e.target as HTMLElement).closest('a') && toc!.classList.contains('open')) setToc(false); });
+    on(window, 'keydown', (e: KeyboardEvent) => { if (e.key === 'Escape' && toc?.classList.contains('open')) setToc(false); });
+
+    // Keep jump targets and the contents drawer just below the header, whatever its height.
+    let ro: ResizeObserver | null = null;
+    if (header && 'ResizeObserver' in window) {
+      ro = new ResizeObserver(() => document.documentElement.style.setProperty('--header-h', `${Math.round(header.getBoundingClientRect().height)}px`));
+      ro.observe(header);
+    }
     let io: IntersectionObserver | null = null;
     if ('IntersectionObserver' in window) {
       io = new IntersectionObserver(
@@ -209,6 +225,8 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
     return () => {
       ac.abort();
       io?.disconnect();
+      ro?.disconnect();
+      document.documentElement.style.removeProperty('--header-h');
       clearTimeout(timer);
       unmark();
     };

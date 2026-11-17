@@ -144,8 +144,25 @@ header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; 
 .searchrow { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
 .bar .meta { display: flex; align-items: center; gap: 12px; margin-top: 8px; font-size: 13px; color: var(--ink2); min-height: 22px; flex-wrap: wrap; }
 .count { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); }
-label.only { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; }
-label.only input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+/* Icon buttons that swap to a close icon while their panel is open. */
+.btn.swap > span { display: inline-flex; }
+.btn.swap .when-open { display: none; }
+.btn.swap[aria-expanded="true"] .when-closed { display: none; }
+.btn.swap[aria-expanded="true"] .when-open { display: inline-flex; }
+.btn.swap[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.btn.swap svg { width: 18px; height: 18px; }
+
+/* Small screens: search tucks away behind its icon until you need it. */
+@media (max-width: 999px) {
+  .searcharea { display: none; }
+  header.bar.searching .searcharea { display: block; }
+  @media (prefers-reduced-motion: no-preference) {
+    header.bar.searching .searcharea { animation: search-in 0.16s ease-out; }
+  }
+}
+@media (min-width: 1000px) { .search-btn { display: none !important; } }
+@keyframes search-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 .intro { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; font-size: 14px; color: var(--ink2); margin-bottom: 20px; }
 .intro p { margin: 0 0 6px; }
@@ -160,7 +177,7 @@ nav.toc { display: none; }
   nav.toc { display: block; position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--header-h)); align-self: start; max-height: calc(100vh - var(--header-h) - 18px); overflow: auto; padding-right: 6px; }
   .toc-btn { display: none !important; }
 }
-nav.toc.open { display: block; position: fixed; z-index: 25; inset: calc(env(safe-area-inset-top, 0px) + 120px) max(12px, env(safe-area-inset-right, 0px)) 12px max(12px, env(safe-area-inset-left, 0px)); background: var(--panel); border: 1px solid var(--line-strong); border-radius: 8px; padding: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); overflow: auto; max-height: none; }
+nav.toc.open { display: block; position: fixed; z-index: 25; inset: calc(env(safe-area-inset-top, 0px) + var(--header-h) + 8px) max(12px, env(safe-area-inset-right, 0px)) 12px max(12px, env(safe-area-inset-left, 0px)); background: var(--panel); border: 1px solid var(--line-strong); border-radius: 8px; padding: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); overflow: auto; max-height: none; }
 .toc h2 { font: 600 12px/1 var(--font-sans), Inter, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 4px 8px 10px; }
 .toc ul { list-style: none; margin: 0; padding: 0; }
 .toc a { display: flex; gap: 8px; align-items: baseline; padding: 7px 8px; border-radius: 4px; text-decoration: none; color: var(--ink); font-size: 14px; line-height: 1.3; }

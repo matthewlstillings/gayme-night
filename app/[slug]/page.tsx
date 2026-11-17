@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getGame, getGames, getRulebook } from '@/lib/games';
 import { inline } from '@/lib/markdown';
 import { BackLink } from '@/components/BackLink';
-import { BackIcon, DownIcon, ForwardIcon, SearchIcon, UpIcon } from '@/components/Icons';
+import { BackIcon, CloseIcon, DownIcon, ForwardIcon, MenuIcon, SearchIcon, UpIcon } from '@/components/Icons';
 import { RulebookReader } from '@/components/RulebookReader';
 import { Facts } from '@/components/Facts';
 import { gameFacts } from '@/lib/facts';
@@ -38,9 +38,15 @@ export default async function RulebookPage({ params }: Props) {
             <BackLink />
             <h1>{game.name} <span>Rulebook</span></h1>
             {game.hasGuide && <Link className="btn" href={`/${slug}/guide`}>Quick guide</Link>}
-            <button className="btn toc-btn" id="tocBtn" type="button" aria-expanded="false" aria-controls="toc">Contents</button>
+            <button className="btn icon swap search-btn" id="searchBtn" type="button" aria-expanded="false" aria-controls="searchArea" aria-label="Search the rules">
+              <span className="when-closed"><SearchIcon /></span><span className="when-open"><CloseIcon /></span>
+            </button>
+            <button className="btn icon swap toc-btn" id="tocBtn" type="button" aria-expanded="false" aria-controls="toc" aria-label="Contents">
+              <span className="when-closed"><MenuIcon /></span><span className="when-open"><CloseIcon /></span>
+            </button>
           </div>
           <Facts {...gameFacts(game)} className="facts head" />
+          <div className="searcharea" id="searchArea">
           <div className="searchrow">
             <div className="sbox">
               <SearchIcon />
@@ -52,7 +58,7 @@ export default async function RulebookPage({ params }: Props) {
           </div>
           <div className="meta">
             <span className="count" id="count" aria-live="polite" data-idle={pageCount}>{pageCount}</span>
-            <label className="only"><input type="checkbox" id="only" defaultChecked /> Show only matching paragraphs</label>
+          </div>
           </div>
         </div>
       </header>
