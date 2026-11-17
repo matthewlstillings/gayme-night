@@ -1,0 +1,17 @@
+{
+  "slug": "finspan",
+  "name": "Finspan",
+  "aliases": ["Fin span", "FinSpan"],
+  "publisher": "Stonemaier Games",
+  "year": 2025,
+  "description": "Wingspan under the sea for 1–5: dive through sunlit, twilight and midnight zones to find fish, lay eggs and grow schools.",
+  "accent": "#3fc9b0",
+  "added": "2026-11-17T20:40:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** by Stonemaier Games (FS_Rulebook r19), linked from their [Finspan page](https://stonemaiergames.com/games/finspan/).",
+      "The text was transcribed from the PDF's pages. Icons are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "Stonemaier also has a [rules and FAQ page](https://stonemaiergames.com/games/finspan/rules-faq/) with a how-to-play video, and a separate **Nautoma** rulebook for solo play."
+    ]
+  }
+}
