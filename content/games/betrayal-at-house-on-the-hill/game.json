@@ -1,0 +1,19 @@
+{
+  "slug": "betrayal-at-house-on-the-hill",
+  "name": "Betrayal at House on the Hill",
+  "aliases": ["Betrayal", "House on the Hill", "Haunting of Hill House", "Betrayal 2nd Edition"],
+  "publisher": "Avalon Hill",
+  "year": 2010,
+  "players": [3, 6],
+  "minutes": [60, 60],
+  "description": "Explore a haunted house room by room until the haunt starts and one of you turns traitor. Then it's traitor against heroes.",
+  "accent": "#d65a5a",
+  "added": "2026-11-17T22:00:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official 2nd edition rulebook** by Avalon Hill, from Wizards of the Coast's [rulebook PDF](https://media.wizards.com/2015/rules/betrayal_rules.pdf).",
+      "This is the rulebook only. The *Traitor's Tome* and *Secrets of Survival* haunt books are left out on purpose, so nobody learns a haunt's goals before it starts.",
+      "The text was transcribed from the PDF's pages. Tap any page image to see it as printed."
+    ]
+  }
+}
