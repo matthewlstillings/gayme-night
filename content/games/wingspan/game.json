@@ -1,0 +1,17 @@
+{
+  "slug": "wingspan",
+  "name": "Wingspan",
+  "aliases": ["Wing span"],
+  "publisher": "Stonemaier Games",
+  "year": 2019,
+  "description": "Engine-building card game for 1–5 bird lovers: attract birds to forest, grassland and wetland, and chain their powers.",
+  "accent": "#7cc4f0",
+  "added": "2026-11-17T20:30:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** by Stonemaier Games (WS_Rulebook r24), linked from their [Wingspan rules page](https://stonemaiergames.com/games/wingspan/rules/).",
+      "The text was transcribed from the PDF's pages. Icons (food, habitats, nests) are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "The same Stonemaier page also has the **Appendix** (every bird power, bonus card and goal), the Swift-Start guides and the solo Automa rules."
+    ]
+  }
+}
