@@ -1,0 +1,19 @@
+{
+  "slug": "harmonies",
+  "name": "Harmonies",
+  "aliases": ["Harmony"],
+  "publisher": "Libellud",
+  "year": 2024,
+  "players": [1, 4],
+  "minutes": [30, 45],
+  "description": "Stack colored tokens into rivers, forests, mountains and towns, then settle animals in the habitats they need.",
+  "accent": "#9ccc50",
+  "added": "2026-11-17T22:20:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** posted by Libellud ([PDF](https://cdn.svc.asmodee.net/production-libellud/uploads/2024/12/HARMONIES_Rules_EN.pdf)).",
+      "The text was transcribed from the PDF's pages. Token stacks and habitat patterns are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "Page 12 is the player aid from the back of the rulebook."
+    ]
+  }
+}
