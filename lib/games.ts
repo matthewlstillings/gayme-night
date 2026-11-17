@@ -95,7 +95,13 @@ export function getRulebook(slug: string): Rulebook {
       image = { src: `/games/${slug}/pages/p${pad(n)}.webp`, ...size };
       images.push(n);
     }
-    const { html, headings } = renderPage(md, { page: n, pages: pageSet, image, usedIds });
+    const fig = (name: string) => {
+      const f = path.join(PUBLIC, slug, 'figs', `${name}.webp`);
+      if (!fs.existsSync(f)) return null;
+      const size = webpSize(fs.readFileSync(f));
+      return size ? { src: `/games/${slug}/figs/${name}.webp`, ...size } : null;
+    };
+    const { html, headings } = renderPage(md, { page: n, pages: pageSet, image, usedIds, fig });
     for (const h of headings) if (h.level === 2) toc.push({ id: h.id, title: h.title, page: n });
     return { n, html };
   });

@@ -10,7 +10,11 @@ export type RenderOptions = {
   image: { src: string; width: number; height: number } | null;
   /** Shared across pages so heading ids stay unique. */
   usedIds: Set<string>;
+  /** Looks up a cropped figure by name for [[fig name | caption]] lines. */
+  fig?: (name: string) => { src: string; width: number; height: number } | null;
 };
+
+const FIG_LINE = /^\[\[fig ([a-z0-9-]+)(?:\s*\|\s*(.*?))?\]\]$/;
 
 export type Heading = { id: string; title: string; level: number };
 
@@ -104,6 +108,17 @@ function figure(n: number, img: NonNullable<RenderOptions['image']>): string {
   );
 }
 
+function cropFigure(n: number, name: string, caption: string, img: { src: string; width: number; height: number }): string {
+  // Crops come from a page rendered about twice print size, so show them at half their pixel width,
+  // but never smaller than 200px (or their own width) so small tiles and icons stay readable.
+  const w = Math.round(Math.max(img.width / 2, Math.min(img.width, 200)));
+  const cap = caption ? `<figcaption>${esc(caption)}</figcaption>` : '';
+  return (
+    `<figure class="crop" style="--w:${w}px"><button type="button" class="cropbtn" data-page="${n}" data-src="${escAttr(img.src)}" data-cap="${escAttr(caption || `Page ${n}`)}" aria-label="Enlarge ${escAttr(caption || 'diagram')}">` +
+    `<img src="${escAttr(img.src)}" alt="${escAttr(caption || `Diagram from page ${n}`)}" loading="lazy" decoding="async" width="${img.width}" height="${img.height}"></button>${cap}</figure>`
+  );
+}
+
 export function renderPage(md: string, opts: RenderOptions): { html: string; headings: Heading[] } {
   const { page: n, pages, image, usedIds } = opts;
   const lines = md.replace(/\r\n/g, '\n').split('\n');
@@ -124,6 +139,14 @@ export function renderPage(md: string, opts: RenderOptions): { html: string; hea
       headings.push({ id, title: text, level });
       if (firstHeading && !placedImg && image) { out.push(figure(n, image)); placedImg = true; }
       firstHeading = false;
+      i++;
+      continue;
+    }
+    const fm = ln.trim().match(FIG_LINE);
+    if (fm) {
+      const img = opts.fig?.(fm[1]);
+      if (!img) throw new Error(`Page ${n}: no figure named "${fm[1]}"`);
+      out.push(cropFigure(n, fm[1], (fm[2] || '').trim(), img));
       i++;
       continue;
     }
@@ -154,7 +177,7 @@ export function renderPage(md: string, opts: RenderOptions): { html: string; hea
       continue;
     }
     const buf: string[] = [];
-    while (i < lines.length && lines[i].trim() && !/^(#{2,4} |>|- |\d+\. |\[\[page\]\])/.test(lines[i])) buf.push(lines[i++].trim());
+    while (i < lines.length && lines[i].trim() && !/^(#{2,4} |>|- |\d+\. |\[\[(page\]\]|fig ))/.test(lines[i])) buf.push(lines[i++].trim());
     if (buf.length) {
       const aside = buf.every((b) => b.startsWith('*') && b.endsWith('*'));
       out.push(`<p${aside ? ' class="aside"' : ''}>` + buf.map((b) => inline(b, pages)).join('<br>') + '</p>');

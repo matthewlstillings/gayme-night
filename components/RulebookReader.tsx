@@ -110,7 +110,7 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       if (term) {
         const keep = new Set<HTMLElement>();
         blocks.forEach((b) => {
-          if (b.tagName === 'FIGURE') return;
+          if (b.tagName === 'FIGURE' && !b.classList.contains('crop')) return;
           if (!textOf.get(b)!.includes(term)) return;
           keep.add(b);
           const h = blockHead.get(b);
@@ -120,6 +120,8 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
           const t = blockToc.get(b) || firstTocOfPage(b);
           if (t) hitsByToc.set(t, (hitsByToc.get(t) ?? 0) + marks.length - before);
         });
+        // A cropped diagram stays visible next to the matching text it illustrates.
+        blocks.forEach((b, j) => { if (b.classList.contains('crop') && j > 0 && keep.has(blocks[j - 1])) keep.add(b); });
         if (filtering) {
           blocks.forEach((b) => { if (!keep.has(b)) b.classList.add('hide'); });
           sections.forEach((s) => { if (![...s.querySelectorAll(':scope > .pbody > *')].some((c) => keep.has(c as HTMLElement))) s.classList.add('hide'); });
@@ -211,6 +213,16 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       lbIn.scrollTop = 0;
     };
     on(main, 'click', (e: MouseEvent) => {
+      const c = (e.target as HTMLElement).closest<HTMLElement>('.cropbtn');
+      if (c && lb && lbImg && lbTitle && lbIn) {
+        at = Math.max(0, images.indexOf(Number(c.dataset.page)));
+        lbImg.src = c.dataset.src || '';
+        lbImg.alt = c.dataset.cap || '';
+        lbTitle.textContent = c.dataset.cap || '';
+        lbIn.scrollTop = 0;
+        lb.showModal();
+        return;
+      }
       const t = (e.target as HTMLElement).closest<HTMLElement>('.thumb');
       if (!t || !lb) return;
       show(images.indexOf(Number(t.dataset.page)));

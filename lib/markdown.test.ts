@@ -41,3 +41,13 @@ test('guide sections and rulebook page links', () => {
   assert.deepEqual(g.sections, [{ id: 'win', label: 'How to win' }, { id: 'b', label: 'B & C' }]);
   assert.match(g.html, /<a class="xref" href="\/demo#p12">p\. 12–13<\/a>/);
 });
+
+test('renders a cropped figure line', () => {
+  const { html } = renderPage('## Board\n\nText.\n\n[[fig p05-board | The board]]\n\nMore.', {
+    page: 5, pages, image: null, usedIds: new Set(),
+    fig: (n) => (n === 'p05-board' ? { src: '/f.webp', width: 600, height: 300 } : null)
+  });
+  assert.match(html, /<figure class="crop" style="--w:300px">/);
+  assert.match(html, /<figcaption>The board<\/figcaption>/);
+  assert.match(html, /<p>More\.<\/p>/);
+});
