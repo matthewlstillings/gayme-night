@@ -1,0 +1,17 @@
+{
+  "slug": "wyrmspan",
+  "name": "Wyrmspan",
+  "aliases": ["Wyrm span", "WyrmSpan"],
+  "publisher": "Stonemaier Games",
+  "year": 2024,
+  "description": "Wingspan with dragons for 1–5: excavate caves, entice dragons, hatch eggs and climb the Dragon Guild.",
+  "accent": "#c98be0",
+  "added": "2026-11-17T20:50:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** by Stonemaier Games (Wyr_Rulebook r19), from their public rules folder linked on the [Wyrmspan page](https://stonemaiergames.com/games/wyrmspan/).",
+      "The text was transcribed from the PDF's pages. Icons are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "Stonemaier also has a [rules and FAQ page](https://stonemaiergames.com/games/wyrmspan/rules-faq/) with a how-to-play video, a separate **Automa** rulebook for solo play, and rules for the **Dragon Academy** expansion."
+    ]
+  }
+}
