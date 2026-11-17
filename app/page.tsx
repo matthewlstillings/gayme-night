@@ -1,10 +1,6 @@
 import { getGames } from '@/lib/games';
 import { GameList, type ListGame } from '@/components/GameList';
-
-function letterOf(name: string): string {
-  const c = name.replace(/^(the|a|an)\s+/i, '').normalize('NFD').charAt(0).toUpperCase();
-  return /[A-Z]/.test(c) ? c : '#';
-}
+import { gameFacts } from '@/lib/facts';
 
 export default function Home() {
   const games: ListGame[] = getGames().map((g) => ({
@@ -17,7 +13,7 @@ export default function Home() {
     accent: g.accent,
     hasGuide: g.hasGuide,
     pageCount: g.pageCount,
-    letter: letterOf(g.name)
+    ...gameFacts(g)
   }));
   return (
     <>

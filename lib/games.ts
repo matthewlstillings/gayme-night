@@ -27,6 +27,9 @@ function check(dir: string, g: Game) {
   need(typeof g.description === 'string' && g.description.trim(), 'description is required');
   need((g.description ?? '').length <= 140, 'description should be one short line (140 characters max)');
   need(g.accent === undefined || HEX.test(g.accent), 'accent must be a color like #f5a32f');
+  const range = (v: unknown) => Array.isArray(v) && v.length === 2 && v.every((n) => Number.isInteger(n) && n > 0) && v[0] <= v[1];
+  need(g.players === undefined || range(g.players), 'players must be [min, max], like [1, 5]');
+  need(g.minutes === undefined || range(g.minutes), 'minutes must be [min, max], like [40, 70]');
   need(g.added === undefined || !Number.isNaN(Date.parse(g.added)), 'added must be a date like 2026-11-17T19:30:00Z');
   need(g.rulebook && typeof g.rulebook === 'object', 'rulebook is required (it can be {})');
   need(g.rulebook.intro === undefined || (Array.isArray(g.rulebook.intro) && g.rulebook.intro.every((l) => typeof l === 'string')), 'rulebook.intro must be a list of lines');

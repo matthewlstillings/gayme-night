@@ -6,6 +6,8 @@ import { inline } from '@/lib/markdown';
 import { BackLink } from '@/components/BackLink';
 import { BackIcon, DownIcon, ForwardIcon, SearchIcon, UpIcon } from '@/components/Icons';
 import { RulebookReader } from '@/components/RulebookReader';
+import { Facts } from '@/components/Facts';
+import { gameFacts } from '@/lib/facts';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -38,6 +40,7 @@ export default async function RulebookPage({ params }: Props) {
             {game.hasGuide && <Link className="btn" href={`/${slug}/guide`}>Quick guide</Link>}
             <button className="btn toc-btn" id="tocBtn" type="button" aria-expanded="false" aria-controls="toc">Contents</button>
           </div>
+          <Facts {...gameFacts(game)} className="facts head" />
           <div className="searchrow">
             <div className="sbox">
               <SearchIcon />

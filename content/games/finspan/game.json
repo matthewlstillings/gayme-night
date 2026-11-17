@@ -4,6 +4,8 @@
   "aliases": ["Fin span", "FinSpan"],
   "publisher": "Stonemaier Games",
   "year": 2025,
+  "players": [1, 5],
+  "minutes": [45, 60],
   "description": "Wingspan under the sea for 1–5: dive through sunlit, twilight and midnight zones to find fish, lay eggs and grow schools.",
   "accent": "#3fc9b0",
   "added": "2026-11-17T20:40:00Z",

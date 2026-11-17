@@ -4,6 +4,8 @@
   "aliases": ["Wyrm span", "WyrmSpan"],
   "publisher": "Stonemaier Games",
   "year": 2024,
+  "players": [1, 5],
+  "minutes": [90, 90],
   "description": "Wingspan with dragons for 1–5: excavate caves, entice dragons, hatch eggs and climb the Dragon Guild.",
   "accent": "#c98be0",
   "added": "2026-11-17T20:50:00Z",

@@ -9,6 +9,10 @@ export type Game = {
   description: string;
   /** A light, saturated color that reads on a near-black page. Tints the game's pages. */
   accent?: string;
+  /** Player count as [min, max], e.g. [1, 5]. Use the same number twice for a fixed count. */
+  players?: [number, number];
+  /** Average game length in minutes as [min, max], e.g. [40, 70]. Use the same number twice for one figure. */
+  minutes?: [number, number];
   /** When the game was added, as an ISO date and time. */
   added?: string;
   rulebook: {

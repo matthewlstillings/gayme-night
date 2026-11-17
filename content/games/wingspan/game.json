@@ -4,6 +4,8 @@
   "aliases": ["Wing span"],
   "publisher": "Stonemaier Games",
   "year": 2019,
+  "players": [1, 5],
+  "minutes": [40, 70],
   "description": "Engine-building card game for 1–5 bird lovers: attract birds to forest, grassland and wetland, and chain their powers.",
   "accent": "#7cc4f0",
   "added": "2026-11-17T20:30:00Z",

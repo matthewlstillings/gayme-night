@@ -4,6 +4,8 @@
   "aliases": ["Nemesis Lockdown", "Lockdown"],
   "publisher": "Awaken Realms",
   "year": 2022,
+  "players": [1, 5],
+  "minutes": [90, 180],
   "description": "Semi-co-op survival horror in a Martian lab overrun by Night Stalkers, with the power failing.",
   "accent": "#f5a32f",
   "added": "2026-11-17T19:30:00Z",

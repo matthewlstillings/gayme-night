@@ -8,7 +8,7 @@ A public, read-only hub of board game rulebooks and quick guides. There are no l
 
 ## Pages
 
-- **`/`** lists every game A to Z, with a search box (name, other names, publisher, year, description).
+- **`/`** lists every game A to Z in one grid, with a search box (name, other names, publisher, year, description).
 - **`/<slug>`** is the game's rulebook: full text you can search, a contents list, and the printed page images.
 - **`/<slug>/guide`** is the quick guide, when the game has one. The rulebook links to it.
 
@@ -34,6 +34,8 @@ public/games/<slug>/pages/p02.webp   optional page images, same numbers
   "aliases": ["Nemesis Lockdown", "Lockdown"],
   "publisher": "Awaken Realms",
   "year": 2022,
+  "players": [1, 5],
+  "minutes": [90, 180],
   "description": "Semi-co-op survival horror in a Martian lab overrun by Night Stalkers, with the power failing.",
   "accent": "#f5a32f",
   "added": "2026-11-17T19:30:00Z",
@@ -47,6 +49,7 @@ public/games/<slug>/pages/p02.webp   optional page images, same numbers
 ```
 
 - **description:** one short line, 140 characters max, in our own words.
+- **players** and **minutes:** `[min, max]` from the publisher's box or game page. They show as chips on the game's tile and at the top of its rulebook. Use the same number twice for one figure, like `[90, 90]`.
 - **aliases:** other names people might search for.
 - **accent:** a light, saturated color that reads on a near-black page. It tints the game's card, rulebook and guide. Leave it out to use the site pink.
 - **rulebook.intro:** lines shown above the rulebook. They support `**bold**`, `[links](https://…)` and a `%Badge%`.
