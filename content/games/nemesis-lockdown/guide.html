@@ -1,0 +1,214 @@
+<div class="intro">
+  <p><strong>A cheat sheet for new players</strong>, summarised from the official Nemesis: Lockdown rulebook. Each section names the rulebook page to check when a question comes up.</p>
+  <p>Tips at the end are marked by where they come from: the rulebook itself, the publisher's FAQ, or experienced players.</p>
+</div>
+
+<section class="card" id="win" data-label="How to win">
+  <div class="kicker"><span>Start here</span><span class="ref">Rulebook p. 10–12</span></div>
+  <h2>How to win</h2>
+  <p class="tldr">Finish your secret Objective <em>and</em> get your Character out alive. Several players can win.</p>
+  <div class="win">
+    <div><b>1. Complete your Objective</b>You start with 2 secret Objectives (1 Personal, 1 Corporate). At the first Intruder Encounter, everyone keeps 1 and discards the other.</div>
+    <div><b>2. Survive</b>Lock yourself in the Isolation Room (and the Facility isn't destroyed), launch out in a CSS Pod, or reach the Bunker.</div>
+  </div>
+  <p>Then you still have to pass the <strong>Victory Check</strong>:</p>
+  <ol>
+    <li><strong>Contingency check:</strong> the secret Active Contingency is revealed and may kill some survivors.</li>
+    <li><strong>Contamination check:</strong> Scan your Contamination cards. If any says INFECTED (or you have a Larva), shuffle your deck and draw 4. Any Contamination card drawn means death.</li>
+    <li><strong>Objective check:</strong> reveal your Objective and see if you met it.</li>
+  </ol>
+  <div class="call cool"><b class="t">Semi-co-op</b>Working together helps, but other players' wins don't count for you. You can't attack other Characters directly, but you can harm them as a side effect (fire, Autodestruction, a grenade).</div>
+</section>
+
+<section class="card" id="round" data-label="A round">
+  <div class="kicker"><span>The loop</span><span class="ref">Rulebook p. 13</span></div>
+  <h2>How a round works</h2>
+  <p class="tldr">Every round is a Player Phase (everyone acts) then an Event Phase (the Facility and the aliens act).</p>
+
+  <div class="phase">
+    <h3><span class="tag">Phase I</span> Player Phase</h3>
+    <ol class="steps">
+      <li><span class="n">1</span><span><b>Draw to 5</b><span class="d">Everyone draws Action cards until they hold 5. If your deck is empty, shuffle your discard pile into a new deck.</span></span></li>
+      <li><span class="n">2</span><span><b>Pass the First Player token left</b><span class="d">Skip this in the first round.</span></span></li>
+      <li><span class="n">3</span><span><b>Take turns of 2 Actions</b><span class="d">Starting with the First Player and going clockwise, each player takes a turn of 2 Actions. Keep going around until everyone has passed.</span></span></li>
+    </ol>
+  </div>
+
+  <div class="phase ev">
+    <h3><span class="tag">Phase II</span> Event Phase</h3>
+    <ol class="steps">
+      <li><span class="n">4</span><span><b>Launch CSS</b><span class="d">If a CSS token sits under the Time token, reveal it: it says which CSS Pods launch.</span></span></li>
+      <li><span class="n">5</span><span><b>Advance the Time track</b><span class="d">Move the Time token 1 slot. Check Autodestruction and the Alert Procedure, and whether a Power Threshold drops the Power.</span></span></li>
+      <li><span class="n">6</span><span><b>Remove Noise</b><span class="d">In Sections with Power only: remove Noise markers from Corridors not connected to a Room with a Character. Never from the Technical Corridors space.</span></span></li>
+      <li><span class="n">7</span><span><b>Intruders attack</b><span class="d">Every Intruder in a Room with a Character attacks.</span></span></li>
+      <li><span class="n">8</span><span><b>Fire damages Intruders</b><span class="d">Each Intruder in a Room with Fire takes 1 Injury.</span></span></li>
+      <li><span class="n">9</span><span><b>Resolve an Event card</b><span class="d">First move the Intruders it shows (not ones in Combat) through the Corridor number on the card, then apply its effect. Darkness effects apply only in Sections without Power.</span></span></li>
+      <li><span class="n">10</span><span><b>Intruder bag development</b><span class="d">Draw 1 token. Larva becomes an Adult, Creeper becomes a Breeder, Adult or Breeder makes everyone not in Combat roll for Noise, Queen can appear in the Nest (or adds an Egg), Blank adds an Adult.</span></span></li>
+      <li><span class="n">11</span><span><b>New round</b><span class="d">Once everything from step 10 is resolved, start the next round.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="card" id="turn" data-label="Your turn">
+  <div class="kicker"><span>When it's you</span><span class="ref">Rulebook p. 13–14</span></div>
+  <h2>How your turn works</h2>
+  <p class="tldr">Do 2 Actions, paying for them by discarding Action cards. When you can't or don't want to act, pass.</p>
+  <ul>
+    <li><strong>Paying:</strong> the number in an Action's symbol is how many Action cards you discard from hand to pay for it.</li>
+    <li><strong>Action cards:</strong> to use one, discard that card <em>plus</em> its Cost. A card with [OR] lets you pick one option.</li>
+    <li><strong>Contamination cards</strong> sit in your hand but can't pay for anything. You can only discard them when you pass.</li>
+    <li><strong>Only 1 Action?</strong> Then your second Action is a Pass.</li>
+    <li><strong>Passing:</strong> you may discard any cards from hand, flip your Help card to its Pass side, and you take no more Actions this round. Passing counts as an Action.</li>
+    <li><strong>Fire:</strong> if you end your turn in a Room with Fire, you take 1 Light Wound (only once per round).</li>
+  </ul>
+  <div class="call warn"><b class="t">Watch out</b>Every card you spend shrinks your hand, and a small hand is what triggers Surprise Attacks. See <a href="#fight">Encounters</a>.</div>
+</section>
+
+<section class="card" id="actions" data-label="Actions">
+  <div class="kicker"><span>Always available</span><span class="ref">Rulebook p. 14, 11</span></div>
+  <h2>Basic Actions</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Action</th><th>Cost</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><b>Movement</b><span class="when">In or out of Combat</span></td><td class="c">1</td><td>Move to a neighbouring Room. In Combat, this is an Escape.</td></tr>
+      <tr><td><b>Careful Movement</b><span class="when">Out of Combat</span></td><td class="c">2</td><td>Move, but instead of a Noise roll, place a Noise marker in a Corridor of your choice connected to the new Room.</td></tr>
+      <tr><td><b>Pick Up Heavy Object</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Pick up a Corpse, Carcass or Egg in your Room.</td></tr>
+      <tr><td><b>Trade</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Swap Items and Objects with Characters in your Room. Not Ammo.</td></tr>
+      <tr><td><b>Craft Item</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Discard 2 Items with the right blue Component symbols to gain a Crafted Item.</td></tr>
+      <tr><td><b>Shoot</b><span class="when">In Combat</span></td><td class="c">1</td><td>Spend 1 Ammo from a Weapon in your Hand and roll the Combat die (the Advantage die in a Section with Power).</td></tr>
+      <tr><td><b>Melee Attack</b><span class="when">In Combat</span></td><td class="c">1</td><td>Take a Contamination card, then roll the Combat die. A miss gives you a Serious Wound.</td></tr>
+      <tr><td><b>Escape the Facility</b><span class="when">Exit Room, Main Gate open</span></td><td class="c">2</td><td>Ride the Rover to the Bunker, or walk there in an Enviro-Suit after a Noise roll comes up clear.</td></tr>
+    </tbody>
+  </table></div>
+  <p>You also get <strong>Action cards</strong> unique to your Character, <strong>Item</strong> Actions, <strong>Room</strong> Actions (one per Room, see the Room sheet on p. 27–29) and <strong>Computer</strong> Actions (in a Room with a Computer, in a Section with Power).</p>
+  <p class="src">Search is on an Action card, not a Basic Action. Each Search lowers that Room's Item Counter by 1.</p>
+</section>
+
+<section class="card" id="move" data-label="Moving &amp; Noise">
+  <div class="kicker"><span>Where danger starts</span><span class="ref">Rulebook p. 16–19</span></div>
+  <h2>Moving, exploring and Noise</h2>
+  <p class="tldr">Entering an empty Room means a Noise roll. Noise in a Corridor that already has Noise means an alien appears.</p>
+  <h3>When you enter a Room</h3>
+  <ol>
+    <li><strong>Unexplored?</strong> Flip the Room tile, then reveal its Exploration token. It sets how many Items the Room holds and has an effect: Silence, Danger, Slime, Fire, Malfunction or Door.</li>
+    <li><strong>Empty Room?</strong> Roll the Noise die. If another Character or an Intruder is already there, skip the roll.</li>
+  </ol>
+  <h3>Noise roll results</h3>
+  <ul>
+    <li><strong>1–4:</strong> put a Noise marker in that numbered Corridor. If it already has one, an <strong>Encounter</strong> happens instead.</li>
+    <li><strong>Danger:</strong> Intruders in neighbouring Rooms (not in Combat) move into your Room. If there are none, put Noise in every connected Corridor that doesn't have one.</li>
+    <li><strong>Silence:</strong> nothing happens, unless you have <strong>Slime</strong> on you, which turns Silence into Danger.</li>
+  </ul>
+  <h3>Other things on the board</h3>
+  <ul>
+    <li><strong>Technical Corridors:</strong> Characters can't use them (with a few card exceptions). Noise there counts at every Technical Corridor Entrance on the board.</li>
+    <li><strong>Closed Doors</strong> block movement. An Intruder that tries to go through destroys the Door instead of moving.</li>
+    <li><strong>Fire and Malfunction pools:</strong> if you need to place a 13th Fire marker or an 11th Malfunction marker, the Facility explodes and everyone dies.</li>
+    <li><strong>Malfunction</strong> in a Room turns off its Room Action (and its Computer). Searching still works.</li>
+  </ul>
+</section>
+
+<section class="card" id="fight" data-label="Encounters &amp; Combat">
+  <div class="kicker"><span>When aliens show up</span><span class="ref">Rulebook p. 20–22</span></div>
+  <h2>Encounters and Combat</h2>
+  <p class="tldr">When an alien appears, count the cards in your hand. Fewer than the token's number means a Surprise Attack.</p>
+  <h3>Encounter</h3>
+  <ol>
+    <li>Discard all Noise markers from the Corridors connected to the Room.</li>
+    <li>Draw an Intruder token from the bag and place that Intruder in the Room.</li>
+    <li>Compare your hand size (Contamination cards count) to the token's number: the lower number normally, the higher one in <strong>Darkness</strong>. If your hand is smaller, the Intruder makes a <strong>Surprise Attack</strong>.</li>
+  </ol>
+  <p class="src">A Blank token instead puts Noise in every connected Corridor. Walking into a Room that has an Intruder is not an Encounter; you're just in Combat.</p>
+  <h3>In Combat (same Room as an Intruder)</h3>
+  <ul>
+    <li><strong>Shoot</strong> or <strong>Melee Attack</strong> it, or <strong>Escape</strong> by moving out. Escaping triggers an Intruder Attack first, one for each Intruder in the Room.</li>
+    <li><strong>Did it die?</strong> Larvae and Eggs die from 1 Injury. For a Creeper or Adult, draw 1 Intruder Attack card and read only its blood number: Injuries equal to or above it kill. For a Breeder or Queen, add up 2 cards. A Retreat arrow on the card means it flees instead.</li>
+    <li><strong>Who gets attacked?</strong> The Character whose player holds the fewest Action cards. Ties go to the First Player, then turn order.</li>
+    <li><strong>Larva attack:</strong> it doesn't draw a card. It jumps onto your Character board and you take a Contamination card.</li>
+  </ul>
+</section>
+
+<section class="card" id="hurt" data-label="Wounds &amp; Contamination">
+  <div class="kicker"><span>Staying alive</span><span class="ref">Rulebook p. 22–23</span></div>
+  <h2>Wounds and Contamination</h2>
+  <p class="tldr">The third Light Wound becomes a Serious Wound. Any Wound after your third Serious Wound kills you.</p>
+  <ul>
+    <li><strong>Light Wounds</strong> move a marker down your track. The third one turns into a Serious Wound.</li>
+    <li><strong>Serious Wounds</strong> are cards with a lasting penalty. <strong>Dressing</strong> one flips it so its effect stops, but it still counts toward the 3.</li>
+    <li><strong>On death:</strong> your Corpse token stays in the Room and your Heavy Objects drop there. The <strong>Main Gate opens</strong> the first time anyone dies.</li>
+    <li><strong>Contamination cards</strong> go on top of your discard pile and clog your hand later. Some are secretly INFECTED.</li>
+    <li><strong>Scanning:</strong> the red Scanner shows the word INFECTED. If infected, put a Larva on your board. If you're infected and already have a Larva, you die and a Creeper appears.</li>
+    <li><strong>Getting clean:</strong> Rest, the Decon Room, the Surgery Room and the Antiseptic Item all help. Look closely when Scanning; some words look like INFECTED.</li>
+  </ul>
+</section>
+
+<section class="card" id="power" data-label="Power &amp; Darkness">
+  <div class="kicker"><span>New in Lockdown</span><span class="ref">Rulebook p. 24</span></div>
+  <h2>Power and Darkness</h2>
+  <p class="tldr">The Facility loses Power as time passes. Dark Sections are much more dangerous.</p>
+  <ul>
+    <li><strong>Sections with Power</strong> (blue Power token): you must Shoot with the Advantage die, Computer Actions work, you're not in Darkness, and Noise gets cleared in the Event Phase.</li>
+    <li><strong>Darkness</strong> (no Power): extra effects on Event and Attack cards, and the higher number on Intruder tokens decides Surprise Attacks.</li>
+    <li><strong>Emergency Staircases</strong> between Sections are always dark. A Glowstick or Flashlight helps.</li>
+    <li><strong>Power Thresholds</strong> on the Time track switch off Sections as the Time token passes. The Backup Power Supply Room (S-03) slows that down.</li>
+  </ul>
+</section>
+
+<section class="card" id="moments" data-label="Big moments">
+  <div class="kicker"><span>Triggers</span><span class="ref">Rulebook p. 10–11</span></div>
+  <h2>Big moments</h2>
+  <ul>
+    <li><strong>First Encounter:</strong> the first time an Intruder miniature appears, everyone secretly discards 1 Objective.</li>
+    <li><strong>First death:</strong> the Main Gate opens, so the Bunker becomes reachable.</li>
+    <li><strong>Isolation Room:</strong> usable once the Time token reaches the white slot 8 (earlier if someone activates the Alert Room).</li>
+    <li><strong>Autodestruction:</strong> started in the Cooling System. While its token is yellow, it can be stopped in the Power Generator Room. Once it flips red, it can't be stopped.</li>
+    <li><strong>Contingency:</strong> one token is secretly Active and judges survivors at the end. You see your own token; peek at others with the Archive, Alert Room or Computer to work out which one is Active.</li>
+  </ul>
+</section>
+
+<section class="card" id="end" data-label="Game end">
+  <div class="kicker"><span>How it stops</span><span class="ref">Rulebook p. 12</span></div>
+  <h2>When the game ends</h2>
+  <ul>
+    <li><strong>Time runs out</strong> (the final red slot): the Facility is purged. Everyone not in the Isolation Room dies, but the Intruders survive.</li>
+    <li><strong>The Facility explodes</strong> (red Autodestruction, a 13th Fire or an 11th Malfunction marker): everyone dies, including in the Isolation Room, and so do the Intruders and Queen.</li>
+    <li><strong>Nobody is left inside</strong>: the last Character dies, isolates, escapes or launches.</li>
+  </ul>
+  <p class="src">Once you escape, isolate or die, you only watch until the end.</p>
+</section>
+
+<section class="card" id="tips" data-label="Tips">
+  <div class="kicker"><span>For first games</span><span class="ref">Various sources</span></div>
+  <h2>Tips for new players</h2>
+
+  <h3>From the rulebook</h3>
+  <ul class="tips">
+    <li><strong>Pick your Character with your Objectives in mind.</strong> You get Objectives before the draft for this reason.</li>
+    <li><strong>Keep cards in hand</strong> when you're heading into unknown or dark areas. A full hand is your shield against Surprise Attacks.</li>
+    <li><strong>Moving in a group skips Noise rolls</strong>, but events that make everyone roll can hit a group hard.</li>
+    <li><strong>Scan your Contamination before the end.</strong> An unscanned infection can lose you the game at the last moment.</li>
+    <li><strong>Trade information about Contingencies.</strong> It can be traded, given and lied about. Use Help cards to share it secretly.</li>
+    <li><strong>Lab Rat and Survivor start with 3 Knowledge</strong>, so they can use the first Weakness from the start.</li>
+  </ul>
+
+  <h3>From the FAQ <span class="badge">Publisher FAQ</span></h3>
+  <ul class="tips faq">
+    <li><strong>Items work on yourself only.</strong> To use a Medkit, Clothes or similar on someone else, trade it to them first.</li>
+    <li><strong>Several Characters can share the Isolation Room.</strong> It has multiple chambers.</li>
+    <li><strong>The Archive works once per Character</strong>, because it flips your Knowledge token to active.</li>
+    <li><strong>Danger still happens on Careful Movement</strong> when you reveal a Danger Exploration token.</li>
+  </ul>
+  <p class="src">From the "official game FAQ" for Nemesis: Lockdown (March 2022), hosted by a German retailer: <a href="https://gamers-hq.de/media/pdf/d0/74/22/LOCKDOWN_FAQ_297x214mm_bleed3mm_-3_pages.pdf" target="_blank" rel="noopener">Lockdown FAQ PDF</a>.</p>
+
+  <h3>From experienced players <span class="badge">Unofficial</span></h3>
+  <ul class="tips comm">
+    <li><strong>Stick together early</strong> and use Careful Movement when you can afford it, to keep Noise and alien numbers down.</li>
+    <li><strong>Search early for weapons and crafting parts</strong> so a late Encounter doesn't catch you empty-handed.</li>
+    <li><strong>Keep Fire and Malfunction counts low.</strong> Running out of markers ends the game for everyone.</li>
+    <li><strong>Run before you shoot</strong> if you're short on cards. Shooting first can leave you no cards to Escape.</li>
+    <li><strong>Bring a Corpse or Carcass to the Laboratory</strong> when you pass one, to unlock Weaknesses.</li>
+  </ul>
+  <p class="src">Common advice from players of the original Nemesis, adapted to Lockdown, for example <a href="https://elusivemeeple.com/2019/03/17/nemesis-strategy-tips" target="_blank" rel="noopener">Elusive Meeple's strategy tips</a>.</p>
+</section>
+
+<footer>Summarised from the official Nemesis: Lockdown rulebook (Awaken Realms). When this guide and the rulebook seem to differ, the <a href="/nemesis-lockdown">full rulebook</a> wins.</footer>

@@ -1,0 +1,17 @@
+{
+  "slug": "nemesis-lockdown",
+  "name": "Nemesis: Lockdown",
+  "aliases": ["Nemesis Lockdown", "Lockdown"],
+  "publisher": "Awaken Realms",
+  "year": 2022,
+  "description": "Semi-co-op survival horror in a Martian lab overrun by Night Stalkers, with the power failing.",
+  "accent": "#f5a32f",
+  "added": "2026-11-17T19:30:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook PDF** by Awaken Realms: [Nemesis_LD_Rules.pdf](https://cdn.shopify.com/s/files/1/0618/9996/4569/files/Nemesis_LD_Rules.pdf).",
+      "The text was transcribed from the PDF's pages. Icons (dice faces, crafting components, token symbols) are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "%Unofficial% Fan-made rules summary by the Esoteric Order of Gamers: [NemesisLockdown_v2.pdf](https://www.orderofgamers.com/downloads/NemesisLockdown_v2.pdf)."
+    ]
+  }
+}
