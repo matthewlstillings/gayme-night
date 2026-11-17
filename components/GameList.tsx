@@ -76,7 +76,6 @@ export function GameList({ games }: { games: ListGame[] }) {
             <ul className="games">
               {grp.games.map((g) => (
                 <li className="game" key={g.slug} data-accent={g.accent ? '' : undefined} style={g.accent ? ({ '--accent': g.accent } as React.CSSProperties) : undefined}>
-                  <div className="mono" aria-hidden="true">{g.letter}</div>
                   <div>
                     <h3><Link href={`/${g.slug}`}>{g.name}</Link></h3>
                     <div className="by">{[g.publisher, g.year, `${g.pageCount} rulebook pages`].filter(Boolean).join(' · ')}</div>

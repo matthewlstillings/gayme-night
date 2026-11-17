@@ -24,7 +24,7 @@ Tokens mixed from the accent are declared on `:root` and again on `[data-accent]
 ## Type
 
 - **Inter** only. Labels are 11 to 12px uppercase with 0.12 to 0.14em tracking.
-- Home wordmark `clamp(40px, 9vw, 72px)`, weight 700. Page headings 24 to 26px, weight 600. Body 16px, line-height 1.6.
+- Home has no visible title or game icons: just the search box and the A to Z list. Page headings 24 to 26px, weight 600. Body 16px, line-height 1.6.
 
 ## Shape
 

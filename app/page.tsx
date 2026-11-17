@@ -21,10 +21,7 @@ export default function Home() {
   }));
   return (
     <>
-      <header className="wrap home-head">
-        <h1 className="wordmark">gayme night<span>.</span></h1>
-        <p className="tagline">Rulebooks and quick guides for the games we play.</p>
-      </header>
+      <h1 className="sr-only">gayme night.</h1>
       <GameList games={games} />
     </>
   );
