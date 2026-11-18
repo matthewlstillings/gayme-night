@@ -70,13 +70,14 @@ export function GameList({ games }: { games: ListGame[] }) {
           <ul className="games">
             {shown.map((g) => (
               <li className="game" key={g.slug} data-accent={g.accent ? '' : undefined} style={g.accent ? ({ '--accent': g.accent } as React.CSSProperties) : undefined}>
+                <span className="tab" aria-hidden="true">{g.name.replace(/^the\s+/i, '').charAt(0)}</span>
                 <h2><Link href={`/${g.slug}`}>{g.name}</Link></h2>
                 <div className="by">{[g.publisher, g.year, `${g.pageCount} rulebook pages`].filter(Boolean).join(' · ')}</div>
                 <Facts players={g.players} time={g.time} />
                 <p>{g.description}</p>
                 <div className="links">
                   <Link className="btn" href={`/${g.slug}`} tabIndex={-1} aria-hidden="true">Rulebook</Link>
-                  {g.hasGuide && <Link className="btn" href={`/${g.slug}/guide`}>Quick guide</Link>}
+                  {g.hasGuide && <Link className="btn aid" href={`/${g.slug}/guide`}>Quick guide</Link>}
                 </div>
               </li>
             ))}

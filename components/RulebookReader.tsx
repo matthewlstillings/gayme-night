@@ -209,7 +209,12 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       if (term && !n) showEmpty(words);
       countEl.textContent = term ? (n ? `${n} ${n === 1 ? 'match' : 'matches'}` : 'No matches') : idleText;
       prevB.disabled = nextB.disabled = !n;
+      // Page tabs for pages with no match go quiet while searching.
+      document.querySelectorAll<HTMLAnchorElement>('#edge a').forEach((a) => {
+        a.classList.toggle('off', !!document.getElementById(a.getAttribute('href')!.slice(1))?.classList.contains('hide'));
+      });
       if (n) go(0);
+      requestAnimationFrame(() => window.dispatchEvent(new Event('scroll')));
       if (spot) {
         spot.scrollIntoView({ block: 'center', behavior: 'instant' as ScrollBehavior });
         spot.classList.remove('flash');
@@ -299,6 +304,29 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       tocLinks.forEach((a) => { const h = document.getElementById(a.getAttribute('href')!.slice(1)); if (h) io!.observe(h); });
     }
 
+    // Fill the page tab you're reading on the edge rail.
+    const edgeLinks = [...document.querySelectorAll<HTMLAnchorElement>('#edge a')];
+    const pageEls = [...document.querySelectorAll<HTMLElement>('section.page')];
+    let edgeRaf = 0;
+    const markPage = () => {
+      edgeRaf = 0;
+      const top = (header?.getBoundingClientRect().bottom ?? 0) + 40;
+      let cur: HTMLElement | undefined;
+      for (const s of pageEls) {
+        if (s.offsetParent === null) continue;
+        if (s.getBoundingClientRect().top <= top) cur = s;
+        else break;
+      }
+      cur ??= pageEls.find((s) => s.offsetParent !== null);
+      edgeLinks.forEach((a) => {
+        const on = !!cur && a.getAttribute('href') === `#${cur.id}`;
+        a.classList.toggle('here', on);
+        if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+      });
+    };
+    const onEdgeScroll = () => { if (!edgeRaf) edgeRaf = requestAnimationFrame(markPage); };
+    if (edgeLinks.length) { window.addEventListener('scroll', onEdgeScroll, { passive: true }); markPage(); }
+
     // Page image viewer.
     const lb = $<HTMLDialogElement>('lb');
     const lbImg = $<HTMLImageElement>('lbImg');
@@ -361,6 +389,8 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
     return () => {
       ac.abort();
       io?.disconnect();
+      window.removeEventListener('scroll', onEdgeScroll);
+      cancelAnimationFrame(edgeRaf);
       ro?.disconnect();
       document.documentElement.style.removeProperty('--header-h');
       clearTimeout(timer);

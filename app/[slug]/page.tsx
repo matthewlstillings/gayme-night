@@ -29,6 +29,16 @@ export default async function RulebookPage({ params }: Props) {
   const book = getRulebook(slug);
   const pageCount = `${book.pages.length} ${book.pages.length === 1 ? 'page' : 'pages'}`;
   const accent = game.accent ? ({ '--accent': game.accent } as React.CSSProperties) : undefined;
+  // Number every cropped diagram through the book, like the plates in a field guide.
+  let plate = 0;
+  const pages = book.pages.map((p) => ({
+    ...p,
+    html: p.html.replace(/<figure class="crop"([^>]*)>([\s\S]*?)<\/figure>/g, (_m, attrs: string, inner: string) => {
+      const label = `<span class="plate">Plate ${++plate}</span>`;
+      const body = inner.includes('<figcaption>') ? inner.replace('<figcaption>', `<figcaption>${label} `) : `${inner}<figcaption>${label}</figcaption>`;
+      return `<figure class="crop"${attrs}>${body}</figure>`;
+    })
+  }));
 
   return (
     <div data-accent={accent ? '' : undefined} style={accent}>
@@ -85,9 +95,9 @@ export default async function RulebookPage({ params }: Props) {
               <strong>New to the game?</strong> Start with the <Link href={`/${slug}/guide`}>quick guide</Link>.
             </p>
           )}
-          {book.pages.map((p) => (
+          {pages.map((p) => (
             <section key={p.n} className="page" id={`p${String(p.n).padStart(2, '0')}`} data-page={p.n}>
-              <div className="pno">Page {p.n}</div>
+              <div className="pno"><span>Page {p.n}</span></div>
               <div className="pbody" dangerouslySetInnerHTML={{ __html: p.html }} />
             </section>
           ))}
@@ -104,6 +114,14 @@ export default async function RulebookPage({ params }: Props) {
           ) : null}
         </main>
       </div>
+
+      <nav className="edge" id="edge" aria-label="Pages">
+        {book.pages.map((p) => {
+          const id = `p${String(p.n).padStart(2, '0')}`;
+          const title = book.toc.find((t) => t.page === p.n)?.title;
+          return <a key={id} href={`#${id}`} title={title ? `Page ${p.n}: ${title}` : `Page ${p.n}`}>{p.n}</a>;
+        })}
+      </nav>
 
       <dialog className="lb" id="lb" aria-label="Rulebook page">
         <div className="lbbar">
