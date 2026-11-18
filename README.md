@@ -63,6 +63,8 @@ One file per printed page, so page numbers in the site match the book. Leave out
 - `- item` and `1. item` are lists. Indent a line to continue the item; indent `- ` for a sub-list.
 - `*text*` is italic, and a paragraph that is all italic is shown as an aside (picture captions, examples).
 - `[[page]]` places the page image. Without it, the image goes after the page's first heading.
+- `[[fig name | caption]]` on its own line shows `public/games/<slug>/figs/<name>.webp` as a diagram beside the text.
+- `[[icon name]]` inside any text shows `public/games/<slug>/icons/<name>.svg` inline at text size. The SVG's `<title>` becomes its alt text.
 - "page 12" and "pages 10 and 12" link to those pages automatically.
 - Describe icons in words (dice faces, symbols), since the text is what gets searched.
 

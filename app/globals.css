@@ -221,6 +221,7 @@ figure.crop { margin: 6px 0 16px; max-width: min(100%, var(--w)); }
 .cropbtn { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; }
 .cropbtn:hover { border-color: var(--accent); }
 .cropbtn img { display: block; width: 100%; height: auto; }
+img.ico { display: inline-block; width: 1.5em; height: 1.5em; vertical-align: -0.4em; margin: 0 0.2em 0 0; }
 figure.crop figcaption { margin-top: 6px; color: var(--muted); font: 400 13px/1.35 var(--font-sans), Inter, sans-serif; }
 
 mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }

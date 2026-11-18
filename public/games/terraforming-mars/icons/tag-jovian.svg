@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+<title>Jovian tag</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e2c0"/><stop offset="1" stop-color="#c7884a"/></linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.18" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<clipPath id="disc"><circle cx="50" cy="50" r="45"/></clipPath>
+<linearGradient id="bands" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c58a52"/><stop offset="0.14" stop-color="#e8c79a"/><stop offset="0.24" stop-color="#d79a5c"/><stop offset="0.32" stop-color="#f6ead2"/><stop offset="0.44" stop-color="#fbf3e2"/><stop offset="0.5" stop-color="#e2aa6c"/><stop offset="0.56" stop-color="#c97b3d"/><stop offset="0.64" stop-color="#f3dcb6"/><stop offset="0.76" stop-color="#e3b27a"/><stop offset="0.86" stop-color="#f1d8b0"/><stop offset="1" stop-color="#c58a52"/></linearGradient><radialGradient id="limb" cx="0.45" cy="0.42" r="0.6"><stop offset="0.6" stop-color="#5a2e0a" stop-opacity="0"/><stop offset="1" stop-color="#5a2e0a" stop-opacity="0.45"/></radialGradient>
+</defs>
+<circle cx="50" cy="50" r="45" fill="url(#bg)"/>
+<g clip-path="url(#disc)">
+<rect x="0" y="0" width="100" height="100" fill="url(#bands)"/><path d="M0 37 Q25 33 50 37 T100 36" stroke="#e7b77c" stroke-width="2" fill="none" opacity="0.8"/><path d="M0 58 Q30 62 55 57 T100 59" stroke="#b9743a" stroke-width="2" fill="none" opacity="0.7"/><ellipse cx="66" cy="66" rx="9.5" ry="5.2" fill="#eaa35c" stroke="#c4773a" stroke-width="1.6"/><ellipse cx="65" cy="65" rx="4.5" ry="2.2" fill="#f6c88e"/><circle cx="50" cy="50" r="45" fill="url(#limb)"/>
+<ellipse cx="50" cy="26" rx="34" ry="20" fill="url(#gloss)"/>
+</g>
+<circle cx="50" cy="50" r="42.5" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="2"/>
+<circle cx="50" cy="50" r="46" fill="none" stroke="#111" stroke-width="4"/>
+</svg>

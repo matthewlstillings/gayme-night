@@ -101,7 +101,13 @@ export function getRulebook(slug: string): Rulebook {
       const size = webpSize(fs.readFileSync(f));
       return size ? { src: `/games/${slug}/figs/${name}.webp`, ...size } : null;
     };
-    const { html, headings } = renderPage(md, { page: n, pages: pageSet, image, usedIds, fig });
+    const icon = (name: string) => {
+      const f = path.join(PUBLIC, slug, 'icons', `${name}.svg`);
+      if (!fs.existsSync(f)) return null;
+      const label = fs.readFileSync(f, 'utf8').match(/<title>([^<]+)<\/title>/)?.[1] ?? name;
+      return { src: `/games/${slug}/icons/${name}.svg`, label };
+    };
+    const { html, headings } = renderPage(md, { page: n, pages: pageSet, image, usedIds, fig, icon });
     for (const h of headings) if (h.level === 2) toc.push({ id: h.id, title: h.title, page: n });
     return { n, html };
   });

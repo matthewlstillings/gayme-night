@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+<title>Earth tag</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f63ad"/><stop offset="1" stop-color="#14244d"/></linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.18" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<clipPath id="disc"><circle cx="50" cy="50" r="45"/></clipPath>
+<radialGradient id="sea" cx="0.42" cy="0.4" r="0.65"><stop offset="0" stop-color="#5a7fc4"/><stop offset="1" stop-color="#1b2f60"/></radialGradient><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8aa458"/><stop offset="0.55" stop-color="#5d7a34"/><stop offset="1" stop-color="#8f7a46"/></linearGradient><linearGradient id="land2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f7a2c"/><stop offset="0.6" stop-color="#6a8a3a"/><stop offset="1" stop-color="#a08a55"/></linearGradient><radialGradient id="cloud"><stop offset="0" stop-color="#fff" stop-opacity="0.8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="shade" cx="0.4" cy="0.38" r="0.65"><stop offset="0.55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.55"/></radialGradient>
+</defs>
+<circle cx="50" cy="50" r="45" fill="url(#bg)"/>
+<g clip-path="url(#disc)">
+<circle cx="50" cy="50" r="45" fill="url(#sea)"/><path d="M18 27 C24 18 35 13 46 13 C53 12 59 14 63 18 C59 21 57 24 59 27 C62 25 65 26 67 30 C69 34 65 38 61 40 C59 43 60 46 57 48 C55 50 56 53 54 56 C51 55 48 52 44 51 C40 50 36 47 31 44 C25 40 20 35 18 27 Z" fill="url(#land)"/><ellipse cx="50" cy="24" rx="4.5" ry="3.2" fill="#2d4c8f"/><path d="M54 56 C56 58 58 60 61 62" stroke="#6f8a3c" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M60 61 C66 58 73 60 78 64 C81 67 82 71 79 75 C76 79 72 83 69 88 C67 91 64 93 63 90 C62 85 61 79 59 74 C57 69 57 64 60 61 Z" fill="url(#land2)"/><path d="M30 30 C36 28 40 32 44 36 C40 40 34 38 30 30 Z" fill="#a08a55" opacity="0.7"/><g fill="url(#cloud)"><ellipse cx="30" cy="58" rx="14" ry="4" transform="rotate(12 30 58)"/><ellipse cx="74" cy="32" rx="13" ry="3.5" transform="rotate(-8 74 32)"/><ellipse cx="44" cy="80" rx="12" ry="3.5" transform="rotate(18 44 80)"/><ellipse cx="82" cy="52" rx="9" ry="3" transform="rotate(20 82 52)"/><ellipse cx="34" cy="20" rx="10" ry="2.8" transform="rotate(-10 34 20)"/><ellipse cx="66" cy="50" rx="7" ry="2.5" transform="rotate(30 66 50)"/></g><circle cx="50" cy="50" r="45" fill="url(#shade)"/>
+<ellipse cx="50" cy="26" rx="34" ry="20" fill="url(#gloss)"/>
+</g>
+<circle cx="50" cy="50" r="42.5" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="2"/>
+<circle cx="50" cy="50" r="46" fill="none" stroke="#111" stroke-width="4"/>
+</svg>

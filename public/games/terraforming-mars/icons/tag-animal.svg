@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+<title>Animal tag</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5aa844"/><stop offset="1" stop-color="#1b571c"/></linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.18" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<clipPath id="disc"><circle cx="50" cy="50" r="45"/></clipPath>
+
+</defs>
+<circle cx="50" cy="50" r="45" fill="url(#bg)"/>
+<g clip-path="url(#disc)">
+<g fill="#13461a" stroke="#2f7d2f" stroke-width="1.6"><path d="M50 50 C60 50 70 60 70 68 C70 76 62 77 56 74 C52 72 48 72 44 74 C38 77 30 76 30 68 C30 60 40 50 50 50 Z"/><ellipse cx="27" cy="44" rx="7" ry="9" transform="rotate(-25 27 44)"/><ellipse cx="40" cy="29" rx="7" ry="9.5" transform="rotate(-8 40 29)"/><ellipse cx="60" cy="29" rx="7" ry="9.5" transform="rotate(8 60 29)"/><ellipse cx="73" cy="44" rx="7" ry="9" transform="rotate(25 73 44)"/></g>
+<ellipse cx="50" cy="26" rx="34" ry="20" fill="url(#gloss)"/>
+</g>
+<circle cx="50" cy="50" r="42.5" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="2"/>
+<circle cx="50" cy="50" r="46" fill="none" stroke="#111" stroke-width="4"/>
+</svg>

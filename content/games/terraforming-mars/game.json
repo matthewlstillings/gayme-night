@@ -1,19 +1,30 @@
 {
   "slug": "terraforming-mars",
   "name": "Terraforming Mars",
-  "aliases": ["TM", "Terraforming", "Mission to Mars"],
+  "aliases": [
+    "TM",
+    "Terraforming",
+    "Mission to Mars"
+  ],
   "publisher": "FryxGames",
   "year": 2016,
-  "players": [1, 5],
-  "minutes": [90, 120],
+  "players": [
+    1,
+    5
+  ],
+  "minutes": [
+    90,
+    120
+  ],
   "description": "Corporations race to make Mars livable for 1–5: raise heat, oxygen and oceans, build cities and greenery, and play project cards.",
   "accent": "#e8703a",
   "added": "2026-11-17T21:40:00Z",
   "rulebook": {
     "intro": [
       "**Built from the official rulebook** by FryxGames (the 2016 English edition, published in the US by Stronghold Games), linked from the [FryxGames Terraforming Mars page](https://fryxgames.se/product/terraforming-mars/).",
-      "The text was transcribed from the PDF's pages. Icons are described in words, so check the page image for those. Tap any page image to see it as printed.",
-      "This covers the base game. Expansions such as **Prelude**, **Colonies** and **Turmoil** have their own rulebooks on the FryxGames site."
+      "The text was transcribed from the PDF's pages. Card tags show as small icons beside the rules that mention them; other icons are described in words, so check the page image for those. Tap any page image to see it as printed.",
+      "This covers the base game. Expansions such as **Prelude**, **Colonies** and **Turmoil** have their own rulebooks on the FryxGames site.",
+      "Game art and symbols © FryxGames; art by Isaac Fryxelius and Daniel Fryxelius. The tag icons here are hand-drawn copies of the game's tags."
     ]
   }
 }

@@ -12,7 +12,11 @@ export type RenderOptions = {
   usedIds: Set<string>;
   /** Looks up a cropped figure by name for [[fig name | caption]] lines. */
   fig?: (name: string) => { src: string; width: number; height: number } | null;
+  /** Looks up an inline SVG icon by name for [[icon name]] tokens inside text. */
+  icon?: (name: string) => { src: string; label: string } | null;
 };
+
+const ICON_TOKEN = /\[\[icon ([a-z0-9-]+)\]\]/g;
 
 const FIG_LINE = /^\[\[fig ([a-z0-9-]+)(?:\s*\|\s*(.*?))?\]\]$/;
 
@@ -186,5 +190,10 @@ export function renderPage(md: string, opts: RenderOptions): { html: string; hea
     }
   }
   if (!placedImg && image) out.unshift(figure(n, image));
-  return { html: out.join('\n'), headings };
+  const html = out.join('\n').replace(ICON_TOKEN, (_m, name: string) => {
+    const ic = opts.icon?.(name);
+    if (!ic) throw new Error(`Page ${n}: no icon named "${name}"`);
+    return `<img class="ico" src="${escAttr(ic.src)}" alt="${escAttr(ic.label)}" title="${escAttr(ic.label)}" width="20" height="20">`;
+  });
+  return { html, headings };
 }

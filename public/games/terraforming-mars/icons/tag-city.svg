@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+<title>City tag</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8e8e8"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.18" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<clipPath id="disc"><circle cx="50" cy="50" r="45"/></clipPath>
+
+</defs>
+<circle cx="50" cy="50" r="45" fill="url(#bg)"/>
+<g clip-path="url(#disc)">
+<path d="M14 62 C14 39 30 26 50 26 C70 26 86 39 86 62" fill="none" stroke="#1a1a1a" stroke-width="1.6"/><g fill="#111"><rect x="8" y="61" width="84" height="5"/><rect x="16" y="57" width="4" height="5"/><rect x="21" y="52" width="3" height="10"/><rect x="25" y="47" width="4" height="15"/><rect x="30" y="54" width="3" height="8"/><rect x="34" y="42" width="4" height="20"/><rect x="39" y="50" width="3" height="12"/><rect x="43" y="33" width="4.5" height="29"/><rect x="48" y="45" width="3" height="17"/><rect x="52" y="29" width="4.5" height="33"/><rect x="57" y="40" width="4" height="22"/><rect x="62" y="48" width="3" height="14"/><rect x="66" y="38" width="4" height="24"/><rect x="71" y="50" width="3.5" height="12"/><rect x="76" y="46" width="3" height="16"/><rect x="80" y="55" width="4" height="7"/><rect x="53.9" y="22" width="0.9" height="7"/><rect x="44.9" y="27" width="0.9" height="6"/></g>
+<ellipse cx="50" cy="26" rx="34" ry="20" fill="url(#gloss)"/>
+</g>
+<circle cx="50" cy="50" r="42.5" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="2"/>
+<circle cx="50" cy="50" r="46" fill="none" stroke="#111" stroke-width="4"/>
+</svg>

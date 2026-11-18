@@ -51,3 +51,13 @@ test('renders a cropped figure line', () => {
   assert.match(html, /<figcaption>The board<\/figcaption>/);
   assert.match(html, /<p>More\.<\/p>/);
 });
+
+test('renders inline icon tokens and rejects unknown ones', () => {
+  const opts = {
+    page: 15, pages: new Set([15]), image: null, usedIds: new Set<string>(),
+    icon: (n: string) => (n === 'tag-space' ? { src: '/i/tag-space.svg', label: 'Space tag' } : null)
+  };
+  const { html } = renderPage('- [[icon tag-space]] **Space:** uses titanium.', opts);
+  assert.match(html, /<li><img class="ico" src="\/i\/tag-space.svg" alt="Space tag" title="Space tag" width="20" height="20"> <strong>Space:<\/strong>/);
+  assert.throws(() => renderPage('Text [[icon tag-nope]] here.', { ...opts, usedIds: new Set<string>() }), /no icon named "tag-nope"/);
+});

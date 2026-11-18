@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+<title>Science tag</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#bdbdbd"/></linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.18" r="0.55"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<clipPath id="disc"><circle cx="50" cy="50" r="45"/></clipPath>
+
+</defs>
+<circle cx="50" cy="50" r="45" fill="url(#bg)"/>
+<g clip-path="url(#disc)">
+<g fill="none" stroke="#111" stroke-width="2.4"><ellipse cx="50" cy="50" rx="33" ry="11.5" transform="rotate(90 50 50)"/><ellipse cx="50" cy="50" rx="33" ry="11.5" transform="rotate(30 50 50)"/><ellipse cx="50" cy="50" rx="33" ry="11.5" transform="rotate(-30 50 50)"/></g><circle cx="50" cy="50" r="4.8" fill="#111"/>
+<ellipse cx="50" cy="26" rx="34" ry="20" fill="url(#gloss)"/>
+</g>
+<circle cx="50" cy="50" r="42.5" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="2"/>
+<circle cx="50" cy="50" r="46" fill="none" stroke="#111" stroke-width="4"/>
+</svg>
