@@ -170,7 +170,10 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       sections.forEach((s) => s.classList.remove('hide'));
       const hitsByToc = new Map<string, number>();
       if (term) {
-        const res = words.map(wordRe);
+        // Several words: match them as one phrase where the book has it ("bird feeder" finds "birdfeeder"),
+        // otherwise show paragraphs that contain every word.
+        const phrase = words.length > 1 ? wordRe(words.join('')) : null;
+        const res = phrase && phrase.test(bookText) ? [phrase] : words.map(wordRe);
         const keep = new Set<HTMLElement>();
         blocks.forEach((b) => {
           if (b.tagName === 'FIGURE' && !b.classList.contains('crop')) return;
