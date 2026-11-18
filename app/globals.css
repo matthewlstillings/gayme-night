@@ -144,12 +144,12 @@ a:hover { text-decoration-thickness: 2px; }
 .game:hover { border-color: color-mix(in oklab, var(--accent) 55%, var(--line)); }
 .game:focus-within { border-color: var(--accent); }
 /* The thumb tab: hangs from the top edge in the game's colour, like the index on a field guide. */
-.game .tab { position: absolute; top: -1px; right: 16px; background: var(--accent); color: var(--accent-ink); font: 700 13px/1 var(--cond); letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 9px 7px; border-radius: 0 0 4px 4px; font-variant-numeric: tabular-nums; }
+.game .tab { position: absolute; top: -1px; right: 16px; min-width: 30px; text-align: center; background: var(--accent); color: var(--accent-ink); font: 700 16px/1 var(--cond); letter-spacing: 0.04em; text-transform: uppercase; padding: 7px 8px 9px; border-radius: 0 0 4px 4px; font-variant-numeric: tabular-nums; }
 .game h2 { margin: 6px 0 0; padding-right: 44px; font: 600 23px/1.2 var(--serif); letter-spacing: -0.01em; text-wrap: balance; }
 .game h2 a { color: var(--ink); text-decoration: none; }
 .game h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 4px; }
 .game h2 a:focus-visible { outline: none; }
-.game .by { color: var(--muted); font: 700 12px/1.4 var(--ui); letter-spacing: 0.08em; text-transform: uppercase; margin: 6px 0 12px; }
+.game .by { color: var(--muted); font: 700 11.5px/1.4 var(--ui); letter-spacing: 0.05em; text-transform: uppercase; margin: 6px 0 12px; }
 .game p { margin: 0; color: var(--ink2); font: 400 15.5px/1.55 var(--serif); }
 .game .links { display: flex; gap: 8px; margin-top: auto; padding-top: 14px; flex-wrap: wrap; }
 .game .links .btn { position: relative; z-index: 1; height: 34px; font-size: 13px; }
