@@ -1,0 +1,19 @@
+{
+  "slug": "azul",
+  "name": "Azul",
+  "aliases": ["Azulejos"],
+  "publisher": "Next Move Games / Plan B Games",
+  "year": 2017,
+  "players": [2, 4],
+  "minutes": [30, 45],
+  "description": "Draft colored tiles from the factories and lay them on your wall in rows and columns for points. Watch the floor line.",
+  "accent": "#3f86d8",
+  "added": "2026-11-18T20:30:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official rulebook** posted by Next Move Games on their [Azul page](https://www.nextmove-games.com/en/azul/azul-game/) ([PDF](https://cdn.svc.asmodee.net/production-nextmove/uploads/sites/4/2024/06/EN-Azul-Rules-Next-Move-web.pdf)).",
+      "The text was transcribed from the PDF's pages, and the boards and examples sit next to the rules they belong to. Tap any page image to see it as printed.",
+      "Board and tile art © 2018 Plan B Games Inc. Illustrations by Chris Quilliams."
+    ]
+  }
+}
