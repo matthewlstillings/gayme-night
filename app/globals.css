@@ -19,7 +19,7 @@
   --cool: #161f27;
   --cool-line: #67b3d9;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --header-h: 132px;
+  --header-h: 98px;
   color-scheme: dark;
 }
 /* Tokens worked out from the accent. Repeated on [data-accent] so a game's own accent recomputes them. */
@@ -35,7 +35,13 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h)); }
+/* Header height before the page script measures it, so deep links land below the sticky header from the first paint. */
+@media (min-width: 1000px) { :root { --header-h: 178px; } }
+@media (pointer: coarse) { :root { --header-h: 110px; } }
+@media (pointer: coarse) and (min-width: 1000px) { :root { --header-h: 190px; } }
+html:has(.guide) { --header-h: 116px; }
+@media (pointer: coarse) { html:has(.guide) { --header-h: 122px; } }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h) + 12px); }
 body {
   margin: 0;
   background: var(--bg);
@@ -119,10 +125,10 @@ a { color: var(--xref); }
 }
 .game:hover { border-color: color-mix(in oklab, var(--accent) 60%, var(--line)); }
 .game:focus-within { border-color: var(--accent); }
-.game h3 { margin: 0; font: 600 18px/1.25 var(--font-sans), Inter, sans-serif; }
-.game h3 a { color: var(--ink); text-decoration: none; }
-.game h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 8px; }
-.game h3 a:focus-visible { outline: none; }
+.game h2 { margin: 0; font: 600 18px/1.25 var(--font-sans), Inter, sans-serif; }
+.game h2 a { color: var(--ink); text-decoration: none; }
+.game h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 8px; }
+.game h2 a:focus-visible { outline: none; }
 .game .by { color: var(--muted); font-size: 13px; margin: 2px 0 6px; }
 .game p { margin: 0; color: var(--ink2); font-size: 15px; line-height: 1.5; }
 .game .links { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; flex-wrap: wrap; }
@@ -165,10 +171,13 @@ header.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; 
 @media (min-width: 1000px) { .search-btn { display: none !important; } }
 @keyframes search-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
-.intro { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; font-size: 14px; color: var(--ink2); margin-bottom: 20px; }
-.intro p { margin: 0 0 6px; }
-.intro p:last-child { margin: 0; }
-.intro strong { color: var(--ink); }
+.intro { font-size: 15px; color: var(--ink2); margin: 0 0 14px; padding: 0 4px; }
+.intro strong { color: var(--ink); font-weight: 600; }
+.about { border-top: 1px solid var(--line); margin-top: 28px; padding: 16px 4px 0; font-size: 13px; color: var(--muted); }
+.about h2 { font: 600 12px/1 var(--font-sans), Inter, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.about p { margin: 0 0 8px; }
+.about strong { color: var(--ink2); }
+.filtering .intro, .filtering .about { display: none; }
 
 /* ---------- Rulebook ---------- */
 .layout { display: grid; grid-template-columns: 1fr; gap: 28px; padding-top: 18px; padding-bottom: 80px; }
@@ -218,8 +227,10 @@ figure.pimg { margin: 4px 0 16px; }
 @media (min-width: 700px) { .thumb img { width: 120px; } }
 
 figure.crop { margin: 6px 0 16px; max-width: min(100%, var(--w)); }
-.cropbtn { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; }
-.cropbtn:hover { border-color: var(--accent); }
+.cropbtn { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; cursor: zoom-in; filter: brightness(0.82); transition: filter 0.15s ease-out; }
+.cropbtn:hover, .cropbtn:focus-visible { border-color: var(--accent); filter: none; }
+/* Printed pages are bright paper: tone them down so they don't glare in a dim room. */
+.thumb img { filter: brightness(0.82); }
 .cropbtn img { display: block; width: 100%; height: auto; }
 img.ico { display: inline-block; width: 1.5em; height: 1.5em; vertical-align: -0.4em; margin: 0 0.2em 0 0; }
 figure.crop figcaption { margin-top: 6px; color: var(--muted); font: 400 13px/1.35 var(--font-sans), Inter, sans-serif; }
@@ -227,19 +238,27 @@ figure.crop figcaption { margin-top: 6px; color: var(--muted); font: 400 13px/1.
 mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
 mark.cur { background: var(--mark-cur); color: var(--accent-ink); outline: 2px solid var(--mark-cur); }
 .filtering .hide { display: none; }
-.book .empty { display: none; }
+.book .empty { display: none; padding: 40px 16px; }
 .book .empty.show { display: block; }
+.book .empty p { margin: 0 0 10px; }
+.book .empty .btn { vertical-align: middle; margin-left: 4px; }
+.book .empty .hint { color: var(--muted); font-size: 14px; }
+/* Where you were reading when search closed. */
+@keyframes spot { from { background: var(--accent-soft); box-shadow: 0 0 0 6px var(--accent-soft); } to { background: transparent; box-shadow: 0 0 0 6px transparent; } }
+.flash { border-radius: 4px; animation: spot 1.6s ease-out; }
+@media (prefers-reduced-motion: reduce) { .flash { animation-duration: 0.01s; outline: 2px solid var(--accent); outline-offset: 4px; } }
 
 dialog.lb { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; color: #fff; }
 dialog.lb::backdrop { background: rgba(6, 4, 9, 0.93); }
 .lbin { position: absolute; inset: 0; overflow: auto; -webkit-overflow-scrolling: touch; padding: calc(env(safe-area-inset-top, 0px) + 56px) max(8px, env(safe-area-inset-right, 0px)) 24px max(8px, env(safe-area-inset-left, 0px)); text-align: center; }
-.lbin img { max-width: min(100%, 1200px); height: auto; border-radius: 4px; background: #222; }
+.lbin img { max-width: min(100%, 1200px); height: auto; border-radius: 4px; background: #222; filter: brightness(0.9); }
+.lbin.zoom img { max-width: none; width: auto; }
+.lbbar .btn:disabled { opacity: 0.35; }
 .lbbar { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 8px); left: max(8px, env(safe-area-inset-left, 0px)); right: max(8px, env(safe-area-inset-right, 0px)); display: flex; gap: 8px; align-items: center; z-index: 2; }
 .lbbar .btn { background: rgba(28, 22, 34, 0.88); color: #fff; border-color: rgba(255, 255, 255, 0.22); }
 .lbbar span { flex: 1; font: 600 14px var(--font-sans), Inter, sans-serif; letter-spacing: 0.04em; }
 
 /* ---------- Quick guide ---------- */
-.guide { --header-h: 120px; }
 .jumpsel { position: relative; margin-top: 8px; }
 .jumpsel select { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 44px; padding: 0 40px 0 12px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface-alt); color: var(--ink); font: 500 16px/1 var(--font-sans), Inter, sans-serif; cursor: pointer; }
 .jumpsel select:hover { border-color: var(--accent); }
@@ -295,3 +314,12 @@ dialog.lb::backdrop { background: rgba(6, 4, 9, 0.93); }
 .lost { padding-top: calc(env(safe-area-inset-top, 0px) + 80px); }
 .lost h1 { font: 700 40px/1.1 var(--font-sans), Inter, sans-serif; margin: 0 0 12px; }
 .lost p { color: var(--ink2); }
+
+/* Fingers, not cursors: 44px targets on touch screens. */
+@media (pointer: coarse) {
+  .btn { height: 44px; min-width: 44px; }
+  .btn.icon { width: 44px; }
+  .game .links .btn { height: 44px; font-size: 14px; }
+  .sbox .clear { width: 40px; height: 40px; }
+  .toc a { padding: 12px 10px; }
+}

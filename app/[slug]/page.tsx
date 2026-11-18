@@ -80,21 +80,28 @@ export default async function RulebookPage({ params }: Props) {
         </nav>
 
         <main className="book" id="main">
-          {(game.rulebook.intro?.length || game.hasGuide) ? (
-            <div className="intro">
-              {game.rulebook.intro?.map((line, i) => <p key={i} dangerouslySetInnerHTML={{ __html: inline(line) }} />)}
-              {game.hasGuide && (
-                <p><strong>New to the game?</strong> Start with the <Link href={`/${slug}/guide`}>quick guide</Link> to turns, rounds and key mechanics.</p>
-              )}
-            </div>
-          ) : null}
+          {game.hasGuide && (
+            <p className="intro">
+              <strong>New to the game?</strong> Start with the <Link href={`/${slug}/guide`}>quick guide</Link>.
+            </p>
+          )}
           {book.pages.map((p) => (
             <section key={p.n} className="page" id={`p${String(p.n).padStart(2, '0')}`} data-page={p.n}>
               <div className="pno">Page {p.n}</div>
               <div className="pbody" dangerouslySetInnerHTML={{ __html: p.html }} />
             </section>
           ))}
-          <p className="empty" id="empty">No matches. Try a shorter word, or a different spelling.</p>
+          <div className="empty" id="empty" role="status">
+            <p>Nothing in this rulebook matches <b id="emptyQ" />.</p>
+            <p id="emptyTry" hidden>Try <button className="btn" id="emptyBtn" type="button" /></p>
+            <p className="hint">Single words work best, like a card or action name.</p>
+          </div>
+          {game.rulebook.intro?.length ? (
+            <footer className="about" aria-label="About this rulebook">
+              <h2>About this rulebook</h2>
+              {game.rulebook.intro.map((line, i) => <p key={i} dangerouslySetInnerHTML={{ __html: inline(line) }} />)}
+            </footer>
+          ) : null}
         </main>
       </div>
 
@@ -103,6 +110,7 @@ export default async function RulebookPage({ params }: Props) {
           <button className="btn" id="lbPrev" type="button" aria-label="Previous page"><BackIcon /></button>
           <button className="btn" id="lbNext" type="button" aria-label="Next page"><ForwardIcon /></button>
           <span id="lbTitle" />
+          <button className="btn" id="lbZoom" type="button" aria-pressed="false">Zoom</button>
           <button className="btn" id="lbClose" type="button">Close</button>
         </div>
         <div className="lbin" id="lbIn">

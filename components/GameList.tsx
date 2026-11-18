@@ -70,7 +70,7 @@ export function GameList({ games }: { games: ListGame[] }) {
           <ul className="games">
             {shown.map((g) => (
               <li className="game" key={g.slug} data-accent={g.accent ? '' : undefined} style={g.accent ? ({ '--accent': g.accent } as React.CSSProperties) : undefined}>
-                <h3><Link href={`/${g.slug}`}>{g.name}</Link></h3>
+                <h2><Link href={`/${g.slug}`}>{g.name}</Link></h2>
                 <div className="by">{[g.publisher, g.year, `${g.pageCount} rulebook pages`].filter(Boolean).join(' · ')}</div>
                 <Facts players={g.players} time={g.time} />
                 <p>{g.description}</p>
@@ -84,7 +84,7 @@ export function GameList({ games }: { games: ListGame[] }) {
         )}
         {!shown.length && (
           <p className="empty">
-            {total ? <>No games match <b>{q.trim()}</b>.</> : 'No games yet.'}
+            {total ? <>No game names or descriptions match <b>{q.trim()}</b>. To look up a rule, open a game and search its rulebook.</> : 'No games yet.'}
           </p>
         )}
       </main>
