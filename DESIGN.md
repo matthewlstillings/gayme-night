@@ -20,7 +20,7 @@ Each game brings its own colour through `--accent` (set in `content/games/*/game
 | `--accent` | `#e9b44c` site default, game's colour on game pages | Tabs, bands, plate labels, primary buttons |
 | `--accent-ink` | `#0b0e14` | Text set on the accent |
 | `--accent-soft`, `--xref`, `--mark`, `--focus` | mixed from `--accent` | Tinted boxes, links, search matches, focus ring |
-| `--note-line` / `--warn-line` / `--ok` | `#6fb7d6` / `#e8c650` / `#6cc0a2` | Notes and Event phase / warnings / player tips |
+| `--note-line` / `--warn-line` / `--ok` | `#6fb7d6` / `#e8c650` / `#6cc0a2` | Notes and game-run steps (`.phase.ev`: round end, production, events; never a player's turn) / warnings / player tips |
 
 Tokens mixed from the accent are declared on `:root` and again on `[data-accent]`, so setting `--accent` on a wrapper recolours everything inside it.
 

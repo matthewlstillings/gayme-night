@@ -342,7 +342,7 @@ dialog.lb::backdrop { background: rgba(7, 10, 17, 0.95); }
 }
 .guide header.band h2 { margin: 0; font: 700 28px/1.05 var(--cond); letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; }
 .guide header.band .sub { display: flex; flex-wrap: wrap; column-gap: 10px; margin: 5px 0 0; font: 700 13px/1.3 var(--cond); letter-spacing: 0.08em; text-transform: uppercase; }
-.guide header.band .sub span + span::before { content: "·"; margin-right: 10px; }
+.guide header.band .sub .ref::before { content: "·"; content: "·" / ""; margin-right: 10px; }
 .guide header.band a { color: var(--accent-ink); text-decoration-thickness: 1px; }
 .guide header.band a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; border-radius: 2px; }
 .guide h3 { font: 700 20px/1.2 var(--cond); letter-spacing: 0.02em; text-transform: uppercase; margin: 22px 0 6px; }

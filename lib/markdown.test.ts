@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { inline, renderPage } from './markdown.ts';
 import fs from 'node:fs';
-import { checkSectionOrder, linkPages, prepareGuide } from './guide.ts';
+import { checkSectionOrder, linkPages, prepareGuide, separateLabels } from './guide.ts';
 import { bandColor, contrast } from './color.ts';
 
 const pages = new Set([2, 3, 12]);
@@ -57,7 +57,7 @@ test('every page in a multi-page reference gets its own link', () => {
 
 test('a section opening becomes one band with the heading first', () => {
   const g = prepareGuide('<section class="card" id="win"><div class="kicker"><span>Start here</span><span class="ref">Rulebook p. 2</span></div>\n  <h2>How to win</h2></section>', 'demo', pages);
-  assert.match(g.html, /<header class="band"><h2>How to win<\/h2><p class="sub"><span>Start here<\/span><span class="ref">Rulebook <a class="xref" href="\/demo#p02">p\. 2<\/a><\/span><\/p><\/header>/);
+  assert.match(g.html, /<header class="band"><h2>How to win<\/h2><p class="sub"><span>Start here<\/span><span class="sr-only">, <\/span><span class="ref">Rulebook <a class="xref" href="\/demo#p02">p\. 2<\/a><\/span><\/p><\/header>/);
   assert.doesNotMatch(g.html, /kicker/);
 });
 
@@ -100,4 +100,41 @@ test('renders inline icon tokens and rejects unknown ones', () => {
   const { html } = renderPage('- [[icon tag-space]] **Space:** uses titanium.', opts);
   assert.match(html, /<li><img class="ico" src="\/i\/tag-space.svg" alt="Space tag" title="Space tag" width="20" height="20"> <strong>Space:<\/strong>/);
   assert.throws(() => renderPage('Text [[icon tag-nope]] here.', { ...opts, usedIds: new Set<string>() }), /no icon named "tag-nope"/);
+});
+
+test('screen readers hear a pause after labels that run into their text', () => {
+  const sr = (t: string) => `<span class="sr-only">${t}</span>`;
+  assert.equal(separateLabels('<b class="t">Tiebreak</b>Most food wins.'), `<b class="t">Tiebreak</b>${sr(': ')}Most food wins.`);
+  assert.equal(separateLabels('<b class="t">Unsure?</b>Read the card.'), `<b class="t">Unsure?</b>${sr(' ')}Read the card.`);
+  assert.equal(
+    separateLabels('<li><span class="n">1</span><span><b>Draw</b><span class="d">Take 2.</span></span></li>'),
+    `<li><span class="n">1</span>${sr('. ')}<span><b>Draw</b>${sr('. ')}<span class="d">Take 2.</span></span></li>`
+  );
+  assert.equal(separateLabels('<td><b>Bystander</b><span class="when">Beige</span></td>'), `<td><b>Bystander</b>${sr(', ')}<span class="when">Beige</span></td>`);
+  // Labels already followed by a space are left alone.
+  assert.equal(separateLabels('<li><strong>Food:</strong> pay it.</li><b>Max</b> 5'), '<li><strong>Food:</strong> pay it.</li><b>Max</b> 5');
+});
+
+test('no label runs into its text in any quick guide', () => {
+  const dir = 'content/games';
+  for (const slug of fs.readdirSync(dir)) {
+    const file = `${dir}/${slug}/guide.html`;
+    if (!fs.existsSync(file)) continue;
+    const { html } = prepareGuide(fs.readFileSync(file, 'utf8'), slug, new Set());
+    const visible = html.replace(/<span class="sr-only">[^<]*<\/span>/g, '\u0000');
+    const runOn = visible.match(/<\/(b|strong)>(?:<span class="(?:d|when)">|[A-Za-z0-9])/);
+    assert.equal(runOn, null, `${slug}: label runs into text at "${runOn?.index !== undefined ? visible.slice(runOn.index - 30, runOn.index + 30) : ''}"`);
+  }
+});
+
+test('the blue game-run style is only used for steps the game runs between turns', () => {
+  const allowed = new Set(['Next age', 'Week end', 'Phase II', 'Production', 'Round end']);
+  const dir = 'content/games';
+  for (const slug of fs.readdirSync(dir)) {
+    const file = `${dir}/${slug}/guide.html`;
+    if (!fs.existsSync(file)) continue;
+    for (const m of fs.readFileSync(file, 'utf8').matchAll(/<div class="phase ev">\s*<h3><span class="tag">([^<]*)<\/span>/g)) {
+      assert.ok(allowed.has(m[1]), `${slug}: "${m[1]}" uses the blue game-run style; is it really a step the game runs by itself?`);
+    }
+  }
 });

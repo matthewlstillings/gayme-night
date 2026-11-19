@@ -80,6 +80,8 @@ Keep shared sections in order: `win` first, `setup` straight after it if the gam
 
 Building blocks: `.intro`, `.kicker` (with `.ref` for the rulebook pages), `.tldr`, `.win`, `.phase` / `.phase.ev` with `ol.steps`, `.table-scroll > table` (with `td.c` and `.when`), `.call.warn`, `.call.cool`, `ul.tips` / `.tips.faq` / `.tips.comm`, `.badge`, `.src` and `footer`. See `content/games/nemesis-lockdown/guide.html` for a full example.
 
+`.phase.ev` (blue) is only for steps the game runs by itself between turns, like round end, production or the event phase. A player's turn or role uses plain `.phase`. Write labels like `<b class="t">Tiebreak</b>Most food wins` with no space: the build adds a pause there that only screen readers hear.
+
 ## Local development
 
 ```bash

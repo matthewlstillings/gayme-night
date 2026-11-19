@@ -34,7 +34,32 @@ function toBand(fragment: string): string {
   return fragment.replace(
     /<div class="kicker"><span>([^<]*)<\/span><span class="ref">([^<]*)<\/span><\/div>\s*<h2>([\s\S]*?)<\/h2>/g,
     (_m, label: string, ref: string, heading: string) =>
-      `<header class="band"><h2>${heading}</h2><p class="sub"><span>${label}</span><span class="ref">${ref}</span></p></header>`
+      `<header class="band"><h2>${heading}</h2><p class="sub"><span>${label}</span>${SR(', ')}<span class="ref">${ref}</span></p></header>`
+  );
+}
+
+const SR = (text: string) => `<span class="sr-only">${text}</span>`;
+
+/** Punctuation a screen reader should hear after a label, unless the label already ends with some. */
+const after = (label: string, mark: string) => (/[?!.:]\s*$/.test(strip(label)) ? ' ' : mark);
+
+/**
+ * The guides set a label and the text it introduces as separate pieces with no space between them, for example
+ * <b class="t">Tiebreak</b>Most unused food or <b>Keep up to 5 birds</b><span class="d">For each bird...</span>.
+ * They look separate on screen, but a screen reader runs them into one word ("TiebreakMost"). This adds a pause
+ * that only screen readers hear. What sighted readers see doesn't change.
+ */
+export function separateLabels(html: string): string {
+  return (
+    html
+      // Step numbers: "1" then the step.
+      .replace(/(<span class="n">[^<]*<\/span>)(?=<span>)/g, `$1${SR('. ')}`)
+      // A step's title then its description.
+      .replace(/<b>([^<]*)<\/b>(?=<span class="d">)/g, (_m, t: string) => `<b>${t}</b>${SR(after(t, '. '))}`)
+      // A table cell's name then its small note.
+      .replace(/<\/b>(?=<span class="when">)/g, `</b>${SR(', ')}`)
+      // Callout and summary labels running straight into text.
+      .replace(/<b( class="t")?>([^<]*)<\/b>(?=[^\s<])/g, (_m, cls: string | undefined, t: string) => `<b${cls ?? ''}>${t}</b>${SR(after(t, ': '))}`)
   );
 }
 
@@ -50,7 +75,8 @@ export function prepareGuide(fragment: string, slug: string, pages: Set<number>)
     sections.push({ id: m[1], label: heading ? strip(heading) : m[1] });
   }
   // Only touch text between tags, never attributes.
-  const html = toBand(fragment).replace(/>([^<]+)</g, (_m, text: string) => '>' + linkPages(text, slug, pages) + '<');
+  const linked = toBand(fragment).replace(/>([^<]+)</g, (_m, text: string) => '>' + linkPages(text, slug, pages) + '<');
+  const html = separateLabels(linked);
   return { html, sections };
 }
 
