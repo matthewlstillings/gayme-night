@@ -1,0 +1,20 @@
+{
+  "slug": "gloomhaven-jaws-of-the-lion",
+  "name": "Gloomhaven: Jaws of the Lion",
+  "aliases": ["Jaws of the Lion", "JotL", "Gloomhaven JotL", "Gloomhaven"],
+  "publisher": "Cephalofair Games",
+  "year": 2020,
+  "players": [1, 4],
+  "minutes": [30, 120],
+  "description": "Co-op tactical campaign: pick two ability cards each round, fight monsters scenario by scenario, and level up between fights.",
+  "accent": "#e3c16f",
+  "added": "2026-11-19T19:30:00Z",
+  "rulebook": {
+    "intro": [
+      "**Built from the official Learn to Play Guide** that Cephalofair Games links from its [Jaws of the Lion page](https://cephalofair.com/products/gloomhaven-jaws-of-the-lion) ([PDF on Google Drive](https://drive.google.com/file/d/1nhg_PpeXLq0vpN-1uQqsrAFzFIAlxQVX/view)).",
+      "This is the Learn to Play Guide only. The Scenario Book's story and section text are left out on purpose, so the campaign stays unspoiled. The separate Rules Glossary isn't posted by Cephalofair, so it isn't here either.",
+      "The text follows the PDF page by page, and the examples sit next to the rules they belong to. Tap any page image to see it as printed.",
+      "Art and graphic design © Cephalofair Games."
+    ]
+  }
+}
