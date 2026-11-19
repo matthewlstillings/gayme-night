@@ -1,7 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { inline, renderPage } from './markdown.ts';
-import { prepareGuide } from './guide.ts';
+import fs from 'node:fs';
+import { checkSectionOrder, linkPages, prepareGuide } from './guide.ts';
+import { bandColor, contrast } from './color.ts';
 
 const pages = new Set([2, 3, 12]);
 
@@ -38,8 +40,46 @@ test('heading ids stay unique across pages', () => {
 
 test('guide sections and rulebook page links', () => {
   const g = prepareGuide('<section class="card" id="win" data-label="How to win"><span class="ref">Rulebook p. 12–13</span><h2>Win</h2></section><section id="b"><h2>B &amp; C</h2></section>', 'demo', pages);
-  assert.deepEqual(g.sections, [{ id: 'win', label: 'How to win' }, { id: 'b', label: 'B & C' }]);
+  assert.deepEqual(g.sections, [{ id: 'win', label: 'Win' }, { id: 'b', label: 'B & C' }]);
   assert.match(g.html, /<a class="xref" href="\/demo#p12">p\. 12–13<\/a>/);
+});
+
+test('every page in a multi-page reference gets its own link', () => {
+  assert.equal(
+    linkPages('Rulebook p. 2, 12', 'demo', pages),
+    'Rulebook <a class="xref" href="/demo#p02">p. 2</a>, <a class="xref" href="/demo#p12">12</a>'
+  );
+  assert.equal(
+    linkPages('p. 3, 40–41, 12–13', 'demo', pages),
+    '<a class="xref" href="/demo#p03">p. 3</a>, 40–41, <a class="xref" href="/demo#p12">12–13</a>'
+  );
+});
+
+test('a section opening becomes one band with the heading first', () => {
+  const g = prepareGuide('<section class="card" id="win"><div class="kicker"><span>Start here</span><span class="ref">Rulebook p. 2</span></div>\n  <h2>How to win</h2></section>', 'demo', pages);
+  assert.match(g.html, /<header class="band"><h2>How to win<\/h2><p class="sub"><span>Start here<\/span><span class="ref">Rulebook <a class="xref" href="\/demo#p02">p\. 2<\/a><\/span><\/p><\/header>/);
+  assert.doesNotMatch(g.html, /kicker/);
+});
+
+test('shared quick guide sections keep the same order in every game', () => {
+  assert.deepEqual(checkSectionOrder(['win', 'setup', 'turn', 'end', 'tips']), []);
+  assert.equal(checkSectionOrder(['win', 'turn', 'setup']).length, 1);
+  assert.equal(checkSectionOrder(['win', 'faq', 'end']).length, 1);
+  const dir = new URL('../content/games/', import.meta.url);
+  for (const slug of fs.readdirSync(dir)) {
+    const file = new URL(`${slug}/guide.html`, dir);
+    if (!fs.existsSync(file)) continue;
+    const ids = [...fs.readFileSync(file, 'utf8').matchAll(/<section\b[^>]*\bid="([^"]+)"/g)].map((m) => m[1]);
+    assert.deepEqual(checkSectionOrder(ids), [], slug);
+  }
+});
+
+test('every quick guide band carries dark ink at 4.5:1 or better', () => {
+  const dir = new URL('../content/games/', import.meta.url);
+  for (const slug of fs.readdirSync(dir)) {
+    const accent = JSON.parse(fs.readFileSync(new URL(`${slug}/game.json`, dir), 'utf8')).accent;
+    if (accent) assert.ok(contrast(bandColor(accent), '#0b0e14') >= 4.5, slug);
+  }
 });
 
 test('renders a cropped figure line', () => {

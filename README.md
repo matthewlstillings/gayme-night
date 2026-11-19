@@ -74,7 +74,9 @@ One file per printed page, so page numbers in the site match the book. Leave out
 
 ### Quick guide (`guide.html`)
 
-An HTML fragment that uses the site's guide classes. Each `<section class="card" id="…" data-label="…">` becomes an entry in the section picker (`data-label` is its short name). Text like `p. 12` or `p. 10–12` links to that rulebook page automatically.
+An HTML fragment that uses the site's guide classes. Each `<section class="card" id="…">` becomes a numbered entry in the section list, named by its `<h2>`. Start every section with a `.kicker` (a short label and a `.ref` with the rulebook pages) followed by the `<h2>`; the site turns the pair into the section's band. Text like `p. 12`, `p. 10–12` or `p. 4, 6–9` links each page to the rulebook automatically.
+
+Keep shared sections in order: `win` first, `setup` straight after it if the game has setup steps, and `variants`, `faq` and `tips` last. `npm test` checks this for every guide.
 
 Building blocks: `.intro`, `.kicker` (with `.ref` for the rulebook pages), `.tldr`, `.win`, `.phase` / `.phase.ev` with `ol.steps`, `.table-scroll > table` (with `td.c` and `.when`), `.call.warn`, `.call.cool`, `ul.tips` / `.tips.faq` / `.tips.comm`, `.badge`, `.src` and `footer`. See `content/games/nemesis-lockdown/guide.html` for a full example.
 

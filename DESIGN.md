@@ -3,7 +3,7 @@
 Dark only. Two faces on one base:
 
 - **Field Guide** for rulebooks and the hub: a pocket field guide read by flashlight. Ink-navy pages, numbered plates beside the text, a thumb index down the right edge.
-- **Player Aid** for quick guides: the card you keep beside the board. Full bands in the game's colour with big condensed numerals.
+- **Player Aid** for quick guides: the card you keep beside the board. Open sections on the page, each headed by a flat band in a calmer version of the game's colour.
 
 Each game brings its own colour through `--accent` (set in `content/games/*/game.json`). It fills tabs, bands, plate labels and primary buttons, always with dark ink on top.
 
@@ -39,11 +39,16 @@ Tokens mixed from the accent are declared on `:root` and again on `[data-accent]
 
 ## Player Aid parts
 
-- **Band**: each section's kicker and heading sit on a full-width accent band; a dark square holds the section number from a CSS counter.
+- **Sections**: open on the ground, no panel around them. The only boxes are `.win`, `.phase` and `.call`, never nested in another box.
+- **Band**: heading first (28px condensed caps), then a small line with the section's label and its rulebook pages. Edge to edge on phones, a 4px-radius strip from 700px. A small dark square (19px numeral) holds the section number from a CSS counter, so the heading stays the biggest thing.
+- **Band colour** (`--band`): the game's accent at one fixed lightness (OKLCH L 0.70, `lib/color.ts`), set on the page by the guide route. Bright accents stop glaring in a dim room and every band carries dark ink at 6.5:1 or better. Small accents (steps, tags, chips) keep `--accent`.
+- **Summary** (`.tldr`): bold 18px lead text, not a box.
+- **Section list**: numbered like the bands and named by their headings. 1000px and up: a sticky column left of the guide, styled like the rulebook contents. Phones: a button fixed at the bottom of the screen naming the current section ("3 · Your turn · of 9"); it opens the list as a sheet above it.
+- **Section order**: How to win first, Setup straight after it where a game has one, variants, FAQ and tips last. Everything in between is the game's own. A test checks every guide.
 - **Steps**: solid accent squares with condensed numerals. Event phases use `--note-line`.
 
 ## Shape and touch
 
-- Radii: 4px controls, hub entries and plates; 10px quick guide cards; 3 to 6px chips. No coloured side stripes.
+- Radii: 4px controls, hub entries and plates; 4px quick guide bands; 3 to 6px chips. No coloured side stripes.
 - Buttons 38px tall, 44px on touch screens. Search fields 44px.
 - Mobile: contents behind the hamburger, search hidden until its icon is tapped.
