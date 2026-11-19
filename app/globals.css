@@ -303,7 +303,7 @@ dialog.lb::backdrop { background: rgba(7, 10, 17, 0.95); }
 .guide main { counter-reset: aid; font-size: 17px; line-height: 1.55; min-width: 0; }
 
 /* Section list: a sticky column on desktop, a sheet over the bottom button on phones. */
-.gnav ol { list-style: none; margin: 0; padding: 0; }
+.guide .gnav ol { list-style: none; margin: 0; padding: 0; }
 .gnav .pg { min-width: 26px; font-size: 13px; }
 .gnav .tt { font: 400 15px/1.3 var(--ui); }
 .gfab { display: none; }
