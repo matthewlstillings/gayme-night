@@ -356,19 +356,22 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       lbIn.scrollTop = 0;
       setNav(true);
     };
+    const openCrop = (c: HTMLElement) => {
+      if (!lb || !lbImg || !lbTitle || !lbIn) return;
+      at = Math.max(0, images.indexOf(Number(c.dataset.page)));
+      lbImg.src = c.dataset.src || '';
+      lbImg.alt = c.dataset.cap || '';
+      lbTitle.textContent = c.dataset.cap || '';
+      lbIn.scrollTop = 0;
+      setZoom(false);
+      setNav(false);
+      lb.showModal();
+    };
     on(main, 'click', (e: MouseEvent) => {
+      const cite = (e.target as HTMLElement).closest<HTMLAnchorElement>('a.xref[data-cite]');
+      if (cite) { e.preventDefault(); openCite(cite, false); return; }
       const c = (e.target as HTMLElement).closest<HTMLElement>('.cropbtn');
-      if (c && lb && lbImg && lbTitle && lbIn) {
-        at = Math.max(0, images.indexOf(Number(c.dataset.page)));
-        lbImg.src = c.dataset.src || '';
-        lbImg.alt = c.dataset.cap || '';
-        lbTitle.textContent = c.dataset.cap || '';
-        lbIn.scrollTop = 0;
-        setZoom(false);
-        setNav(false);
-        lb.showModal();
-        return;
-      }
+      if (c && lb && lbImg && lbTitle && lbIn) { openCrop(c); return; }
       const t = (e.target as HTMLElement).closest<HTMLElement>('.thumb');
       if (!t || !lb) return;
       setZoom(false);
@@ -385,6 +388,125 @@ export function RulebookReader({ slug, images }: { slug: string; images: number[
       if (e.key === 'ArrowRight') show(at + 1);
     });
     on(lb, 'click', (e: MouseEvent) => { if (e.target === lbIn) lb?.close(); });
+
+
+    // Citations: a page link that names its section opens that section in a drawer from the bottom.
+    const cd = $<HTMLDialogElement>('cite');
+    const cdSheet = $('citeSheet');
+    const cdBar = $('citeBar');
+    const cdBody = $('citeBody');
+    const cdBack = $<HTMLButtonElement>('citeBack');
+    const cdPage = $('citePage');
+    const cdGo = $<HTMLAnchorElement>('citeGo');
+    type Cite = { target: string; also: string[]; note: string };
+    const stack: Cite[] = [];
+    let cdCur: Cite | null = null;
+    let cdOpener: HTMLElement | null = null;
+    const pageOf = (el: Element | null) => Number(el?.closest<HTMLElement>('section.page')?.dataset.page ?? 0);
+    /** The heading and what follows it, up to the next heading of the same or a higher level (or any heading, for "!"). */
+    const sectionOf = (raw: string): HTMLElement[] => {
+      const only = raw.endsWith('!');
+      const h = document.getElementById(raw.replace(/!$/, ''));
+      if (!h) return [];
+      const level = Number(h.tagName[1]);
+      const out: HTMLElement[] = [h];
+      for (let el = h.nextElementSibling as HTMLElement | null; el; el = el.nextElementSibling as HTMLElement | null) {
+        if (/^H[2-4]$/.test(el.tagName) && (only || Number(el.tagName[1]) <= level)) break;
+        if (el.matches('figure.pimg')) continue;
+        out.push(el);
+      }
+      return out;
+    };
+    const copy = (el: HTMLElement) => {
+      const c = el.cloneNode(true) as HTMLElement;
+      [c, ...c.querySelectorAll<HTMLElement>('[id]')].forEach((x) => x.removeAttribute('id'));
+      [c, ...c.querySelectorAll<HTMLElement>('.hide, .flash')].forEach((x) => x.classList.remove('hide', 'flash'));
+      return c;
+    };
+    const fillCite = (c: Cite) => {
+      if (!cdBody || !cdPage || !cdGo || !cdBack) return;
+      cdCur = c;
+      const first = document.getElementById(c.target.replace(/!$/, ''));
+      const page = pageOf(first);
+      cdPage.textContent = `Page ${page}`;
+      cdGo.href = `#${first?.id ?? ''}`;
+      cdBack.hidden = !stack.length;
+      cdBody.replaceChildren();
+      if (c.note) {
+        const n = document.createElement('blockquote');
+        n.className = 'note';
+        n.innerHTML = '<b class="tag">Note</b> ';
+        n.append(c.note);
+        cdBody.append(n);
+      }
+      [c.target, ...c.also].forEach((id, i) => {
+        const els = sectionOf(id);
+        if (!els.length) return;
+        const p = pageOf(els[0]);
+        if (i > 0) {
+          const run = document.createElement('div');
+          run.className = 'pno';
+          run.innerHTML = `<span>${p === page ? 'Also on this page' : `Page ${p}`}</span>`;
+          cdBody.append(run);
+        }
+        els.forEach((el) => cdBody.append(copy(el)));
+      });
+      const title = cdBody.querySelector<HTMLElement>('h2, h3, h4');
+      if (title) { title.id = 'citeTitle'; title.tabIndex = -1; }
+      cdBody.scrollTop = 0;
+      if (cdSheet) cdSheet.scrollTop = 0;
+      title?.focus({ preventScroll: true });
+    };
+    const openCite = (a: HTMLAnchorElement, nested: boolean) => {
+      if (!cd) return;
+      const c: Cite = { target: a.dataset.cite || '', also: (a.dataset.also || '').split(' ').filter(Boolean), note: a.dataset.note || '' };
+      if (nested && cdCur) stack.push(cdCur);
+      else { stack.length = 0; cdOpener = a; }
+      if (!cd.open) cd.showModal();
+      fillCite(c);
+    };
+    const closeCite = () => cd?.open && cd.close();
+    on(cd, 'close', () => {
+      stack.length = 0;
+      cdCur = null;
+      if (cdSheet) cdSheet.style.transform = '';
+      cdOpener?.focus({ preventScroll: true });
+    });
+    on($('citeClose'), 'click', closeCite);
+    on(cdBack, 'click', () => { const prev = stack.pop(); if (prev) fillCite(prev); });
+    on(cdGo, 'click', (e: MouseEvent) => {
+      e.preventDefault();
+      const id = cdGo!.getAttribute('href')!.slice(1);
+      cdOpener = null;
+      closeCite();
+      if (q.value) { q.value = ''; run(); }
+      const t = document.getElementById(id);
+      if (t) { history.replaceState(null, '', `#${id}`); t.scrollIntoView({ block: 'start' }); }
+    });
+    on(cd, 'click', (e: MouseEvent) => {
+      const t = e.target as HTMLElement;
+      if (t === cd) { closeCite(); return; }
+      const a = t.closest<HTMLAnchorElement>('#citeBody a.xref[data-cite]');
+      if (a) { e.preventDefault(); openCite(a, true); return; }
+      const crop = t.closest<HTMLElement>('#citeBody .cropbtn');
+      if (crop) openCrop(crop);
+    });
+    // Pull the drawer down by its top bar to close it.
+    let dragY: number | null = null;
+    on(cdBar, 'touchstart', (e: TouchEvent) => { dragY = e.touches[0].clientY; });
+    on(cdBar, 'touchmove', (e: TouchEvent) => {
+      if (dragY === null || !cdSheet) return;
+      const dy = Math.max(0, e.touches[0].clientY - dragY);
+      cdSheet.style.transition = 'none';
+      cdSheet.style.transform = `translateY(${dy}px)`;
+    });
+    on(cdBar, 'touchend', (e: TouchEvent) => {
+      if (dragY === null || !cdSheet) return;
+      const dy = e.changedTouches[0].clientY - dragY;
+      dragY = null;
+      cdSheet.style.transition = '';
+      if (dy > 90) closeCite(); else cdSheet.style.transform = '';
+    });
 
     return () => {
       ac.abort();

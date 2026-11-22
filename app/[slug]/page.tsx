@@ -137,6 +137,19 @@ export default async function RulebookPage({ params }: Props) {
         </div>
       </dialog>
 
+      <dialog className="cite" id="cite" aria-labelledby="citeTitle">
+        <div className="sheet" id="citeSheet">
+          <div className="citebar" id="citeBar">
+            <span className="grab" aria-hidden="true" />
+            <button className="btn icon" id="citeBack" type="button" aria-label="Back" hidden><BackIcon /></button>
+            <span className="ctab" id="citePage" />
+            <a className="btn" id="citeGo" href="#">Go to page</a>
+            <button className="btn icon" id="citeClose" type="button" aria-label="Close"><CloseIcon /></button>
+          </div>
+          <div className="citebody" id="citeBody" />
+        </div>
+      </dialog>
+
       <RulebookReader slug={slug} images={book.images} />
     </div>
   );

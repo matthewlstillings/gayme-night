@@ -1,0 +1,747 @@
+{
+ "6": [
+  {
+   "to": 30,
+   "target": "p30-alternative-side-of-the-board"
+  },
+  {
+   "to": 24,
+   "target": "p24-power"
+  },
+  {
+   "to": 23,
+   "target": "p23-weakness"
+  }
+ ],
+ "8": [
+  {
+   "to": 10,
+   "target": "p10-objectives"
+  },
+  {
+   "to": 10,
+   "target": "p10-first-intruder-encounter"
+  },
+  {
+   "to": 11,
+   "target": "p11-contingency"
+  }
+ ],
+ "10": [
+  {
+   "to": 29,
+   "target": "p29-isolation-room"
+  },
+  {
+   "to": 11,
+   "target": "p11-leaving-the-facility"
+  },
+  {
+   "to": 29,
+   "target": "p29-isolation-room"
+  },
+  {
+   "to": 11,
+   "target": "p11-cargo-sending-system-css"
+  },
+  {
+   "to": 19,
+   "target": "p19-fire-marker",
+   "also": [
+    "p19-malfunction-marker"
+   ]
+  },
+  {
+   "to": 10,
+   "target": "p10-autodestruction-sequence"
+  },
+  {
+   "to": 30,
+   "target": "p30-playing-with-characters-from-original-ne"
+  },
+  {
+   "to": 28,
+   "target": "p28-transmitter-control-room"
+  },
+  {
+   "to": 23,
+   "target": "p23-weakness"
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  },
+  {
+   "to": 27,
+   "target": "p27-laboratory",
+   "also": [
+    "p27-nest"
+   ]
+  },
+  {
+   "to": 27,
+   "target": "p27-nest"
+  },
+  {
+   "to": 23,
+   "target": "p23-knowledge"
+  },
+  {
+   "to": 23,
+   "target": "p23-knowledge"
+  },
+  {
+   "to": 16,
+   "target": "p16-facility-and-sections"
+  },
+  {
+   "to": 20,
+   "target": "p20-encounter"
+  },
+  {
+   "to": 11,
+   "target": "p11-the-main-gate-and-the-bunker"
+  },
+  {
+   "to": 11,
+   "target": "p11-alert-procedure"
+  },
+  {
+   "to": 27,
+   "target": "p27-cooling-system",
+   "also": [
+    "p27-power-generator"
+   ]
+  },
+  {
+   "to": 27,
+   "target": "p27-cooling-system"
+  }
+ ],
+ "11": [
+  {
+   "to": 27,
+   "target": "p27-archive",
+   "also": [
+    "p27-rooms-with-a-computer"
+   ]
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  },
+  {
+   "to": 16,
+   "target": "p16-facility-and-sections"
+  },
+  {
+   "to": 27,
+   "target": "p29-isolation-room",
+   "note": "The printed rulebook says page 27 here, but the Isolation Room is on page 29."
+  }
+ ],
+ "12": [
+  {
+   "to": 10,
+   "target": "p10-autodestruction-sequence"
+  },
+  {
+   "to": 11,
+   "target": "p11-contingency"
+  },
+  {
+   "to": 22,
+   "target": "p22-scanning-and-removing-contamination-card"
+  }
+ ],
+ "13": [
+  {
+   "to": 10,
+   "target": "p10-player-goals-and-end-of-the-game"
+  },
+  {
+   "to": 19,
+   "target": "p19-fire-marker"
+  },
+  {
+   "to": 14,
+   "target": "p14-actions"
+  },
+  {
+   "to": 11,
+   "target": "p11-cargo-sending-system-css"
+  },
+  {
+   "to": 27,
+   "target": "p27-cooling-system",
+   "also": [
+    "p27-power-generator"
+   ]
+  },
+  {
+   "to": 11,
+   "target": "p11-contingency"
+  },
+  {
+   "to": 24,
+   "target": "p24-power-thresholds"
+  },
+  {
+   "to": 22,
+   "target": "p22-intruder-attack"
+  },
+  {
+   "to": 21,
+   "target": "p21-intruder-injuries-and-death"
+  },
+  {
+   "to": 19,
+   "target": "p19-fire-marker"
+  },
+  {
+   "to": 16,
+   "target": "p16-rooms-and-corridors"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  },
+  {
+   "to": 24,
+   "target": "p24-darkness"
+  },
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 20,
+   "target": "p20-encounter"
+  }
+ ],
+ "14": [
+  {
+   "to": 13,
+   "target": "p13-i-player-phase"
+  },
+  {
+   "to": 22,
+   "target": "p22-contamination-cards"
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items!",
+   "also": [
+    "p25-example-of-an-item-card"
+   ]
+  },
+  {
+   "to": 20,
+   "target": "p20-combat"
+  },
+  {
+   "to": 16,
+   "target": "p16-movement-action"
+  },
+  {
+   "to": 21,
+   "target": "p21-character-escape"
+  },
+  {
+   "to": 16,
+   "target": "p16-movement-action"
+  },
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 19,
+   "target": "p19-noise-marker"
+  },
+  {
+   "to": 25,
+   "target": "p25-hand-symbol-and-heavy-items-and-objects"
+  },
+  {
+   "to": 26,
+   "target": "p26-crafting"
+  },
+  {
+   "to": 27,
+   "target": "p27-nest"
+  },
+  {
+   "to": 20,
+   "target": "p20-shoot-action"
+  },
+  {
+   "to": 25,
+   "target": "p25-character-hands-and-inventory"
+  },
+  {
+   "to": 27,
+   "target": "p27-nest"
+  },
+  {
+   "to": 21,
+   "target": "p21-melee-attack-action"
+  }
+ ],
+ "15": [
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  },
+  {
+   "to": 27,
+   "target": "p27-room-sheet",
+   "also": [
+    "p28-room-sheet-continued"
+   ]
+  },
+  {
+   "to": 29,
+   "target": "p29-special-rooms"
+  },
+  {
+   "to": 27,
+   "target": "p27-rooms-with-a-computer"
+  },
+  {
+   "to": 16,
+   "target": "p16-facility-and-sections"
+  },
+  {
+   "to": 24,
+   "target": "p24-power"
+  }
+ ],
+ "16": [
+  {
+   "to": 11,
+   "target": "p11-leaving-the-facility"
+  },
+  {
+   "to": 24,
+   "target": "p24-power"
+  },
+  {
+   "to": 14,
+   "target": "p14-basic-actions"
+  },
+  {
+   "to": 19,
+   "target": "p19-door-token"
+  },
+  {
+   "to": 17,
+   "target": "p17-exploration-tokens"
+  },
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 21,
+   "target": "p21-character-escape"
+  },
+  {
+   "to": 14,
+   "target": "p14-basic-actions"
+  }
+ ],
+ "17": [
+  {
+   "to": 30,
+   "target": "p30-alternative-side-of-the-board"
+  },
+  {
+   "to": 26,
+   "target": "p26-searching"
+  },
+  {
+   "to": 19,
+   "target": "p19-noise-marker"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  },
+  {
+   "to": 20,
+   "target": "p20-combat"
+  },
+  {
+   "to": 19,
+   "target": "p19-slime-marker"
+  },
+  {
+   "to": 19,
+   "target": "p19-fire-marker"
+  },
+  {
+   "to": 19,
+   "target": "p19-malfunction-marker"
+  },
+  {
+   "to": 19,
+   "target": "p19-door-token"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  },
+  {
+   "to": 20,
+   "target": "p20-encounter"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  },
+  {
+   "to": 19,
+   "target": "p19-noise-marker"
+  },
+  {
+   "to": 19,
+   "target": "p19-door-token"
+  },
+  {
+   "to": 19,
+   "target": "p19-noise-marker"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  },
+  {
+   "to": 20,
+   "target": "p20-combat"
+  }
+ ],
+ "18": [
+  {
+   "to": 20,
+   "target": "p20-encounter"
+  },
+  {
+   "to": 24,
+   "target": "p24-darkness"
+  },
+  {
+   "to": 19,
+   "target": "p19-malfunction-marker"
+  }
+ ],
+ "19": [
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 23,
+   "target": "p23-light-wounds"
+  },
+  {
+   "to": 13,
+   "target": "p13-i-player-phase"
+  },
+  {
+   "to": 21,
+   "target": "p21-intruder-injuries-and-death"
+  },
+  {
+   "to": 12,
+   "target": "p12-end-of-the-game"
+  },
+  {
+   "to": 12,
+   "target": "p12-end-of-the-game"
+  },
+  {
+   "to": 27,
+   "target": "p27-rooms-with-a-computer"
+  },
+  {
+   "to": 18,
+   "target": "p18-additional-notes-about-intruder-movement"
+  },
+  {
+   "to": 13,
+   "target": "p13-ii-event-phase"
+  },
+  {
+   "to": 21,
+   "target": "p21-intruder-retreat"
+  }
+ ],
+ "20": [
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 22,
+   "target": "p22-intruder-attack"
+  },
+  {
+   "to": 20,
+   "target": "p20-night-stalker-tokens"
+  },
+  {
+   "to": 14,
+   "target": "p14-combat-symbol"
+  },
+  {
+   "to": 13,
+   "target": "p13-i-player-phase"
+  },
+  {
+   "to": 22,
+   "target": "p22-intruder-attack"
+  },
+  {
+   "to": 13,
+   "target": "p13-3-player-turns"
+  },
+  {
+   "to": 14,
+   "target": "p14-actions"
+  },
+  {
+   "to": 25,
+   "target": "p25-hand-symbol-and-heavy-items-and-objects"
+  },
+  {
+   "to": 21,
+   "target": "p21-intruder-injuries-and-death"
+  }
+ ],
+ "21": [
+  {
+   "to": 21,
+   "target": "p21-intruder-injuries-and-death"
+  },
+  {
+   "to": 23,
+   "target": "p23-serious-wound"
+  },
+  {
+   "to": 22,
+   "target": "p22-intruder-attack"
+  },
+  {
+   "to": 13,
+   "target": "p13-9-resolve-event-card"
+  },
+  {
+   "to": 18,
+   "target": "p18-technical-corridors"
+  }
+ ],
+ "22": [
+  {
+   "to": 20,
+   "target": "p20-surprise-attack"
+  },
+  {
+   "to": 13,
+   "target": "p13-7-intruder-attacks"
+  },
+  {
+   "to": 21,
+   "target": "p21-character-escape"
+  },
+  {
+   "to": 24,
+   "target": "p24-darkness"
+  },
+  {
+   "to": 24,
+   "target": "p24-darkness"
+  },
+  {
+   "to": 10,
+   "target": "p10-player-goals"
+  },
+  {
+   "to": 12,
+   "target": "p12-victory-check"
+  },
+  {
+   "to": 27,
+   "target": "p27-room-sheet",
+   "also": [
+    "p28-room-sheet-continued"
+   ]
+  },
+  {
+   "to": 29,
+   "target": "p29-special-rooms"
+  }
+ ],
+ "23": [
+  {
+   "to": 25,
+   "target": "p25-hand-symbol-and-heavy-items-and-objects"
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  },
+  {
+   "to": 14,
+   "target": "p14-actions-from-action-cards"
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  },
+  {
+   "to": 27,
+   "target": "p27-archive"
+  },
+  {
+   "to": 27,
+   "target": "p27-laboratory"
+  },
+  {
+   "to": 25,
+   "target": "p25-objects-and-items"
+  }
+ ],
+ "24": [
+  {
+   "to": 20,
+   "target": "p20-advantage-die"
+  },
+  {
+   "to": 15,
+   "target": "p15-computer-actions"
+  },
+  {
+   "to": 24,
+   "target": "p24-night-stalker-tokens"
+  },
+  {
+   "to": 27,
+   "target": "p27-power-generator"
+  },
+  {
+   "to": 29,
+   "target": "p29-backup-power-supply"
+  },
+  {
+   "to": 24,
+   "target": "p24-night-stalker-tokens"
+  }
+ ],
+ "25": [
+  {
+   "to": 26,
+   "target": "p26-searching"
+  },
+  {
+   "to": 26,
+   "target": "p26-crafting"
+  }
+ ],
+ "26": [
+  {
+   "to": 17,
+   "target": "p17-1-set-up-the-amount-of-items-in-a-room"
+  },
+  {
+   "to": 14,
+   "target": "p14-basic-actions"
+  }
+ ],
+ "27": [
+  {
+   "to": 15,
+   "target": "p15-computer-actions"
+  },
+  {
+   "to": 23,
+   "target": "p23-knowledge"
+  },
+  {
+   "to": 11,
+   "target": "p11-acquiring-information"
+  },
+  {
+   "to": 10,
+   "target": "p10-autodestruction-sequence"
+  },
+  {
+   "to": 22,
+   "target": "p22-scanning-and-removing-contamination-card"
+  },
+  {
+   "to": 19,
+   "target": "p19-slime-marker"
+  },
+  {
+   "to": 23,
+   "target": "p23-dressing-and-healing-wound"
+  },
+  {
+   "to": 23,
+   "target": "p23-weakness"
+  },
+  {
+   "to": 11,
+   "target": "p11-cargo-sending-system-css"
+  },
+  {
+   "to": 19,
+   "target": "p19-fire-marker"
+  },
+  {
+   "to": 25,
+   "target": "p25-hand-symbol-and-heavy-items-and-objects"
+  },
+  {
+   "to": 17,
+   "target": "p17-noise-roll"
+  },
+  {
+   "to": 10,
+   "target": "p10-autodestruction-sequence"
+  },
+  {
+   "to": 24,
+   "target": "p24-power"
+  }
+ ],
+ "28": [
+  {
+   "to": 19,
+   "target": "p19-slime-marker"
+  },
+  {
+   "to": 22,
+   "target": "p22-scanning-and-removing-contamination-card"
+  }
+ ],
+ "29": [
+  {
+   "to": 11,
+   "target": "p11-acquiring-information"
+  },
+  {
+   "to": 13,
+   "target": "p13-5-time-track"
+  },
+  {
+   "to": 24,
+   "target": "p24-power-thresholds"
+  }
+ ]
+}

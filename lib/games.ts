@@ -5,6 +5,7 @@ import type { Game, GameSummary, Guide, Rulebook } from './types';
 import { renderPage } from './markdown';
 import { prepareGuide } from './guide';
 import { webpSize } from './webp';
+import { attachCitations, citedIds, type CitationMap } from './citations';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const HEX = /^#[0-9a-fA-F]{6}$/;
@@ -85,6 +86,8 @@ export function getRulebook(slug: string): Rulebook {
   const usedIds = new Set<string>();
   const images: number[] = [];
   const toc: Rulebook['toc'] = [];
+  const citeFile = path.join(CONTENT, slug, 'citations.json');
+  const cites: CitationMap | null = fs.existsSync(citeFile) ? JSON.parse(fs.readFileSync(citeFile, 'utf8')) : null;
   const pages = entry.pages.map((n) => {
     const md = fs.readFileSync(path.join(CONTENT, slug, 'rules', `${pad(n)}.md`), 'utf8');
     const imgFile = path.join(PUBLIC, slug, 'pages', `p${pad(n)}.webp`);
@@ -109,8 +112,19 @@ export function getRulebook(slug: string): Rulebook {
     };
     const { html, headings } = renderPage(md, { page: n, pages: pageSet, image, usedIds, fig, icon });
     for (const h of headings) if (h.level === 2) toc.push({ id: h.id, title: h.title, page: n });
-    return { n, html };
+    if (!cites) return { n, html };
+    try {
+      return { n, html: attachCitations(html, n, cites[String(n)]) };
+    } catch (e) {
+      fail(`${slug}/citations.json`, (e as Error).message);
+    }
   });
+  if (cites) {
+    const missing = citedIds(cites).filter((id) => !usedIds.has(id));
+    if (missing.length) fail(`${slug}/citations.json`, `no heading with id ${missing.join(', ')}`);
+    const extra = Object.keys(cites).filter((k) => !pageSet.has(Number(k)));
+    if (extra.length) fail(`${slug}/citations.json`, `lists pages the rulebook doesn't have: ${extra.join(', ')}`);
+  }
   return { pages, toc, images };
 }
 
