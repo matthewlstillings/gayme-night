@@ -6,10 +6,10 @@
     <div><b>1. Complete your Objective</b>You start with 2 secret Objectives (1 Personal, 1 Corporate). At the first Intruder Encounter, everyone keeps 1 and discards the other.</div>
     <div><b>2. Survive</b>Lock yourself in the Isolation Room (and the Facility isn't destroyed), launch out in a CSS Pod, or reach the Bunker.</div>
   </div>
-  <p>Then you still have to pass the <strong>Victory Check</strong>:</p>
+  <p>When the game ends, every survivor goes through the <strong>Victory Check</strong> (p. 12):</p>
   <ol>
     <li><strong>Contingency check:</strong> the secret Active Contingency is revealed and may kill some survivors.</li>
-    <li><strong>Contamination check:</strong> Scan your Contamination cards. If any says INFECTED (or you have a Larva), shuffle your deck and draw 4. Any Contamination card drawn means death.</li>
+    <li><strong>Contamination check:</strong> Scan every Contamination card in your deck, discard pile and hand. If any says INFECTED (or you have a Larva), shuffle all your cards and draw 4. Any Contamination card drawn means death.</li>
     <li><strong>Objective check:</strong> reveal your Objective and see if you met it.</li>
   </ol>
   <div class="call cool"><b class="t">Semi-co-op</b>Working together helps, but other players' wins don't count for you. You can't attack other Characters directly, but you can harm them as a side effect (fire, Autodestruction, a grenade).</div>
@@ -34,7 +34,7 @@
     <h3><span class="tag">The crew</span> Steps 15–21</h3>
     <ol class="steps">
       <li><span class="n">7</span><span><b>Player numbers</b><span class="d">Deal a Help, Contingency and Night Stalker reference card to each player at random. Take the Inventory holder with your Help card's number.</span></span></li>
-      <li><span class="n">8</span><span><b>Secret objectives</b><span class="d">Remove cards for more players than you have, then deal 1 Personal and 1 Corporate objective each. Keep them hidden.</span></span></li>
+      <li><span class="n">8</span><span><b>Secret objectives</b><span class="d">Remove cards showing more players than you have <img class="ic" src="/games/nemesis-lockdown/icons/player-count.webp" alt="Player count symbol" width="90" height="64" loading="lazy" decoding="async">, then deal 1 Personal and 1 Corporate objective each. Keep them hidden.</span></span></li>
       <li><span class="n">9</span><span><b>Contingency</b><span class="d">1 token each, kept hidden. With 2 players: 2 each, plus 1 face down on the Active Contingency slot.</span></span></li>
       <li><span class="n">10</span><span><b>Character draft</b><span class="d">In player-number order, draw 2 Character Draft cards, keep 1 and shuffle the other back.</span></span></li>
       <li><span class="n">11</span><span><b>Your character</b><span class="d">Board, miniature, shuffled Action deck, starting item with its ammo and quest item. Nemesis Survivors start in the Isolation Room, Facility Workers in the Repository.</span></span></li>
@@ -44,161 +44,414 @@
   <div class="call cool"><b class="t">Pick with your goal in mind</b>You get your objectives before the draft so you can choose a character that suits them.</div>
 </section>
 
-<section class="card" id="round" data-label="A round">
-  <div class="kicker"><span>The loop</span><span class="ref">Rulebook p. 13</span></div>
-  <h2>How a round works</h2>
-  <p class="tldr">Every round is a Player Phase (everyone acts) then an Event Phase (the Facility and the aliens act).</p>
+<section class="card" id="player" data-label="Player Phase">
+  <div class="kicker"><span>Round, part I</span><span class="ref">Rulebook p. 13–15</span></div>
+  <h2>Player Phase</h2>
+  <p class="tldr">Everyone draws to 5, the First Player token moves left, then you take turns of 2 Actions until everyone has passed.</p>
 
   <div class="phase">
-    <h3><span class="tag">Phase I</span> Player Phase</h3>
+    <h3><span class="tag">Phase I</span> In this order</h3>
     <ol class="steps">
-      <li><span class="n">1</span><span><b>Draw to 5</b><span class="d">Everyone draws Action cards until they hold 5. If your deck is empty, shuffle your discard pile into a new deck.</span></span></li>
-      <li><span class="n">2</span><span><b>Pass the First Player token left</b><span class="d">Skip this in the first round.</span></span></li>
-      <li><span class="n">3</span><span><b>Take turns of 2 Actions</b><span class="d">Starting with the First Player and going clockwise, each player takes a turn of 2 Actions. Keep going around until everyone has passed.</span></span></li>
+      <li><span class="n">1</span><span><b>Draw to 5</b><span class="d">Everyone draws Action cards until they hold 5 (6 if you start the round in the Isolation Room). If your deck is empty, shuffle your discard pile into a new deck.</span></span></li>
+      <li><span class="n">2</span><span><b>Pass the First Player token left</b><span class="d">Skip this in the first round. Anything done "in order" starts with the First Player and goes clockwise.</span></span></li>
+      <li><span class="n">3</span><span><b>Take turns of 2 Actions</b><span class="d">Starting with the First Player and going clockwise, each player takes a turn of 2 Actions. Keep going around until everyone has passed, then go to the <a href="#event">Event Phase</a>.</span></span></li>
     </ol>
   </div>
 
-  <div class="phase ev">
-    <h3><span class="tag">Phase II</span> Event Phase</h3>
-    <ol class="steps">
-      <li><span class="n">4</span><span><b>Launch CSS</b><span class="d">If a CSS token sits under the Time token, reveal it: it says which CSS Pods launch.</span></span></li>
-      <li><span class="n">5</span><span><b>Advance the Time track</b><span class="d">Move the Time token 1 slot. Check Autodestruction and the Alert Procedure, and whether a Power Threshold drops the Power.</span></span></li>
-      <li><span class="n">6</span><span><b>Remove Noise</b><span class="d">In Sections with Power only: remove Noise markers from Corridors not connected to a Room with a Character. Never from the Technical Corridors space.</span></span></li>
-      <li><span class="n">7</span><span><b>Intruders attack</b><span class="d">Every Intruder in a Room with a Character attacks.</span></span></li>
-      <li><span class="n">8</span><span><b>Fire damages Intruders</b><span class="d">Each Intruder in a Room with Fire takes 1 Injury.</span></span></li>
-      <li><span class="n">9</span><span><b>Resolve an Event card</b><span class="d">First move the Intruders it shows (not ones in Combat) through the Corridor number on the card, then apply its effect. Darkness effects apply only in Sections without Power.</span></span></li>
-      <li><span class="n">10</span><span><b>Intruder bag development</b><span class="d">Draw 1 token. Larva becomes an Adult, Creeper becomes a Breeder, Adult or Breeder makes everyone not in Combat roll for Noise, Queen can appear in the Nest (or adds an Egg), Blank adds an Adult.</span></span></li>
-      <li><span class="n">11</span><span><b>New round</b><span class="d">Once everything from step 10 is resolved, start the next round.</span></span></li>
-    </ol>
-  </div>
-</section>
-
-<section class="card" id="turn" data-label="Your turn">
-  <div class="kicker"><span>When it's you</span><span class="ref">Rulebook p. 13–14</span></div>
-  <h2>How your turn works</h2>
-  <p class="tldr">Do 2 Actions, paying for them by discarding Action cards. When you can't or don't want to act, pass.</p>
+  <h3>Paying for Actions</h3>
   <ul>
-    <li><strong>Paying:</strong> the number in an Action's symbol is how many Action cards you discard from hand to pay for it.</li>
+    <li><strong>Cost:</strong> the number in an Action's symbol <img class="ic" src="/games/nemesis-lockdown/icons/cost-0.webp" alt="Cost 0" width="87" height="82" loading="lazy" decoding="async"> <img class="ic" src="/games/nemesis-lockdown/icons/cost-1.webp" alt="Cost 1" width="88" height="82" loading="lazy" decoding="async"> <img class="ic" src="/games/nemesis-lockdown/icons/cost-2.webp" alt="Cost 2" width="88" height="82" loading="lazy" decoding="async"> is how many Action cards you discard from hand to pay for it.</li>
     <li><strong>Action cards:</strong> to use one, discard that card <em>plus</em> its Cost. A card with [OR] lets you pick one option.</li>
+    <li><strong>Combat symbols:</strong> <img class="ic" src="/games/nemesis-lockdown/icons/in-combat.webp" alt="In Combat Only" width="74" height="52" loading="lazy" decoding="async"> only in Combat, <img class="ic" src="/games/nemesis-lockdown/icons/out-of-combat.webp" alt="Out of Combat Only" width="74" height="68" loading="lazy" decoding="async"> only out of Combat. No symbol means either. You're in Combat when an Intruder is in your Room (Eggs don't count).</li>
     <li><strong>Contamination cards</strong> sit in your hand but can't pay for anything. You can only discard them when you pass.</li>
-    <li><strong>Only 1 Action?</strong> Then your second Action is a Pass.</li>
-    <li><strong>Passing:</strong> you may discard any cards from hand, flip your Help card to its Pass side, and you take no more Actions this round. Passing counts as an Action.</li>
-    <li><strong>Fire:</strong> if you end your turn in a Room with Fire, you take 1 Light Wound (only once per round).</li>
+    <li><strong>Interrupted?</strong> You still pay the Cost.</li>
   </ul>
-  <div class="call warn"><b class="t">Watch out</b>Every card you spend shrinks your hand, and a small hand is what triggers Surprise Attacks. See <a href="#fight">Encounters</a>.</div>
-</section>
 
-<section class="card" id="actions" data-label="Actions">
-  <div class="kicker"><span>Always available</span><span class="ref">Rulebook p. 14, 11</span></div>
-  <h2>Basic Actions</h2>
+  <h3>Passing and ending your turn</h3>
+  <ul>
+    <li><strong>Only 1 Action?</strong> Then your second Action is a Pass. Passing counts as an Action.</li>
+    <li><strong>When you pass:</strong> you may discard any cards from hand, flip your Help card to its Pass side, and you take no more Actions this round.</li>
+    <li><strong>Fire:</strong> end your turn in a Room with Fire <img class="ic" src="/games/nemesis-lockdown/icons/fire-marker.webp" alt="Fire marker" width="82" height="87" loading="lazy" decoding="async"> and you take 1 Light Wound. Only once per round.</li>
+  </ul>
+
+  <h3>Basic Actions</h3>
   <div class="table-scroll"><table>
     <thead><tr><th>Action</th><th>Cost</th><th>What it does</th></tr></thead>
     <tbody>
-      <tr><td><b>Movement</b><span class="when">In or out of Combat</span></td><td class="c">1</td><td>Move to a neighbouring Room. In Combat, this is an Escape.</td></tr>
-      <tr><td><b>Careful Movement</b><span class="when">Out of Combat</span></td><td class="c">2</td><td>Move, but instead of a Noise roll, place a Noise marker in a Corridor of your choice connected to the new Room.</td></tr>
+      <tr><td><b>Movement</b><span class="when">In or out of Combat</span></td><td class="c">1</td><td>Move to a neighbouring Room. In Combat, this is an Escape. See <a href="#move">Moving and Noise</a>.</td></tr>
+      <tr><td><b>Careful Movement</b><span class="when">Out of Combat</span></td><td class="c">2</td><td>Move, but instead of a Noise roll, place a Noise marker in a Corridor of your choice connected to the new Room. Not allowed if every connected Corridor already has Noise.</td></tr>
       <tr><td><b>Pick Up Heavy Object</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Pick up a Corpse, Carcass or Egg in your Room.</td></tr>
-      <tr><td><b>Trade</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Swap Items and Objects with Characters in your Room. Not Ammo.</td></tr>
-      <tr><td><b>Craft Item</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Discard 2 Items with the right blue Component symbols to gain a Crafted Item.</td></tr>
-      <tr><td><b>Shoot</b><span class="when">In Combat</span></td><td class="c">1</td><td>Spend 1 Ammo from a Weapon in your Hand and roll the Combat die (the Advantage die in a Section with Power).</td></tr>
-      <tr><td><b>Melee Attack</b><span class="when">In Combat</span></td><td class="c">1</td><td>Take a Contamination card, then roll the Combat die. A miss gives you a Serious Wound.</td></tr>
-      <tr><td><b>Escape the Facility</b><span class="when">Exit Room, Main Gate open</span></td><td class="c">2</td><td>Ride the Rover to the Bunker, or walk there in an Enviro-Suit after a Noise roll comes up clear.</td></tr>
+      <tr><td><b>Trade</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Swap or give Items and Objects with Characters in your Room. Not Ammo.</td></tr>
+      <tr><td><b>Craft Item</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Discard 2 Items with the right blue part symbols to take a Crafted Item. See <a href="#craft">Crafting</a>.</td></tr>
+      <tr><td><b>Shoot</b><span class="when">In Combat</span></td><td class="c">1</td><td>Spend 1 Ammo from a Weapon in your Hand and roll. See <a href="#fight">Combat</a>.</td></tr>
+      <tr><td><b>Melee Attack</b><span class="when">In Combat</span></td><td class="c">1</td><td>Take a Contamination card, then roll. A miss gives you a Serious Wound.</td></tr>
+      <tr><td><b>Escape the Facility</b><span class="when">Exit Room, Main Gate open</span></td><td class="c">2</td><td>Ride the Rover to the Bunker, or walk there in an Enviro-Suit if your Noise roll brings no Intruder.</td></tr>
     </tbody>
   </table></div>
-  <p>You also get <strong>Action cards</strong> unique to your Character, <strong>Item</strong> Actions, <strong>Room</strong> Actions (one per Room, see the Room sheet on p. 27–29) and <strong>Computer</strong> Actions (in a Room with a Computer, in a Section with Power).</p>
-  <p class="src">Search is on an Action card, not a Basic Action. Each Search lowers that Room's Item Counter by 1.</p>
+
+  <h3>Other Actions</h3>
+  <ul>
+    <li><strong>Action cards:</strong> your Character's own 10 cards, including Search.</li>
+    <li><strong>Item Actions:</strong> printed on the Item card.</li>
+    <li><strong>Room Actions:</strong> one per Room, never in Combat or with a Malfunction in the Room. See <a href="#rooms">Rooms</a>.</li>
+    <li><strong>Computer Actions</strong> <img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async">: in a Room with a Computer, in a Section with Power, pick 1 of the 3 actions on the revealed Computer card. Then put that card on the bottom and reveal the next. A Lockdown card is resolved as soon as it's revealed.</li>
+  </ul>
 </section>
 
-<section class="card" id="move" data-label="Moving &amp; Noise">
-  <div class="kicker"><span>Where danger starts</span><span class="ref">Rulebook p. 16–19</span></div>
-  <h2>Moving, exploring and Noise</h2>
-  <p class="tldr">Entering an empty Room means a Noise roll. Noise in a Corridor that already has Noise means an alien appears.</p>
+<section class="card" id="move" data-label="Moving and Noise">
+  <div class="kicker"><span>Player Phase</span><span class="ref">Rulebook p. 16–19</span></div>
+  <h2>Moving and Noise</h2>
+  <p class="tldr">Entering an empty Room means a Noise roll. Noise in a Corridor that already has Noise means an Intruder appears.</p>
   <h3>When you enter a Room</h3>
   <ol>
-    <li><strong>Unexplored?</strong> Flip the Room tile, then reveal its Exploration token. It sets how many Items the Room holds and has an effect: Silence, Danger, Slime, Fire, Malfunction or Door.</li>
-    <li><strong>Empty Room?</strong> Roll the Noise die. If another Character or an Intruder is already there, skip the roll.</li>
+    <li><strong>Unexplored?</strong> Flip the Room tile and reveal its Exploration token <img class="ic" src="/games/nemesis-lockdown/icons/exploration-back.webp" alt="Face-down Exploration tokens" width="360" height="128" loading="lazy" decoding="async">. Turn the tile so the token's number points at the Item Counter: that's how many Searches the Room has. Then resolve its effect (below).</li>
+    <li><strong>Nobody there?</strong> Roll the Noise die. If another Character or an Intruder is already in the Room, skip the roll.</li>
   </ol>
-  <h3>Noise roll results</h3>
+
+  <h3>Exploration token effects</h3>
+  <div class="table-scroll"><table class="icons">
+    <thead><tr><th>Token</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-silence.webp" alt="Silence token" width="83" height="88" loading="lazy" decoding="async"><b>Silence</b></td><td>Nothing happens and you skip the Noise roll. With Slime on you, it's Danger instead.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-danger.webp" alt="Danger token" width="83" height="88" loading="lazy" decoding="async"><b>Danger</b></td><td>Skip the Noise roll. Intruders in neighbouring Rooms (not in Combat) move in. If there are none, put Noise in every connected Corridor that doesn't have one.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-slime.webp" alt="Slime token" width="83" height="88" loading="lazy" decoding="async"><b>Slime</b></td><td>Put a Slime marker on your Character board.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-fire.webp" alt="Fire token" width="83" height="88" loading="lazy" decoding="async"><b>Fire</b></td><td>Put a Fire marker in this Room.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-malfunction.webp" alt="Malfunction token" width="83" height="88" loading="lazy" decoding="async"><b>Malfunction</b></td><td>Put a Malfunction marker in this Room.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/ex-door.webp" alt="Door token" width="83" height="88" loading="lazy" decoding="async"><b>Door</b></td><td>Put a closed Door in the Corridor you came through.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Careful Movement still places its Noise on Silence, and still resolves Danger. The Nest gets no Item Counter.</p>
+
+  <h3>Noise roll</h3>
+  <div class="table-scroll"><table class="icons">
+    <thead><tr><th>Result</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/noise-1.webp" alt="Noise 1" width="72" height="80" loading="lazy" decoding="async"><img class="ic" src="/games/nemesis-lockdown/icons/noise-2.webp" alt="Noise 2" width="72" height="80" loading="lazy" decoding="async"><img class="ic" src="/games/nemesis-lockdown/icons/noise-3.webp" alt="Noise 3" width="72" height="80" loading="lazy" decoding="async"><img class="ic" src="/games/nemesis-lockdown/icons/noise-4.webp" alt="Noise 4" width="72" height="80" loading="lazy" decoding="async"></td><td>Put a Noise marker <img class="ic" src="/games/nemesis-lockdown/icons/noise-marker.webp" alt="Noise marker" width="82" height="80" loading="lazy" decoding="async"> in that numbered Corridor of your Room. If it already has one, an <a href="#fight">Encounter</a> happens instead. A number that leads to a Technical Corridor Entrance puts the Noise on the Technical Corridors space.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/noise-danger.webp" alt="Danger" width="80" height="85" loading="lazy" decoding="async"><b>Danger</b></td><td>Intruders in neighbouring Rooms (not in Combat) move into your Room. If there are none, put Noise in every connected Corridor that doesn't have one.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/noise-silence.webp" alt="Silence" width="80" height="85" loading="lazy" decoding="async"><b>Silence</b></td><td>Nothing happens, unless you have Slime <img class="ic" src="/games/nemesis-lockdown/icons/slime-marker.webp" alt="Slime marker" width="77" height="84" loading="lazy" decoding="async">: then it's Danger.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Things in your way</h3>
   <ul>
-    <li><strong>1–4:</strong> put a Noise marker in that numbered Corridor. If it already has one, an <strong>Encounter</strong> happens instead.</li>
-    <li><strong>Danger:</strong> Intruders in neighbouring Rooms (not in Combat) move into your Room. If there are none, put Noise in every connected Corridor that doesn't have one.</li>
-    <li><strong>Silence:</strong> nothing happens, unless you have <strong>Slime</strong> on you, which turns Silence into Danger.</li>
-  </ul>
-  <h3>Other things on the board</h3>
-  <ul>
-    <li><strong>Technical Corridors:</strong> Characters can't use them (with a few card exceptions). Noise there counts at every Technical Corridor Entrance on the board.</li>
-    <li><strong>Closed Doors</strong> block movement. An Intruder that tries to go through destroys the Door instead of moving.</li>
-    <li><strong>Fire and Malfunction pools:</strong> if you need to place a 13th Fire marker or an 11th Malfunction marker, the Facility explodes and everyone dies.</li>
-    <li><strong>Malfunction</strong> in a Room turns off its Room Action (and its Computer). Searching still works.</li>
+    <li><strong>Doors</strong> <img class="ic" src="/games/nemesis-lockdown/icons/door-token.webp" alt="Door token" width="73" height="120" loading="lazy" decoding="async">: a standing Door is Closed and blocks movement. An Intruder that tries to go through destroys it instead (it lies down and can't close again). No token means Open.</li>
+    <li><strong>Technical Corridors:</strong> Characters can't use them (only Vents, the Cave Entrance and Cave Plans can). Noise on the Technical Corridors space counts at every Entrance on the board.</li>
+    <li><strong>Emergency Staircases</strong> between Sections are always dark and have no Action.</li>
+    <li><strong>Elevator</strong> (cost 1, needs Power, out of Combat): call it to your Section, or ride it to another Section's Elevator Room with anyone who agrees. No Noise roll after.</li>
+    <li><strong>Malfunction</strong> <img class="ic" src="/games/nemesis-lockdown/icons/malfunction-marker.webp" alt="Malfunction marker" width="85" height="87" loading="lazy" decoding="async"> turns off a Room's Action and its Computer. Searching still works.</li>
   </ul>
 </section>
 
-<section class="card" id="fight" data-label="Encounters &amp; Combat">
-  <div class="kicker"><span>When aliens show up</span><span class="ref">Rulebook p. 20–22</span></div>
+<section class="card" id="fight" data-label="Encounters and Combat">
+  <div class="kicker"><span>Player Phase</span><span class="ref">Rulebook p. 20–22</span></div>
   <h2>Encounters and Combat</h2>
-  <p class="tldr">When an alien appears, count the cards in your hand. Fewer than the token's number means a Surprise Attack.</p>
+  <p class="tldr">When an Intruder appears, count the cards in your hand. Fewer than the token's number means a Surprise Attack.</p>
   <h3>Encounter</h3>
   <ol>
     <li>Discard all Noise markers from the Corridors connected to the Room.</li>
     <li>Draw an Intruder token from the bag and place that Intruder in the Room.</li>
-    <li>Compare your hand size (Contamination cards count) to the token's number: the lower number normally, the higher one in <strong>Darkness</strong>. If your hand is smaller, the Intruder makes a <strong>Surprise Attack</strong>.</li>
+    <li>Compare your hand (Contamination cards count) to the token <img class="ic" src="/games/nemesis-lockdown/icons/stalker-token.webp" alt="Night Stalker token with two numbers" width="100" height="90" loading="lazy" decoding="async">: the lower number in a Section with Power, the higher one in <strong>Darkness</strong>. If your hand is smaller, the Intruder makes a <strong>Surprise Attack</strong>.</li>
   </ol>
-  <p class="src">A Blank token instead puts Noise in every connected Corridor. Walking into a Room that has an Intruder is not an Encounter; you're just in Combat.</p>
-  <h3>In Combat (same Room as an Intruder)</h3>
   <ul>
-    <li><strong>Shoot</strong> or <strong>Melee Attack</strong> it, or <strong>Escape</strong> by moving out. Escaping triggers an Intruder Attack first, one for each Intruder in the Room.</li>
-    <li><strong>Did it die?</strong> Larvae and Eggs die from 1 Injury. For a Creeper or Adult, draw 1 Intruder Attack card and read only its blood number: Injuries equal to or above it kill. For a Breeder or Queen, add up 2 cards. A Retreat arrow on the card means it flees instead.</li>
-    <li><strong>Who gets attacked?</strong> The Character whose player holds the fewest Action cards. Ties go to the First Player, then turn order.</li>
-    <li><strong>Larva attack:</strong> it doesn't draw a card. It jumps onto your Character board and you take a Contamination card.</li>
+    <li><strong>Blank token</strong> <img class="ic" src="/games/nemesis-lockdown/icons/blank-token.webp" alt="Blank token" width="78" height="80" loading="lazy" decoding="async">: put Noise in every connected Corridor instead. If it was the last token in the bag, add an Adult token. Return the Blank.</li>
+    <li><strong>Walking into an Intruder's Room</strong> isn't an Encounter. You're simply in Combat.</li>
+    <li><strong>First Encounter of the game:</strong> everyone discards 1 Objective. See <a href="#moments">Notable events</a>.</li>
   </ul>
-</section>
 
-<section class="card" id="hurt" data-label="Wounds &amp; Contamination">
-  <div class="kicker"><span>Staying alive</span><span class="ref">Rulebook p. 22–23</span></div>
-  <h2>Wounds and Contamination</h2>
-  <p class="tldr">The third Light Wound becomes a Serious Wound. Any Wound after your third Serious Wound kills you.</p>
+  <h3>Shoot</h3>
+  <p>Spend 1 Ammo from a Weapon in your Hand and roll the Combat die. In a Section with Power you <strong>must</strong> roll the Advantage die instead.</p>
+  <div class="table-scroll"><table class="icons">
+    <thead><tr><th>Face</th><th>Shoot</th><th>Melee</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/die-blank.webp" alt="Blank face" width="49" height="47" loading="lazy" decoding="async"></td><td>Miss.</td><td>Miss, and you take a Serious Wound.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/die-claw1.webp" alt="Single claw face" width="49" height="48" loading="lazy" decoding="async"></td><td>1 Injury to a Larva or Creeper. Otherwise miss.</td><td>Same, but a miss gives you a Serious Wound.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/die-claw2.webp" alt="Double claw face" width="49" height="47" loading="lazy" decoding="async"></td><td>1 Injury to a Larva, Creeper or Adult. Otherwise miss.</td><td>Same, but a miss gives you a Serious Wound.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/die-hit1.webp" alt="Single hit face" width="49" height="48" loading="lazy" decoding="async"></td><td>1 Injury to anything.</td><td>1 Injury to anything.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/die-hit2.webp" alt="Double hit face" width="49" height="47" loading="lazy" decoding="async"></td><td>2 Injuries to anything.</td><td>Only 1 Injury.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/adv-discard.webp" alt="Advantage die: discard face" width="46" height="48" loading="lazy" decoding="async"></td><td>Advantage die only: discard an Action card to deal 1 Injury.</td><td>Not used.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/adv-hitdiscard.webp" alt="Advantage die: hit and discard face" width="46" height="44" loading="lazy" decoding="async"></td><td>Advantage die only: 1 Injury, or discard an Action card for 2.</td><td>Not used.</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Melee Attack:</strong> take a Contamination card first, then roll the normal Combat die (never the Advantage die).</p>
+
+  <h3>Did it die?</h3>
+  <ul>
+    <li><strong>Larva or Egg:</strong> 1 Injury kills it.</li>
+    <li><strong>Creeper or Adult:</strong> draw 1 Intruder Attack card and read only its blood number <img class="ic" src="/games/nemesis-lockdown/icons/blood.webp" alt="Blood symbol" width="110" height="80" loading="lazy" decoding="async">. Injuries equal to or above it kill. Put a Carcass token <img class="ic" src="/games/nemesis-lockdown/icons/carcass.webp" alt="Intruder Carcass token" width="120" height="80" loading="lazy" decoding="async"> where it died.</li>
+    <li><strong>Breeder or Queen:</strong> same, but add up the blood numbers on 2 cards.</li>
+    <li><strong>Retreat arrow</strong> <img class="ic" src="/games/nemesis-lockdown/icons/retreat.webp" alt="Retreat symbol" width="120" height="82" loading="lazy" decoding="async"> on any drawn card: it flees instead. Draw an Event card and move it through that Corridor number. It keeps its Injuries.</li>
+  </ul>
+
+  <h3>Intruder Attacks</h3>
+  <ul>
+    <li><strong>When:</strong> a Surprise Attack, the Event Phase attack step, or when you Escape.</li>
+    <li><strong>Who:</strong> the Character whose player holds the fewest Action cards. Ties go to the First Player, then turn order. A Surprise Attack hits whoever caused it; an Escape hits whoever is escaping.</li>
+    <li><strong>How:</strong> draw an Intruder Attack card. If it shows the attacker's symbol, resolve it (plus its Darkness part <img class="ic" src="/games/nemesis-lockdown/icons/darkness.webp" alt="Darkness layout" width="290" height="60" loading="lazy" decoding="async"> in a Section without Power). If not, it misses.</li>
+    <li><strong>Larva:</strong> draws no card. It jumps onto your Character board (if you don't have one) and you take a Contamination card.</li>
+  </ul>
+
+  <h3>Escape</h3>
+  <p>Use Movement to leave a Room with an Intruder. Each Intruder in the Room attacks you first. If you survive, you move (and Explore or roll Noise as normal).</p>
+
+  <h3>Wounds</h3>
   <ul>
     <li><strong>Light Wounds</strong> move a marker down your track. The third one turns into a Serious Wound.</li>
-    <li><strong>Serious Wounds</strong> are cards with a lasting penalty. <strong>Dressing</strong> one flips it so its effect stops, but it still counts toward the 3.</li>
-    <li><strong>On death:</strong> your Corpse token stays in the Room and your Heavy Objects drop there. The <strong>Main Gate opens</strong> the first time anyone dies.</li>
-    <li><strong>Contamination cards</strong> go on top of your discard pile and clog your hand later. Some are secretly INFECTED.</li>
-    <li><strong>Scanning:</strong> the red Scanner shows the word INFECTED. If infected, put a Larva on your board. If you're infected and already have a Larva, you die and a Creeper appears.</li>
-    <li><strong>Getting clean:</strong> Rest, the Decon Room, the Surgery Room and the Antiseptic Item all help. Look closely when Scanning; some words look like INFECTED.</li>
+    <li><strong>Serious Wounds</strong> are cards with a lasting effect. <strong>Dressing</strong> one flips it so its effect stops, but it still counts. <strong>Healing</strong> removes a Light Wound or a Dressed card.</li>
+    <li><strong>Death:</strong> any Wound after your third Serious Wound kills you. See <a href="#moments">Notable events</a>.</li>
+  </ul>
+
+  <h3>Contamination</h3>
+  <ul>
+    <li><strong>New Contamination cards</strong> go on top of your discard pile and clog your hand later. Some are secretly INFECTED.</li>
+    <li><strong>Scanning:</strong> lay the red Scanner over the card. If one line reads INFECTED, put a Larva on your board and keep the card. Already have a Larva? You die and a Creeper appears. Some words look like INFECTED, so read closely.</li>
+    <li><strong>Getting clean:</strong> Rest (Action card), the Decon Room, Surgery and the Antiseptic Item.</li>
   </ul>
 </section>
 
-<section class="card" id="power" data-label="Power &amp; Darkness">
-  <div class="kicker"><span>New in Lockdown</span><span class="ref">Rulebook p. 24</span></div>
-  <h2>Power and Darkness</h2>
-  <p class="tldr">The Facility loses Power as time passes. Dark Sections are much more dangerous.</p>
+<section class="card" id="craft" data-label="Items and Crafting">
+  <div class="kicker"><span>Player Phase</span><span class="ref">Rulebook p. 25–26</span></div>
+  <h2>Items, Search and Crafting</h2>
+  <p class="tldr">Search a Room for Items of its colour, keep weapons in your Hands, and combine 2 Items into a Crafted Item.</p>
+  <h3>Searching</h3>
   <ul>
-    <li><strong>Sections with Power</strong> (blue Power token): you must Shoot with the Advantage die, Computer Actions work, you're not in Darkness, and Noise gets cleared in the Event Phase.</li>
-    <li><strong>Darkness</strong> (no Power): extra effects on Event and Attack cards, and the higher number on Intruder tokens decides Surprise Attacks.</li>
-    <li><strong>Emergency Staircases</strong> between Sections are always dark. A Glowstick or Flashlight helps.</li>
-    <li><strong>Power Thresholds</strong> on the Time track switch off Sections as the Time token passes. The Backup Power Supply Room (S-03) slows that down.</li>
+    <li><strong>Colours:</strong> red is military, yellow technical, green medical. A Room's colour is the one behind its name. In a white Room, pick any of the three decks.</li>
+    <li><strong>Each Search</strong> lowers the Room's Item Counter by 1. At 0 the Room is empty. Special Rooms and the Nest can't be searched.</li>
+    <li><strong>Draw and keep:</strong> the rulebook's example (p. 26) draws 2 and keeps 1. Your Search card has the exact rule. Put an unused Item face down at the bottom of its deck.</li>
   </ul>
+  <h3>Carrying</h3>
+  <ul>
+    <li><strong>Heavy</strong> <img class="ic" src="/games/nemesis-lockdown/icons/hand.webp" alt="Hand symbol" width="68" height="62" loading="lazy" decoding="async">: Items with the Hand symbol and all Objects (Corpse, Carcass, Egg) go in your 2 Hand slots, face up. Weapons come loaded: start Ammo / max Ammo.</li>
+    <li><strong>Everything else</strong> goes face down in your Inventory, with no limit. Reveal it when you use it.</li>
+    <li><strong>One Use Only</strong> (yellow text): discard the Item after using it.</li>
+    <li><strong>Drop</strong> anything for free on your turn. Objects stay in the Room; Items go back to the bottom of their deck.</li>
+    <li><strong>Quest Items</strong> start sideways. Meet the condition on the card to flip it and use it.</li>
+  </ul>
+
+  <h3>Crafting recipes</h3>
+  <p>Craft Item (cost 1, out of Combat): discard 2 Items whose <strong>blue</strong> part symbols match the <strong>grey</strong> symbols on a Crafted Item card, first symbol then second. Take that card from the blue deck. You can look through the blue deck any time.</p>
+  <div class="table-scroll"><table class="icons recipe">
+    <thead><tr><th>Parts</th><th>Makes</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-triangle.svg" alt="Triangle part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-cross.svg" alt="Cross part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Neutralizer</b></td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-framed-slash.svg" alt="Framed slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Taser</b></td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-triangle.svg" alt="Triangle part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Flamethrower</b></td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-block.svg" alt="Block part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Enviro-Suit</b></td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-framed-slash.svg" alt="Framed slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Pistol</b></td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li><strong>Which Items give which part:</strong> look for the small blue gear in the corner of an Item card. The rulebook's examples: Medkit and Analyze Toolset give the cross.</li>
+    <li><strong>Repository:</strong> its Room Action lets you Craft with only 1 matching Item (cost 2).</li>
+    <li><strong>No crafting needed:</strong> the Guard Room hands out a Taser or Enviro-Suit, and the Testing Lab a Neutralizer at Knowledge 4.</li>
+    <li><strong>Out of cards:</strong> you can't build an Item if its card is already taken.</li>
+  </ul>
+  <figure class="pic"><img src="/games/nemesis-lockdown/figs/p26-crafting-recipes.webp" alt="The crafting recipes as printed in the rulebook" width="257" height="228" loading="lazy" decoding="async"><figcaption>As printed on p. 26. The rulebook shows the parts only as pictures, so the names here describe how they look.</figcaption></figure>
 </section>
 
-<section class="card" id="moments" data-label="Big moments">
-  <div class="kicker"><span>Triggers</span><span class="ref">Rulebook p. 10–11</span></div>
-  <h2>Big moments</h2>
+<section class="card" id="event" data-label="Event Phase">
+  <div class="kicker"><span>Round, part II</span><span class="ref">Rulebook p. 13</span></div>
+  <h2>Event Phase</h2>
+  <p class="tldr">Once everyone has passed, the Facility and the Intruders act. Do these 8 steps in order.</p>
+
+  <div class="phase ev">
+    <h3><span class="tag">Phase II</span> In this order</h3>
+    <ol class="steps">
+      <li><span class="n">4</span><span><b>Launch CSS</b><span class="d">If a CSS token is under the Time token, reveal it: it says which Pods launch (below).</span></span></li>
+      <li><span class="n">5</span><span><b>Move the Time token 1 right</b><span class="d">Then check Autodestruction and the Alert Procedure, and whether you crossed a Power Threshold.</span></span></li>
+      <li><span class="n">6</span><span><b>Remove Noise</b><span class="d">In Sections with Power only: remove Noise from Corridors not connected to a Room with a Character. Never from the Technical Corridors space.</span></span></li>
+      <li><span class="n">7</span><span><b>Intruders attack</b><span class="d">Every Intruder in a Room with a Character attacks. See <a href="#fight">Intruder Attacks</a>.</span></span></li>
+      <li><span class="n">8</span><span><b>Fire damage</b><span class="d">Each Intruder in a Room with Fire takes 1 Injury. Fire in the Nest destroys 1 uncarried Egg.</span></span></li>
+      <li><span class="n">9</span><span><b>Resolve an Event card</b><span class="d">Move Intruders first, then apply the effect (below).</span></span></li>
+      <li><span class="n">10</span><span><b>Develop the Intruder bag</b><span class="d">Draw 1 Intruder token and resolve it (below).</span></span></li>
+      <li><span class="n">11</span><span><b>New round</b><span class="d">Once step 10 is fully done, including any Encounters, start the next Player Phase.</span></span></li>
+    </ol>
+  </div>
+
+  <h3>Step 4: CSS tokens</h3>
+  <div class="table-scroll"><table class="icons">
+    <thead><tr><th>Token</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/css-each.webp" alt="Pod tokens A, B and C" width="132" height="62" loading="lazy" decoding="async"></td><td>Only the Character in the matching Pod (A, B or C) Evacuates.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/css-all.webp" alt="Green pod token" width="54" height="64" loading="lazy" decoding="async"></td><td>Everyone in a Pod Evacuates.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/css-none.webp" alt="Red pod token" width="54" height="58" loading="lazy" decoding="async"></td><td>Nobody Evacuates.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Anyone left in a Pod goes back to its Cargo Sending System Room with 1 Serious Wound. To get in a Pod, see <a href="#rooms">Rooms</a>.</p>
+
+  <h3>Step 5: Time and Power</h3>
   <ul>
-    <li><strong>First Encounter:</strong> the first time an Intruder miniature appears, everyone secretly discards 1 Objective.</li>
-    <li><strong>First death:</strong> the Main Gate opens, so the Bunker becomes reachable.</li>
-    <li><strong>Isolation Room:</strong> usable once the Time token reaches the white slot 8 (earlier if someone activates the Alert Room).</li>
-    <li><strong>Autodestruction:</strong> started in the Cooling System. While its token is yellow, it can be stopped in the Power Generator Room. Once it flips red, it can't be stopped.</li>
-    <li><strong>Contingency:</strong> one token is secretly Active and judges survivors at the end. You see your own token; peek at others with the Archive, Alert Room or Computer to work out which one is Active.</li>
+    <li><strong>Autodestruction and Alert Procedure:</strong> see <a href="#moments">Notable events</a>.</li>
+    <li><strong>Power Thresholds</strong> are marked on the Time track. While the Time token is red <img class="ic" src="/games/nemesis-lockdown/icons/time-off.webp" alt="Inactive Time token" width="129" height="128" loading="lazy" decoding="async"> (no backup power), every Threshold it crosses cuts Power. Once it's flipped blue <img class="ic" src="/games/nemesis-lockdown/icons/time-on.webp" alt="Active Time token" width="129" height="128" loading="lazy" decoding="async">, only Thresholds with two Time token symbols do.</li>
+    <li><strong>Cutting Power:</strong> flip the active Power token with the highest number to red <img class="ic" src="/games/nemesis-lockdown/icons/power-off.webp" alt="Section without Power" width="129" height="124" loading="lazy" decoding="async">. Blue <img class="ic" src="/games/nemesis-lockdown/icons/power-on.webp" alt="Section with Power" width="129" height="124" loading="lazy" decoding="async"> means that Section has Power.</li>
   </ul>
+
+  <h3>Step 9: Event card</h3>
+  <ol>
+    <li><strong>Move Intruders:</strong> every Intruder whose symbol is on the card and that isn't in a Room with a Character moves through the Corridor with the card's number. With two numbers, move through the first, then the second (stopping if it reaches a Character).</li>
+    <li><strong>Technical Corridor:</strong> the Intruder leaves the board and its token goes back in the bag.</li>
+    <li><strong>Closed Door:</strong> the Intruder stays put and destroys the Door.</li>
+    <li><strong>Effect:</strong> apply the card's effect. Its Darkness part <img class="ic" src="/games/nemesis-lockdown/icons/darkness.webp" alt="Darkness layout" width="290" height="60" loading="lazy" decoding="async"> only applies in Sections without Power.</li>
+  </ol>
+
+  <h3>Step 10: Intruder bag</h3>
+  <div class="table-scroll"><table class="icons">
+    <thead><tr><th>Token drawn</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/larva.webp" alt="Larva symbol" width="65" height="33" loading="lazy" decoding="async"><b>Larva</b></td><td>Set it aside and put an Adult token in the bag.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/creeper.webp" alt="Creeper symbol" width="65" height="43" loading="lazy" decoding="async"><b>Creeper</b></td><td>Set it aside and put a Breeder token in the bag.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/adult.webp" alt="Adult symbol" width="65" height="45" loading="lazy" decoding="async"><b>Adult</b></td><td>Put it back. Everyone not in Combat makes a Noise roll, in order.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/breeder.webp" alt="Breeder symbol" width="65" height="55" loading="lazy" decoding="async"><b>Breeder</b></td><td>Put it back. Everyone not in Combat makes a Noise roll, in order.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/queen.webp" alt="Queen symbol" width="65" height="88" loading="lazy" decoding="async"><b>Queen</b></td><td>Put it back. If Characters are in the Nest, the Queen appears there (an Encounter). Otherwise, or if the Nest is undiscovered, add an Egg.</td></tr>
+      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/blank-token.webp" alt="Blank token" width="78" height="80" loading="lazy" decoding="async"><b>Blank</b></td><td>Put it back and add an Adult token, if one is left.</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
-<section class="card" id="end" data-label="Game end">
-  <div class="kicker"><span>How it stops</span><span class="ref">Rulebook p. 12</span></div>
-  <h2>When the game ends</h2>
+<section class="card" id="moments" data-label="Notable events">
+  <div class="kicker"><span>Any round</span><span class="ref">Rulebook p. 10–12, 23–24</span></div>
+  <h2>Notable events</h2>
+  <p class="tldr">These can happen in any round. Each one changes the game for everyone.</p>
+
+  <h3>First Encounter</h3>
+  <p>The first time an Intruder miniature appears (Eggs don't count), everyone secretly discards 1 of their 2 Objectives. Then finish the Encounter.</p>
+
+  <h3>The lights go out</h3>
   <ul>
-    <li><strong>Time runs out</strong> (the final red slot): the Facility is purged. Everyone not in the Isolation Room dies, but the Intruders survive.</li>
-    <li><strong>The Facility explodes</strong> (red Autodestruction, a 13th Fire or an 11th Malfunction marker): everyone dies, including in the Isolation Room, and so do the Intruders and Queen.</li>
-    <li><strong>Nobody is left inside</strong>: the last Character dies, isolates, escapes or launches.</li>
+    <li><strong>Darkness:</strong> a Section without Power. Event and Attack cards get extra effects, and Encounters use the higher number on the Intruder token. A Flashlight or Glowstick can help.</li>
+    <li><strong>Restoring Power:</strong> the Backup Power Supply resets and rearranges the Power tokens and flips the Time token to blue, which slows the blackout. The Power Generator powers your Section.</li>
   </ul>
-  <p class="src">Once you escape, isolate or die, you only watch until the end.</p>
+
+  <h3>Knowledge and Weaknesses</h3>
+  <ul>
+    <li><strong>Knowledge</strong> <img class="ic" src="/games/nemesis-lockdown/icons/knowledge-off.webp" alt="Inactive Knowledge token" width="128" height="128" loading="lazy" decoding="async">: +3 for analysing an Object in the Laboratory (or with the Analyze Toolset), +2 from the Archive (which flips your token <img class="ic" src="/games/nemesis-lockdown/icons/knowledge-on.webp" alt="Active Knowledge token" width="128" height="128" loading="lazy" decoding="async">), +1 for discovering the Nest or from some Computer Actions.</li>
+    <li><strong>Weaknesses:</strong> analysing a Corpse, Carcass or Egg in the Laboratory reveals the next Weakness card. Each type of Object can reveal only one. They help Characters with Knowledge 3, 5 or 8.</li>
+  </ul>
+
+  <h3>A Character dies</h3>
+  <ul>
+    <li><strong>Their Corpse</strong> <img class="ic" src="/games/nemesis-lockdown/icons/corpse.webp" alt="Character Corpse token" width="144" height="140" loading="lazy" decoding="async"> stays in the Room and their Heavy Objects drop there. Their other Items leave the game and their Contingency tokens go to the Neutral Pool.</li>
+    <li><strong>The first death</strong> opens the Main Gate, so the Bunker becomes reachable.</li>
+    <li><strong>Infected with a Larva already on your board</strong> means death, and a Creeper appears where you died.</li>
+  </ul>
+
+  <h3>Ways out open up</h3>
+  <ul>
+    <li><strong>CSS Pods:</strong> enter one from a Cargo Sending System Room while the Time token is on a CSS slot. You discard your cards and pass, and the Pod tries to launch in the Event Phase.</li>
+    <li><strong>Isolation Room:</strong> opens when the Time token reaches the white slot 8, or earlier through the Alert Procedure. Locking yourself in needs a Noise roll with no Intruder appearing.</li>
+    <li><strong>Bunker:</strong> needs the Main Gate open, you in the Exit Room with no Intruder, and the Rover there or an Enviro-Suit.</li>
+  </ul>
+
+  <h3>Alert Procedure</h3>
+  <p>Started in the Alert Room. Put the Alert token on the Time track slot equal to the current slot divided by 2 (rounded down). The Isolation Room opens at once. The game ends as soon as the Time token leaves the Alert token's slot.</p>
+
+  <h3>Autodestruction</h3>
+  <ul>
+    <li><strong>Started</strong> in the Cooling System: the token goes 3 slots ahead of the Time token, yellow side up.</li>
+    <li><strong>Yellow:</strong> anyone can stop it in the Power Generator Room.</li>
+    <li><strong>When the Time token reaches it,</strong> it jumps 3 slots ahead and flips red. The Main Gate opens and it can't be stopped.</li>
+    <li><strong>Red reached:</strong> the Facility explodes. Everyone inside dies, including in the Isolation Room.</li>
+  </ul>
+
+  <h3>Contingency</h3>
+  <p>One token is secretly Active and judges every survivor at the end. You can look at your own; you can trade, give and lie about what they say. Peek at others with the Archive, the Alert Room (Neutral Pool) or a Computer Action (all of one player's tokens in your Section). The Active one can never be checked.</p>
+
+  <h3>The game ends</h3>
+  <ul>
+    <li><strong>Time runs out</strong> (the final red slot): everyone not in the Isolation Room dies. The Intruders survive.</li>
+    <li><strong>The Facility explodes</strong> (red Autodestruction, a 13th Fire or an 11th Malfunction marker): everyone dies, including in the Isolation Room, and so do the Intruders and the Queen.</li>
+    <li><strong>Nobody is left inside:</strong> the last Character dies, isolates, escapes or launches. Jump the Time token to the Autodestruction or Alert token if one is out, otherwise to the end.</li>
+  </ul>
+  <p class="src">Once you escape, isolate or die, you only watch. If anyone survived, go to the <a href="#win">Victory Check</a>.</p>
+</section>
+
+<section class="card" id="rooms" data-label="Rooms">
+  <div class="kicker"><span>Reference</span><span class="ref">Rulebook p. 27–29</span></div>
+  <h2>Room Actions</h2>
+  <p class="tldr">Every Room Action costs 2 (the Elevator costs 1). None work in Combat or with a Malfunction in the Room.</p>
+  <h3>Special Rooms (printed on the board)</h3>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Room</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><b>Alert Room</b></td><td>Start the Alert Procedure, OR peek at 1 Neutral Pool Contingency and take it.</td></tr>
+      <tr><td><b>Backup Power Supply</b></td><td>Restore Power: unless 3+ Power tokens are blue, flip the 2 lowest to blue and the rest to red. Rearrange them across Sections. If the Time token is red, flip it blue.</td></tr>
+      <tr><td><b>Elevator Rooms</b><span class="when">Cost 1, needs Power</span></td><td>Call the Elevator to your Section, OR ride it to another Section.</td></tr>
+      <tr><td><b>Isolation Room</b></td><td>Lock yourself in once it's open. Starting a round here: draw up to 6.</td></tr>
+      <tr><td><b>Repository</b></td><td>Craft with only 1 matching Item.</td></tr>
+      <tr><td><b>Emergency Staircases</b></td><td>No Action. Always dark.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Rooms "I" (all 10 in every game)</h3>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Room</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><b>Archive</b></td><td>If your Knowledge token is inactive: +2 Knowledge, flip it, and peek at any Contingency token.</td></tr>
+      <tr><td><b>Cave Entrance</b></td><td>Move to any explored Room with a Technical Corridor Entrance, then take an Attack as if from an Adult in Darkness.</td></tr>
+      <tr><td><b>Cooling System</b></td><td>Start Autodestruction.</td></tr>
+      <tr><td><b>Decon Room</b></td><td>Scan the Contamination in your hand and remove INFECTED cards. Remove your Larva and Slime.</td></tr>
+      <tr><td><b>Emergency Room</b></td><td>Dress all Serious Wounds, OR heal 1 Dressed one, OR heal all Light Wounds.</td></tr>
+      <tr><td><b>Laboratory</b></td><td>Analyze a Corpse, Carcass or Egg in the Room: +3 Knowledge and reveal the next Weakness.</td></tr>
+      <tr><td><b>Cargo Sending System A</b></td><td>Enter Pod A while the Time token is on a CSS slot.</td></tr>
+      <tr><td><b>Nest</b></td><td>Take 1 Egg, then roll Noise. First to explore it gains 1 Knowledge. No Search, no Malfunction.</td></tr>
+      <tr><td><b>Power Generator</b></td><td>Stop a yellow Autodestruction, OR power your Section.</td></tr>
+      <tr><td><b>Transmitter Control</b></td><td>Send a Signal (Status marker on your board), OR make a Character who has sent one show you their Objective.</td></tr>
+      <tr><td><b>Guard Room</b></td><td>Lower the Item Counter by 1 and take a Taser or Enviro-Suit.</td></tr>
+      <tr><td><b>Contaminated Room</b></td><td>No Action. Searching here gives you Slime.</td></tr>
+      <tr><td><b>Surgery</b></td><td>Scan all your Contamination and remove INFECTED cards and your Larva. Take 1 Light Wound, pass, and shuffle all your cards into your deck.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Rooms "II" (6 of 9 each game)</h3>
+  <div class="table-scroll"><table>
+    <thead><tr><th>Room</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><b>Cargo Sending System B, C</b></td><td>Enter that Pod while the Time token is on a CSS slot.</td></tr>
+      <tr><td><b>CSS Control System</b></td><td>Peek at a CSS token and move it 1 slot either way (not off the Time token's slot, not onto another CSS token).</td></tr>
+      <tr><td><b>Defense Control Room</b></td><td>Lower the Item Counter or Malfunction this Room. Then Malfunction a Room with an Intruder: its Intruders take 1 Injury, its Characters 1 Serious Wound.</td></tr>
+      <tr><td><b>Testing Lab</b></td><td>At Knowledge 4+, take the Neutralizer.</td></tr>
+      <tr><td><b>Vent Control Room</b></td><td>Close every Door around a Room with a Technical Corridor Entrance and put out its Fire. If the Doors hold until everyone passes, everything in that Room dies.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">The rulebook lists 9 Rooms "I" by name plus Cargo Sending System A. Rooms with a Computer <img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async"> also give Computer Actions in a Section with Power.</p>
+</section>
+
+<section class="card" id="icons" data-label="Icons">
+  <div class="kicker"><span>Reference</span><span class="ref">Rulebook p. 4–24</span></div>
+  <h2>Icons and symbols</h2>
+  <p class="tldr">Every symbol the rulebook explains, in one place. The die faces, Noise results, Exploration tokens and Intruder tokens are in their own tables above.</p>
+  <h3>Markers and tokens</h3>
+  <ul class="key">
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/noise-marker.webp" alt="Noise marker" width="82" height="80" loading="lazy" decoding="async"><b>Noise</b> <span>Marks a Corridor. A second Noise there means an Encounter.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/slime-marker.webp" alt="Slime marker" width="77" height="84" loading="lazy" decoding="async"><b>Slime</b> <span>Silence counts as Danger for you. Clothes or the Decon Room remove it.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/fire-marker.webp" alt="Fire marker" width="82" height="87" loading="lazy" decoding="async"><b>Fire</b> <span>Light Wound at the end of your turn there; 1 Injury to Intruders each round. 12 in the game.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/malfunction-marker.webp" alt="Malfunction marker" width="85" height="87" loading="lazy" decoding="async"><b>Malfunction</b> <span>Room Action and Computer off. 10 in the game.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/door-token.webp" alt="Door token" width="73" height="120" loading="lazy" decoding="async"><b>Door</b> <span>Standing: Closed. Lying: Destroyed. None: Open.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/corpse.webp" alt="Character Corpse token" width="144" height="140" loading="lazy" decoding="async"><b>Character Corpse</b> <span>A Heavy Object for the Laboratory.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/carcass.webp" alt="Intruder Carcass token" width="120" height="80" loading="lazy" decoding="async"><b>Intruder Carcass</b> <span>A Heavy Object for the Laboratory.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/stalker-token.webp" alt="Night Stalker token" width="100" height="90" loading="lazy" decoding="async"><b>Intruder token</b> <span>Lower number with Power, higher number in Darkness.</span></li>
+  </ul>
+  <h3>Power and time</h3>
+  <ul class="key">
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/power-on.webp" alt="Power token, blue side" width="129" height="124" loading="lazy" decoding="async"><b>Section with Power</b> <span>Advantage die, Computers work, Noise gets cleared.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/power-off.webp" alt="Power token, red side" width="129" height="124" loading="lazy" decoding="async"><b>Section without Power</b> <span>Darkness.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/time-off.webp" alt="Time token, red side" width="129" height="128" loading="lazy" decoding="async"><b>Time token, red</b> <span>Backup power off: every Threshold cuts Power.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/time-on.webp" alt="Time token, blue side" width="129" height="128" loading="lazy" decoding="async"><b>Time token, blue</b> <span>Backup power on: only double Thresholds cut Power.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/darkness.webp" alt="Darkness layout" width="290" height="60" loading="lazy" decoding="async"><b>Darkness layout</b> <span>On Event and Attack cards: applies only in Sections without Power.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/css-all.webp" alt="CSS token" width="54" height="64" loading="lazy" decoding="async"><b>CSS token</b> <span>Its slot on the Time track is when Pods can be entered and launch.</span></li>
+  </ul>
+  <h3>On cards and boards</h3>
+  <ul class="key">
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/cost-2.webp" alt="Action cost symbol" width="88" height="82" loading="lazy" decoding="async"><b>Action cost</b> <span>Cards to discard from your hand.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/in-combat.webp" alt="In Combat Only" width="74" height="52" loading="lazy" decoding="async"><b>In Combat Only</b> <span>Only with an Intruder in your Room.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/out-of-combat.webp" alt="Out of Combat Only" width="74" height="68" loading="lazy" decoding="async"><b>Out of Combat Only</b> <span>Never with an Intruder in your Room.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/hand.webp" alt="Hand symbol" width="68" height="62" loading="lazy" decoding="async"><b>Hand</b> <span>A Heavy Item: carry it in a Hand slot, face up.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/comp-cross.svg" alt="Blue part symbol" width="64" height="64" loading="lazy" decoding="async"><b>Part symbol</b> <span>Blue on an Item: what it gives for crafting. Grey on a Crafted Item: what it needs.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async"><b>Computer</b> <span>Computer Actions here, in a Section with Power.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/blood.webp" alt="Blood symbol" width="110" height="80" loading="lazy" decoding="async"><b>Blood</b> <span>On Attack cards: an Intruder's endurance. Ignore it during attacks.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/retreat.webp" alt="Retreat symbol" width="120" height="82" loading="lazy" decoding="async"><b>Retreat</b> <span>In the blood drop: the Intruder flees.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/knowledge-off.webp" alt="Knowledge token, inactive" width="128" height="128" loading="lazy" decoding="async"><b>Knowledge, inactive</b> <span>You can still use the Archive.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/knowledge-on.webp" alt="Knowledge token, active" width="128" height="128" loading="lazy" decoding="async"><b>Knowledge, active</b> <span>Archive used. Some Objectives need it.</span></li>
+    <li><img class="ic" src="/games/nemesis-lockdown/icons/player-count.webp" alt="Player count symbol" width="90" height="64" loading="lazy" decoding="async"><b>Player count</b> <span>On Objectives: remove it with fewer players.</span></li>
+  </ul>
+  <p class="src">Pictures are from the official rulebook, © Awaken Realms. The blue part symbols are redrawn here because the rulebook prints them very small.</p>
 </section>
 
 <section class="card" id="tips" data-label="Tips">
@@ -235,4 +488,4 @@
   <p class="src">Common advice from players of the original Nemesis, adapted to Lockdown, for example <a href="https://elusivemeeple.com/2019/03/17/nemesis-strategy-tips" target="_blank" rel="noopener">Elusive Meeple's strategy tips</a>.</p>
 </section>
 
-<footer>Summarised from the official Nemesis: Lockdown rulebook (Awaken Realms). When this guide and the rulebook seem to differ, the <a href="/nemesis-lockdown">full rulebook</a> wins.</footer>
+<footer>Summarised from the official Nemesis: Lockdown rulebook (Awaken Realms). Pictures © Awaken Realms. When this guide and the rulebook seem to differ, the <a href="/nemesis-lockdown">full rulebook</a> wins.</footer>

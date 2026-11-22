@@ -409,6 +409,21 @@ dialog.lb::backdrop { background: rgba(7, 10, 17, 0.95); }
 .guide ul.tips.faq li::before { background: var(--cool-line); }
 .guide ul.tips.comm li::before { background: var(--ok); }
 .guide .src { font-size: 13px; color: var(--muted); }
+/* Rulebook icons beside the text they explain. */
+.guide img.ic { display: inline-block; height: 1.7em; width: auto; max-width: 5em; vertical-align: middle; margin: -0.2em 3px 0 0; border-radius: 3px; }
+.guide table.icons td:first-child { white-space: nowrap; width: 1%; }
+.guide table.icons td:first-child img.ic { height: 40px; max-width: 120px; margin: 0 4px 4px 0; }
+.guide table.icons td:first-child b { display: block; }
+.guide table.recipe td:first-child img.ic { height: 36px; margin: 0 2px; }
+.guide ul.key { list-style: none; padding: 0; display: grid; gap: 12px; margin: 0 0 16px; }
+@media (min-width: 700px) { .guide ul.key { grid-template-columns: 1fr 1fr; column-gap: 20px; } }
+.guide ul.key li { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 12px; align-items: center; margin: 0; }
+.guide ul.key img.ic { grid-row: 1 / span 2; justify-self: center; height: auto; max-height: 48px; max-width: 56px; margin: 0; }
+.guide ul.key b { display: block; line-height: 1.25; }
+.guide ul.key span { color: var(--ink2); font-size: 15px; line-height: 1.4; }
+.guide figure.pic { margin: 12px 0 16px; }
+.guide figure.pic img { display: block; max-width: 100%; height: auto; border-radius: 4px; }
+.guide figure.pic figcaption { margin-top: 6px; font-size: 13px; color: var(--muted); }
 .guide footer { font-size: 13px; color: var(--muted); padding: 6px 4px 30px; }
 
 /* ---------- Not found ---------- */
