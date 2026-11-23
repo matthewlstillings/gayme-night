@@ -82,7 +82,7 @@
       <tr><td><b>Careful Movement</b><span class="when">Out of Combat</span></td><td class="c">2</td><td>Move, but instead of a Noise roll, place a Noise marker in a Corridor of your choice connected to the new Room. Not allowed if every connected Corridor already has Noise.</td></tr>
       <tr><td><b>Pick Up Heavy Object</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Pick up a Corpse, Carcass or Egg in your Room.</td></tr>
       <tr><td><b>Trade</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Swap or give Items and Objects with Characters in your Room. Not Ammo.</td></tr>
-      <tr><td><b>Craft Item</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Discard 2 Items with the right blue part symbols to take a Crafted Item. See <a href="#craft">Crafting</a>.</td></tr>
+      <tr><td><b>Craft Item</b><span class="when">Out of Combat</span></td><td class="c">1</td><td>Discard 2 Items with the right blue Component symbols to take a Crafted Item. See <a href="#craft">Crafting</a>.</td></tr>
       <tr><td><b>Shoot</b><span class="when">In Combat</span></td><td class="c">1</td><td>Spend 1 Ammo from a Weapon in your Hand and roll. See <a href="#fight">Combat</a>.</td></tr>
       <tr><td><b>Melee Attack</b><span class="when">In Combat</span></td><td class="c">1</td><td>Take a Contamination card, then roll. A miss gives you a Serious Wound.</td></tr>
       <tr><td><b>Escape the Facility</b><span class="when">Exit Room, Main Gate open</span></td><td class="c">2</td><td>Ride the Rover to the Bunker, or walk there in an Enviro-Suit if your Noise roll brings no Intruder.</td></tr>
@@ -228,24 +228,14 @@
   </ul>
 
   <h3>Crafting recipes</h3>
-  <p>Craft Item (cost 1, out of Combat): discard 2 Items whose <strong>blue</strong> part symbols match the <strong>grey</strong> symbols on a Crafted Item card, first symbol then second. Take that card from the blue deck. You can look through the blue deck any time.</p>
-  <div class="table-scroll"><table class="icons recipe">
-    <thead><tr><th>Parts</th><th>Makes</th></tr></thead>
-    <tbody>
-      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-triangle.svg" alt="Triangle part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-cross.svg" alt="Cross part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Neutralizer</b></td></tr>
-      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-framed-slash.svg" alt="Framed slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Taser</b></td></tr>
-      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-triangle.svg" alt="Triangle part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Flamethrower</b></td></tr>
-      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-block.svg" alt="Block part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Enviro-Suit</b></td></tr>
-      <tr><td><img class="ic" src="/games/nemesis-lockdown/icons/comp-framed-slash.svg" alt="Framed slash part" width="64" height="64" loading="lazy" decoding="async"> + <img class="ic" src="/games/nemesis-lockdown/icons/comp-slash.svg" alt="Slash part" width="64" height="64" loading="lazy" decoding="async"></td><td><b>Pistol</b></td></tr>
-    </tbody>
-  </table></div>
+  <p>Craft Item (cost 1, out of Combat): discard 2 Items whose <strong>blue</strong> Component symbols match the <strong>grey</strong> Component symbols on a Crafted Item card, first symbol then second. Take that card from the blue deck. You can look through the blue deck any time.</p>
+  <figure class="pic"><img src="/games/nemesis-lockdown/figs/p26-crafting-recipes.webp" alt="The crafting recipes as printed in the rulebook" width="257" height="228" loading="lazy" decoding="async"><figcaption>The five recipes as printed on p. 26: Neutralizer, Taser, Flamethrower, Enviro-Suit and Pistol.</figcaption></figure>
   <ul>
-    <li><strong>Which Items give which part:</strong> look for the small blue gear in the corner of an Item card. The rulebook's examples: Medkit and Analyze Toolset give the cross.</li>
+    <li><strong>Which Items can be used:</strong> Item cards with a blue Component symbol. The rulebook's example: the Medkit's symbol makes it a Component for the Neutralizer (p. 25).</li>
     <li><strong>Repository:</strong> its Room Action lets you Craft with only 1 matching Item (cost 2).</li>
     <li><strong>No crafting needed:</strong> the Guard Room hands out a Taser or Enviro-Suit, and the Testing Lab a Neutralizer at Knowledge 4.</li>
     <li><strong>Out of cards:</strong> you can't build an Item if its card is already taken.</li>
   </ul>
-  <figure class="pic"><img src="/games/nemesis-lockdown/figs/p26-crafting-recipes.webp" alt="The crafting recipes as printed in the rulebook" width="257" height="228" loading="lazy" decoding="async"><figcaption>As printed on p. 26. The rulebook shows the parts only as pictures, so the names here describe how they look.</figcaption></figure>
 </section>
 
 <section class="card" id="event" data-label="Event Phase">
@@ -380,7 +370,7 @@
       <tr><td><b>Emergency Staircases</b></td><td>No Action. Always dark.</td></tr>
     </tbody>
   </table></div>
-  <h3>Rooms "I" (all 10 in every game)</h3>
+  <h3>Basic Rooms "I"</h3>
   <div class="table-scroll"><table>
     <thead><tr><th>Room</th><th>Action</th></tr></thead>
     <tbody>
@@ -394,23 +384,23 @@
       <tr><td><b>Nest</b></td><td>Take 1 Egg, then roll Noise. First to explore it gains 1 Knowledge. No Search, no Malfunction.</td></tr>
       <tr><td><b>Power Generator</b></td><td>Stop a yellow Autodestruction, OR power your Section.</td></tr>
       <tr><td><b>Transmitter Control</b></td><td>Send a Signal (Status marker on your board), OR make a Character who has sent one show you their Objective.</td></tr>
+      <tr><td><b>Guard Room</b></td><td>Lower the Item Counter by 1 and take a Taser or Enviro-Suit.</td></tr>
+      <tr><td><b>Contaminated Room</b></td><td>No Action. Searching here gives you Slime. It never gets a Malfunction.</td></tr>
+      <tr><td><b>Surgery</b></td><td>Scan all your Contamination and remove INFECTED cards and your Larva. Take 1 Light Wound, pass, and shuffle all your cards into your deck.</td></tr>
     </tbody>
   </table></div>
-  <h3>Rooms "II" (6 of these 9 each game)</h3>
+  <h3>Additional Rooms "II"</h3>
   <div class="table-scroll"><table>
     <thead><tr><th>Room</th><th>Action</th></tr></thead>
     <tbody>
       <tr><td><b>Cargo Sending System B, C</b></td><td>Enter that Pod while the Time token is on a CSS slot.</td></tr>
       <tr><td><b>CSS Control System</b></td><td>Peek at a CSS token and move it 1 slot either way (not off the Time token's slot, not onto another CSS token).</td></tr>
       <tr><td><b>Defense Control Room</b></td><td>Lower the Item Counter or Malfunction this Room. Then Malfunction a Room with an Intruder: its Intruders take 1 Injury, its Characters 1 Serious Wound.</td></tr>
-      <tr><td><b>Guard Room</b></td><td>Lower the Item Counter by 1 and take a Taser or Enviro-Suit.</td></tr>
-      <tr><td><b>Contaminated Room</b></td><td>No Action. Searching here gives you Slime. It never gets a Malfunction.</td></tr>
-      <tr><td><b>Surgery</b></td><td>Scan all your Contamination and remove INFECTED cards and your Larva. Take 1 Light Wound, pass, and shuffle all your cards into your deck.</td></tr>
       <tr><td><b>Testing Lab</b></td><td>At Knowledge 4+, take the Neutralizer.</td></tr>
       <tr><td><b>Vent Control Room</b></td><td>Close every Door around a Room with a Technical Corridor Entrance and put out its Fire. If the Doors hold until everyone passes, everything in that Room dies.</td></tr>
     </tbody>
   </table></div>
-  <p class="src">The rulebook prints Guard Room, Contaminated Room and Surgery just before the "II" heading, but only this split gives 10 Rooms "I" and 9 Rooms "II", as it states. Rooms with a Computer <img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async"> also give Computer Actions in a Section with Power.</p>
+  <p class="src">Rooms with a Computer <img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async"> also give Computer Actions in a Section with Power.</p>
 </section>
 
 <section class="card" id="icons" data-label="Icons">
@@ -443,7 +433,6 @@
     <li><img class="ic" src="/games/nemesis-lockdown/icons/in-combat.webp" alt="In Combat Only" width="74" height="52" loading="lazy" decoding="async"><div><b>In Combat Only</b> <span>Only with an Intruder in your Room.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/out-of-combat.webp" alt="Out of Combat Only" width="74" height="68" loading="lazy" decoding="async"><div><b>Out of Combat Only</b> <span>Never with an Intruder in your Room.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/hand.webp" alt="Hand symbol" width="68" height="62" loading="lazy" decoding="async"><div><b>Hand</b> <span>A Heavy Item: carry it in a Hand slot, face up.</span></div></li>
-    <li><img class="ic" src="/games/nemesis-lockdown/icons/comp-cross.svg" alt="Blue part symbol" width="64" height="64" loading="lazy" decoding="async"><div><b>Part symbol</b> <span>Blue on an Item: what it gives for crafting. Grey on a Crafted Item: what it needs.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/computer.webp" alt="Computer symbol" width="103" height="100" loading="lazy" decoding="async"><div><b>Computer</b> <span>Computer Actions here, in a Section with Power.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/blood.webp" alt="Blood symbol" width="110" height="80" loading="lazy" decoding="async"><div><b>Blood</b> <span>On Attack cards: an Intruder's endurance. Ignore it during attacks.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/retreat.webp" alt="Retreat symbol" width="120" height="82" loading="lazy" decoding="async"><div><b>Retreat</b> <span>In the blood drop: the Intruder flees.</span></div></li>
@@ -451,7 +440,7 @@
     <li><img class="ic" src="/games/nemesis-lockdown/icons/knowledge-on.webp" alt="Knowledge token, active" width="128" height="128" loading="lazy" decoding="async"><div><b>Knowledge, active</b> <span>Archive used. Some Objectives need it.</span></div></li>
     <li><img class="ic" src="/games/nemesis-lockdown/icons/player-count.webp" alt="Player count symbol" width="90" height="64" loading="lazy" decoding="async"><div><b>Player count</b> <span>On Objectives: remove it with fewer players.</span></div></li>
   </ul>
-  <p class="src">Pictures are from the official rulebook, © Awaken Realms. The blue part symbols are redrawn here because the rulebook prints them very small.</p>
+  <p class="src">Pictures are from the official rulebook, © Awaken Realms.</p>
 </section>
 
 <section class="card" id="tips" data-label="Tips">
