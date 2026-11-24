@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GTA 6 Field Guide: beginner tips and every missable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* tone: neon sunset (Vice City) · seed oklch(0.70 0.20 345) · neutral h 320 */
+:root, [data-theme="dark"] {
+  --seed-l: 0.70; --seed-c: 0.20; --seed-h: 345;
+  --n-h: 320; --n-c: 0.02;
+  --bg:          oklch(0.1385 var(--n-c) var(--n-h));
+  --surface-alt: oklch(0.1803 var(--n-c) var(--n-h));
+  --card:        oklch(0.1953 var(--n-c) var(--n-h));
+  --surface:     oklch(0.2328 calc(var(--n-c) * 0.9) var(--n-h));
+  --base:        oklch(0.3171 calc(var(--n-c) * 1.3) var(--n-h));
+  --base-hover:  oklch(from var(--base) calc(l + 0.0264) c h);
+  --border:        oklch(0.5585 calc(var(--n-c) * 1.4) var(--n-h) / 0.25);
+  --border-strong: oklch(0.5585 calc(var(--n-c) * 1.4) var(--n-h) / 0.5);
+  --border-control:oklch(0.5585 calc(var(--n-c) * 1.4) var(--n-h));
+  --raised:   oklch(0.2253 calc(var(--n-c) * 1.1) var(--n-h));
+  --floating: oklch(0.2103 calc(var(--n-c) * 1.1) var(--n-h));
+
+  --accent:           oklch(var(--seed-l) var(--seed-c) var(--seed-h));
+  --accent-hover:     oklch(from var(--accent) calc(l - 0.057) calc(c - 0.017) h);
+  --on-accent:        oklch(0.15 0 0);
+  --accent-subtle:    oklch(from var(--accent) 0.30 calc(c * 0.45) h);
+  --accent-on-subtle: oklch(from var(--accent) 0.92 calc(c * 0.30) h);
+  --accent-text:      oklch(from var(--accent) 0.80 calc(c * 0.70) h);
+  --focus-ring:       oklch(from var(--accent) l c h / 0.45);
+
+  /* series from a darker base because the seed is light (Tones rule) */
+  --series-1: var(--accent);
+  --series-4: oklch(0.80 0.12 228);   /* palm-shadow cyan, second voice */
+
+  --inverse:#eceff3; --on-inverse:#000000; --scrim:#000000a6;
+  --text:#eceff3; --text-subtle:#d8dde5; --text-muted:#a8a3b3;
+  --primary:#cbd5e1; --primary-hover:#d7dfe9; --on-primary:#111828;
+  --success:#0e7a56; --success-text:#69bca1;
+  --warning:#ebce0a; --warning-text:#f9e03d; --on-warning:#1c212d;
+  --error:#a70f39; --error-text:#ea98af;
+  --info:#0472ab; --info-text:#67b3d9;
+
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --radius-xs:2px; --radius-sm:4px; --radius-md:6px; --radius-lg:8px; --radius-xl:12px; --radius-xxl:16px; --radius-xxxl:24px; --radius-full:9999px;
+  --elevation-1:none; --elevation-2:none; --elevation-3:none; --elevation-4:none; --elevation-5:none;
+}
+/* Meridian Base — CSS components. Reads tokens only; a new tone restyles everything. */
+:where(html){color-scheme:dark}
+:where([data-theme="light"]){color-scheme:light}
+:where(body){margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mb-focus:focus-visible,.mb-btn:focus-visible,.mb-input:focus-visible,.mb-chip:focus-visible,.mb-switch:focus-visible,.mb-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;box-shadow:0 0 0 4px var(--focus-ring)}
+
+/* Button */
+.mb-btn{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 10px;border:1px solid transparent;border-radius:var(--radius-md);font:400 16px/1.5 var(--font-sans);white-space:nowrap;cursor:pointer;text-decoration:none;transition:color 200ms cubic-bezier(.42,0,.58,1),background-color 200ms cubic-bezier(.42,0,.58,1),border-color 200ms cubic-bezier(.42,0,.58,1)}
+.mb-btn svg{width:16px;height:16px;flex:none}
+.mb-btn--sm{padding:4px 8px;font-size:14px;line-height:20px}
+.mb-btn--lg{padding:10px 14px;font-size:18px;line-height:1.55}
+.mb-btn--primary{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.mb-btn--primary:hover{background:var(--primary-hover);border-color:var(--primary-hover)}
+.mb-btn--accent{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.mb-btn--accent:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.mb-btn--base{background:var(--base);color:var(--text);border-color:var(--border)}
+.mb-btn--base:hover{background:var(--base-hover)}
+.mb-btn--outline{background:transparent;color:var(--text);border-color:var(--border-control)}
+.mb-btn--outline:hover{background:var(--base)}
+.mb-btn--flat{background:transparent;color:var(--text)}
+.mb-btn--flat:hover{background:var(--base)}
+.mb-btn--danger{background:var(--error);color:#fff;border-color:var(--error)}
+.mb-btn--icon{padding:7px}
+.mb-btn:disabled,.mb-btn[aria-disabled="true"]{opacity:.6;cursor:not-allowed;filter:grayscale(.1)}
+
+/* TextField */
+.mb-field{display:grid;gap:4px;font-family:var(--font-sans)}
+.mb-label{font-size:14px;line-height:20px;font-weight:500;color:var(--text)}
+.mb-input{box-sizing:border-box;width:100%;padding:6px 10px;border:1px solid var(--border-control);border-radius:var(--radius-md);background:var(--surface-alt);color:var(--text);font:400 16px/1.5 var(--font-sans);box-shadow:var(--elevation-1);transition:border-color 200ms cubic-bezier(.42,0,.58,1)}
+.mb-input::placeholder{color:var(--text-muted)}
+.mb-input:hover{border-color:var(--text-muted)}
+.mb-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring)}
+.mb-help{font-size:12px;line-height:1.5;color:var(--text-muted)}
+.mb-field--error .mb-input{border-color:var(--error-text)}
+.mb-field--error .mb-help{color:var(--error-text)}
+
+/* Card */
+.mb-card{box-sizing:border-box;display:flex;flex-direction:column;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-xxl);box-shadow:var(--elevation-1);overflow:hidden;font-family:var(--font-sans)}
+.mb-card__header{padding:16px 16px 0}
+.mb-card__title{margin:0;font-size:18px;line-height:22px;font-weight:600}
+.mb-card__subtitle{margin:4px 0 0;font-size:14px;line-height:20px;color:var(--text-muted)}
+.mb-card__body{padding:8px 16px 16px;font-size:16px;line-height:1.5}
+.mb-card__body p{margin:0 0 16px}.mb-card__body p:last-child{margin:0}
+.mb-card__actions{display:flex;gap:8px;padding:0 16px 16px}
+.mb-card__media{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface)}
+
+/* Badge */
+.mb-badge{box-sizing:border-box;display:inline-flex;align-items:center;gap:2px;padding:4px 6px;border:1px solid transparent;border-radius:var(--radius-md);font:500 12px/1 var(--font-sans);white-space:nowrap}
+.mb-badge--pill{border-radius:var(--radius-full)}
+.mb-badge--base{background:var(--base);color:var(--text)}
+.mb-badge--primary{background:var(--primary);color:var(--on-primary)}
+.mb-badge--accent{background:var(--accent);color:var(--on-accent)}
+.mb-badge--success{background:var(--success);color:#fff}
+.mb-badge--warning{background:var(--warning);color:var(--on-warning)}
+.mb-badge--error{background:var(--error);color:#fff}
+.mb-badge--info{background:var(--info);color:#fff}
+.mb-badge--outline{background:transparent;border-color:var(--border-control);color:var(--text)}
+
+/* Chip */
+.mb-chip{box-sizing:border-box;display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border:1px solid var(--border-strong);border-radius:var(--radius-md);background:var(--surface);color:var(--text);font:400 14px/1 var(--font-sans);cursor:pointer;transition:background-color 200ms cubic-bezier(.42,0,.58,1),border-color 200ms cubic-bezier(.42,0,.58,1)}
+.mb-chip:hover{background:var(--base)}
+.mb-chip[aria-pressed="true"]{background:var(--accent-subtle);color:var(--accent-on-subtle);border-color:var(--accent)}
+.mb-chip--pill{border-radius:var(--radius-full)}
+
+/* Switch */
+.mb-switch{position:relative;box-sizing:border-box;width:60px;height:30px;padding:0;border:1px solid var(--border-control);border-radius:var(--radius-full);background:var(--base);cursor:pointer;transition:background-color 200ms cubic-bezier(.42,0,.58,1),border-color 200ms cubic-bezier(.42,0,.58,1)}
+.mb-switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:var(--radius-full);background:var(--text);transition:transform 200ms cubic-bezier(.42,0,.58,1)}
+.mb-switch[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
+.mb-switch[aria-checked="true"]::after{transform:translateX(30px);background:var(--on-accent)}
+.mb-switch-row{display:inline-flex;align-items:center;gap:12px;font:400 16px/1.5 var(--font-sans);color:var(--text)}
+
+/* Tabs */
+.mb-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);font-family:var(--font-sans)}
+.mb-tab{position:relative;padding:8px;border:0;background:none;color:var(--text-muted);font:500 14px/20px var(--font-sans);cursor:pointer;border-radius:var(--radius-md) var(--radius-md) 0 0}
+.mb-tab:hover{color:var(--text)}
+.mb-tab[aria-selected="true"]{color:var(--text)}
+.mb-tab[aria-selected="true"]::after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:2px;border-radius:2px;background:var(--accent)}
+
+/* Alert */
+.mb-alert{box-sizing:border-box;display:flex;align-items:flex-start;gap:10px;padding:10px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);color:var(--text);box-shadow:var(--elevation-2);font:400 14px/1.5 var(--font-sans)}
+.mb-alert__icon{flex:none;width:20px;height:20px;margin-top:1px}
+.mb-alert__title{margin:0;font-weight:600}
+.mb-alert__text{margin:0;color:var(--text-subtle)}
+.mb-alert--success .mb-alert__icon{color:var(--success-text)}
+.mb-alert--warning .mb-alert__icon{color:var(--warning-text)}
+.mb-alert--error .mb-alert__icon{color:var(--error-text)}
+.mb-alert--info .mb-alert__icon{color:var(--info-text)}
+
+/* ===== v2: full Meridian inventory ===== */
+.mb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mb-icon{width:16px;height:16px;flex:none}
+
+/* SplitButton + MenuButton */
+.mb-split{display:inline-flex}
+.mb-split>.mb-btn:first-child{border-start-end-radius:0;border-end-end-radius:0}
+.mb-split>.mb-btn:last-child{border-start-start-radius:0;border-end-start-radius:0;border-inline-start-color:color-mix(in srgb,currentColor 25%,transparent);padding-inline:7px}
+.mb-caret{width:16px;height:16px;flex:none}
+
+/* FAB */
+.mb-fab{display:inline-flex;align-items:center;gap:8px;padding:16px;border:0;border-radius:var(--radius-full);background:var(--accent);color:var(--on-accent);font:500 16px/1 var(--font-sans);box-shadow:var(--elevation-3);cursor:pointer;transition:background-color 200ms cubic-bezier(.42,0,.58,1)}
+.mb-fab:hover{background:var(--accent-hover)}
+.mb-fab svg{width:20px;height:20px}
+.mb-fab--extended{padding:14px 20px}
+.mb-fab:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ButtonGroup + SegmentedControl */
+.mb-btn-group{display:inline-flex;width:max-content;justify-self:start}
+.mb-btn-group>.mb-btn{border-radius:0;margin-inline-start:-1px}
+.mb-btn-group>.mb-btn:first-child{border-radius:var(--radius-md) 0 0 var(--radius-md);margin:0}
+.mb-btn-group>.mb-btn:last-child{border-radius:0 var(--radius-md) var(--radius-md) 0}
+.mb-btn-group>.mb-btn[aria-pressed="true"]{background:var(--accent-subtle);color:var(--accent-on-subtle);border-color:var(--accent);z-index:1}
+.mb-segmented{display:inline-flex;width:max-content;justify-self:start;gap:2px;padding:2px;border-radius:var(--radius-full);background:var(--base);font-family:var(--font-sans)}
+.mb-segmented button{padding:4px 14px;border:0;border-radius:var(--radius-full);background:transparent;color:var(--text-muted);font:500 14px/20px var(--font-sans);cursor:pointer;transition:background-color 200ms,color 200ms}
+.mb-segmented button:hover{color:var(--text)}
+.mb-segmented button[aria-pressed="true"]{background:var(--bg);color:var(--text);box-shadow:0 0 2px rgba(0,0,0,.16)}
+.mb-segmented button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* Toolbar */
+.mb-toolbar{display:flex;align-items:center;gap:4px;padding:6px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);font-family:var(--font-sans)}
+.mb-toolbar__sep{width:1px;align-self:stretch;margin:4px 4px;background:var(--border-strong)}
+.mb-toolbar__spacer{flex:1}
+
+/* Textarea / Numeric / Search / OTP / Floating label */
+.mb-textarea{min-height:96px;resize:vertical}
+.mb-input-wrap{display:flex;align-items:stretch;border:1px solid var(--border-control);border-radius:var(--radius-md);background:var(--surface-alt);box-shadow:var(--elevation-1);transition:border-color 200ms}
+.mb-input-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring)}
+.mb-input-wrap .mb-input{border:0;box-shadow:none;background:transparent;min-width:0}
+.mb-input-wrap .mb-input:focus{box-shadow:none}
+.mb-input-wrap__addon{display:flex;align-items:center;padding:0 10px;color:var(--text-muted)}
+.mb-spin{display:flex;flex-direction:column;border-inline-start:1px solid var(--border)}
+.mb-spin button{flex:1;width:28px;border:0;background:transparent;color:var(--text-muted);cursor:pointer;display:grid;place-items:center}
+.mb-spin button:hover{background:var(--base);color:var(--text)}
+.mb-spin button+button{border-top:1px solid var(--border)}
+.mb-otp{display:flex;gap:8px}
+.mb-otp .mb-input{width:44px;height:48px;padding:0;text-align:center;font-size:20px;font-weight:600}
+.mb-otp__sep{align-self:center;color:var(--text-muted)}
+.mb-float{position:relative}
+.mb-float .mb-input{padding-top:18px;padding-bottom:4px}
+.mb-float label{position:absolute;left:11px;top:13px;font:400 16px/1 var(--font-sans);color:var(--text-muted);pointer-events:none;transition:all 200ms cubic-bezier(.42,0,.58,1)}
+.mb-float .mb-input:focus+label,.mb-float .mb-input:not(:placeholder-shown)+label{top:6px;font-size:12px}
+.mb-float .mb-input:focus+label{color:var(--accent-text)}
+
+/* Select, Combobox, MultiSelect, popup list */
+.mb-select{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;box-sizing:border-box;padding:6px 10px;border:1px solid var(--border-control);border-radius:var(--radius-md);background:var(--surface-alt);color:var(--text);font:400 16px/1.5 var(--font-sans);box-shadow:var(--elevation-1);cursor:pointer;text-align:left}
+.mb-select:hover{border-color:var(--text-muted)}
+.mb-select[aria-expanded="true"]{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring)}
+.mb-select__value--placeholder{color:var(--text-muted)}
+.mb-popup{box-sizing:border-box;margin-top:4px;padding:4px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--floating);box-shadow:var(--elevation-3);font-family:var(--font-sans)}
+.mb-list{list-style:none;margin:0;padding:0;font:400 16px/1.5 var(--font-sans);color:var(--text)}
+.mb-list__header{padding:6px 8px 2px;font-size:12px;font-weight:600;color:var(--text-muted);text-transform:none}
+.mb-list__item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:var(--radius-sm);cursor:pointer}
+.mb-list__item:hover,.mb-list__item[data-focused]{background:var(--base)}
+.mb-list__item[aria-selected="true"]{background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-list__item[aria-disabled="true"]{opacity:.6;cursor:not-allowed}
+.mb-list__desc{display:block;font-size:14px;color:var(--text-muted)}
+.mb-list__item mark{background:none;color:var(--accent-text);font-weight:600}
+.mb-tags{display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:4px 6px;min-height:38px;box-sizing:border-box;border:1px solid var(--border-control);border-radius:var(--radius-md);background:var(--surface-alt);box-shadow:var(--elevation-1)}
+.mb-tags input{flex:1;min-width:80px;border:0;background:transparent;color:var(--text);font:400 16px/1.5 var(--font-sans);outline:none;padding:2px 4px}
+.mb-tag{display:inline-flex;align-items:center;gap:4px;padding:2px 4px 2px 8px;border-radius:var(--radius-sm);background:var(--base);color:var(--text);font:400 14px/20px var(--font-sans)}
+.mb-tag button{display:grid;place-items:center;width:18px;height:18px;padding:0;border:0;border-radius:var(--radius-xs);background:transparent;color:var(--text-muted);cursor:pointer}
+.mb-tag button:hover{background:var(--base-hover);color:var(--text)}
+
+/* Checkbox + Radio */
+.mb-check,.mb-radio{appearance:none;-webkit-appearance:none;flex:none;margin:0;width:18px;height:18px;border:1px solid var(--border-control);background:var(--surface-alt);cursor:pointer;display:inline-grid;place-content:center;transition:background-color 200ms,border-color 200ms}
+.mb-check{border-radius:var(--radius-sm)}
+.mb-radio{border-radius:50%}
+.mb-check::before{content:"";width:12px;height:12px;background:var(--on-accent);mask:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='square' stroke-width='2' d='M3,8 l3,3 l7-7'/%3e%3c/svg%3e") center/contain no-repeat;transform:scale(0)}
+.mb-check:indeterminate::before{mask:linear-gradient(#000,#000) center/10px 2px no-repeat;transform:scale(1)}
+.mb-radio::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--on-accent);transform:scale(0)}
+.mb-check:checked,.mb-check:indeterminate,.mb-radio:checked{background:var(--accent);border-color:var(--accent)}
+.mb-check:checked::before,.mb-radio:checked::before{transform:scale(1)}
+.mb-check:focus-visible,.mb-radio:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mb-check:disabled,.mb-radio:disabled{opacity:.6;cursor:not-allowed}
+.mb-choice{display:inline-flex;align-items:center;gap:8px;font:400 16px/1.5 var(--font-sans);color:var(--text);cursor:pointer}
+.mb-fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+.mb-fieldset legend{padding:0 0 4px;font:500 14px/20px var(--font-sans);color:var(--text)}
+
+/* Slider */
+.mb-slider{-webkit-appearance:none;appearance:none;width:100%;height:20px;background:transparent;--v:50;cursor:pointer}
+.mb-slider::-webkit-slider-runnable-track{height:4px;border-radius:var(--radius-full);background:linear-gradient(to right,var(--accent) calc(var(--v)*1%),var(--base) 0)}
+.mb-slider::-moz-range-track{height:4px;border-radius:var(--radius-full);background:var(--base)}
+.mb-slider::-moz-range-progress{height:4px;border-radius:var(--radius-full);background:var(--accent)}
+.mb-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-7px;border-radius:50%;background:var(--text);border:2px solid var(--accent);box-shadow:var(--elevation-2)}
+.mb-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--text);border:2px solid var(--accent)}
+.mb-slider:focus-visible{outline:none}
+.mb-slider:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--focus-ring)}
+.mb-slider-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;font:400 14px/20px var(--font-sans);color:var(--text-muted)}
+
+/* Rating */
+.mb-rating{display:inline-flex;gap:0}
+.mb-rating button{padding:4px;border:0;background:none;color:var(--base-hover);cursor:pointer;line-height:0}
+.mb-rating button svg{width:20px;height:20px}
+.mb-rating button[data-on]{color:var(--warning)}
+.mb-rating button:focus-visible{outline:2px solid var(--accent);border-radius:var(--radius-sm)}
+
+/* Calendar (+ date/time pickers, scheduler events) */
+.mb-calendar{display:inline-block;padding:12px;border:1px solid var(--border);border-radius:var(--radius-xl);background:var(--floating);font-family:var(--font-sans);color:var(--text)}
+.mb-calendar__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font:600 16px/1.5 var(--font-sans)}
+.mb-calendar__grid{display:grid;grid-template-columns:repeat(7,36px);gap:2px;text-align:center}
+.mb-calendar__dow{font:500 12px/24px var(--font-sans);color:var(--text-muted)}
+.mb-calendar__day{width:36px;height:36px;border:0;border-radius:var(--radius-md);background:transparent;color:var(--text);font:400 14px/1 var(--font-sans);cursor:pointer;position:relative}
+.mb-calendar__day:hover{background:var(--base)}
+.mb-calendar__day[data-out]{color:var(--text-muted);opacity:.6}
+.mb-calendar__day[data-today]{box-shadow:inset 0 0 0 1px var(--border-control);font-weight:600}
+.mb-calendar__day[aria-selected="true"]{background:var(--accent);color:var(--on-accent);font-weight:600}
+.mb-calendar__day[data-range]{background:var(--accent-subtle);color:var(--accent-on-subtle);border-radius:0}
+.mb-calendar__day[data-event]::after{content:"";position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--accent-text)}
+.mb-timelist{display:grid;max-height:200px;overflow:auto;padding:4px;gap:2px}
+.mb-event{display:block;padding:4px 8px;border-radius:var(--radius-sm);background:color-mix(in srgb,var(--ev,var(--accent)) 22%,var(--card));color:var(--text);font:400 13px/18px var(--font-sans);box-shadow:inset 3px 0 0 var(--ev,var(--accent))}
+.mb-event b{font-weight:600;display:block}
+
+/* ColorPicker */
+.mb-swatch{width:24px;height:24px;border-radius:var(--radius-sm);border:1px solid var(--border-strong);cursor:pointer;padding:0}
+.mb-swatch[aria-pressed="true"]{outline:2px solid var(--text);outline-offset:2px}
+.mb-palette{display:grid;grid-template-columns:repeat(8,24px);gap:6px}
+.mb-color-btn{display:inline-flex;align-items:center;gap:8px;padding:4px 8px 4px 4px}
+.mb-color-btn .mb-swatch{width:28px;height:28px;cursor:inherit}
+
+/* Upload / Dropzone / FileBox */
+.mb-dropzone{display:grid;place-items:center;gap:8px;padding:24px;border:1px dashed var(--border-control);border-radius:var(--radius-xl);background:var(--surface-alt);color:var(--text-muted);font:400 14px/20px var(--font-sans);text-align:center}
+.mb-dropzone[data-over]{border-color:var(--accent);background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-dropzone strong{color:var(--text);font-weight:600}
+.mb-file{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--card);font:400 14px/20px var(--font-sans);color:var(--text)}
+.mb-file__meta{grid-column:2;font-size:12px;color:var(--text-muted)}
+.mb-file .mb-progress{grid-column:2/4}
+
+/* Signature */
+.mb-signature{position:relative;height:140px;border:1px solid var(--border-control);border-radius:var(--radius-md);background:var(--surface-alt);touch-action:none}
+.mb-signature canvas{width:100%;height:100%;display:block;cursor:crosshair}
+.mb-signature__line{position:absolute;left:16px;right:16px;bottom:32px;border-top:1px dashed var(--border-strong);pointer-events:none}
+.mb-signature__actions{position:absolute;right:6px;top:6px}
+
+/* Breadcrumb */
+.mb-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:0;padding:0;list-style:none;font:400 14px/20px var(--font-sans)}
+.mb-breadcrumb a{color:var(--text-muted);text-decoration:none;padding:2px 4px;border-radius:var(--radius-sm)}
+.mb-breadcrumb a:hover{color:var(--text);background:var(--base)}
+.mb-breadcrumb [aria-current]{color:var(--text);font-weight:500;padding:2px 4px}
+.mb-breadcrumb__sep{color:var(--text-muted);width:14px;height:14px}
+
+/* Pager */
+.mb-pager{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-alt);font:400 14px/20px var(--font-sans);color:var(--text-muted)}
+.mb-pager__pages{display:flex;gap:2px}
+.mb-pager__pages .mb-btn{min-width:32px;padding:4px 6px;font-size:14px;line-height:20px}
+.mb-pager__pages .mb-btn[aria-current]{background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-pager__info{margin-inline-start:auto}
+
+/* Stepper / Wizard */
+.mb-stepper{display:flex;align-items:flex-start;margin:0;padding:0;list-style:none;font-family:var(--font-sans)}
+.mb-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;text-align:center}
+.mb-step:not(:last-child)::after{content:"";position:absolute;top:17px;left:calc(50% + 20px);right:calc(-50% + 20px);height:2px;background:var(--base-hover)}
+.mb-step[data-done]:not(:last-child)::after{background:var(--accent)}
+.mb-step__dot{width:28px;height:28px;margin:3px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border-control);background:var(--base-hover);color:var(--text-muted);font:600 13px/1 var(--font-sans)}
+.mb-step[data-done] .mb-step__dot{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.mb-step[aria-current] .mb-step__dot{background:var(--bg);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent-text)}
+.mb-step__label{font:500 14px/20px var(--font-sans);color:var(--text-muted)}
+.mb-step[aria-current] .mb-step__label,.mb-step[data-done] .mb-step__label{color:var(--text)}
+.mb-step__hint{font-size:12px;color:var(--text-muted)}
+
+/* AppBar + BottomNavigation + Drawer */
+.mb-appbar{display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--radius-xl);background:var(--base);color:var(--text);box-shadow:var(--elevation-1);font-family:var(--font-sans)}
+.mb-appbar__title{font:600 18px/22px var(--font-sans);margin:0}
+.mb-appbar__spacer{flex:1}
+.mb-appbar--accent{background:var(--accent);color:var(--on-accent)}
+.mb-appbar--accent .mb-btn--flat{color:inherit}
+.mb-bottomnav{display:flex;gap:4px;padding:6px;border-top:1px solid var(--border);background:var(--surface);font-family:var(--font-sans)}
+.mb-bottomnav a{flex:1;min-width:72px;min-height:48px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:var(--radius-md);color:var(--text-muted);text-decoration:none;font:500 12px/16px var(--font-sans)}
+.mb-bottomnav a svg{width:22px;height:22px}
+.mb-bottomnav a:hover{color:var(--text)}
+.mb-bottomnav a[aria-current]{color:var(--accent-text)}
+.mb-bottomnav a[aria-current] svg{background:var(--accent-subtle);border-radius:var(--radius-full);padding:2px 14px;box-sizing:content-box;color:var(--accent-on-subtle)}
+.mb-drawer{display:flex;flex-direction:column;gap:2px;width:240px;padding:8px;box-sizing:border-box;border-inline-end:1px solid var(--border);background:var(--surface-alt);font-family:var(--font-sans)}
+.mb-drawer__section{padding:12px 16px 4px;font:600 12px/16px var(--font-sans);color:var(--text-muted)}
+.mb-drawer__item{display:flex;align-items:center;gap:12px;padding:8px 16px;border-radius:var(--radius-sm);color:var(--text-subtle);text-decoration:none;font:400 16px/1.5 var(--font-sans)}
+.mb-drawer__item:hover{background:var(--base);color:var(--text)}
+.mb-drawer__item[aria-current]{background:var(--accent-subtle);color:var(--accent-on-subtle);font-weight:500}
+.mb-drawer__item svg{width:18px;height:18px;flex:none}
+.mb-drawer--mini{width:56px;padding:8px 6px}.mb-drawer--mini .mb-drawer__item{padding:10px;justify-content:center}.mb-drawer--mini .mb-drawer__label{display:none}
+
+/* Menu (also context menu, column menu) */
+.mb-menu{min-width:200px;margin:0;padding:4px;list-style:none;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--floating);box-shadow:var(--elevation-3);font:400 14px/20px var(--font-sans);color:var(--text)}
+.mb-menu__item{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:var(--radius-sm);cursor:pointer}
+.mb-menu__item+.mb-menu__item{margin-top:2px}
+.mb-menu__item:hover,.mb-menu__item:focus-visible{background:color-mix(in srgb,var(--base) 70%,transparent);outline:none}
+.mb-menu__item svg{width:16px;height:16px;color:var(--text-muted)}
+.mb-menu__kbd{margin-inline-start:auto;font:400 12px/16px var(--font-mono);color:var(--text-muted)}
+.mb-menu__item--danger{color:var(--error-text)}.mb-menu__item--danger svg{color:var(--error-text)}
+.mb-menu__sep{height:1px;margin:4px 0;background:var(--border)}
+.mb-menu__header{padding:6px 8px 2px;font-weight:600;font-size:12px;color:var(--text-muted)}
+.mb-menubar{display:flex;gap:2px;font:400 14px/20px var(--font-sans)}
+.mb-menubar button{padding:6px 10px;border:0;border-radius:var(--radius-md);background:transparent;color:var(--text);font:inherit;cursor:pointer}
+.mb-menubar button:hover,.mb-menubar button[aria-expanded="true"]{background:var(--base)}
+
+/* Accordion (PanelBar + ExpansionPanel) */
+.mb-accordion{border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--card);font-family:var(--font-sans)}
+.mb-accordion details+details{border-top:1px solid var(--border)}
+.mb-accordion summary{display:flex;align-items:center;gap:8px;padding:12px 16px;list-style:none;cursor:pointer;font:500 16px/1.5 var(--font-sans);color:var(--text)}
+.mb-accordion summary::-webkit-details-marker{display:none}
+.mb-accordion summary::after{content:"";margin-inline-start:auto;width:16px;height:16px;background:var(--text-muted);mask:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000' stroke-width='1.5' d='M4 6l4 4 4-4'/%3e%3c/svg%3e") center/contain no-repeat;transition:transform 250ms cubic-bezier(.42,0,.58,1)}
+.mb-accordion details[open] summary::after{transform:rotate(180deg)}
+.mb-accordion summary:hover{background:color-mix(in srgb,var(--base) 50%,transparent)}
+.mb-accordion summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.mb-accordion__sub{font-size:14px;font-weight:400;color:var(--text-muted)}
+.mb-accordion__body{padding:0 16px 16px;font:400 14px/20px var(--font-sans);color:var(--text-subtle)}
+
+/* TreeView */
+.mb-tree,.mb-tree ul{list-style:none;margin:0;padding:0;font:400 14px/20px var(--font-sans);color:var(--text)}
+.mb-tree ul{padding-inline-start:20px}
+.mb-tree__leaf{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:var(--radius-sm);cursor:pointer}
+.mb-tree__leaf:hover{background:var(--base)}
+.mb-tree__leaf[aria-selected="true"]{background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-tree__toggle{width:16px;height:16px;display:grid;place-items:center;color:var(--text-muted);transition:transform 200ms}
+.mb-tree [aria-expanded="false"]>.mb-tree__leaf .mb-tree__toggle{transform:rotate(-90deg)}
+.mb-tree [aria-expanded="false"]>ul{display:none}
+.mb-tree__leaf svg.mb-icon{color:var(--text-muted)}
+
+/* Timeline */
+.mb-timeline{list-style:none;margin:0;padding:0 0 0 24px;position:relative;font-family:var(--font-sans)}
+.mb-timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border-strong);border-radius:2px}
+.mb-timeline li{position:relative;padding-bottom:20px}
+.mb-timeline li:last-child{padding-bottom:0}
+.mb-timeline li::before{content:"";position:absolute;left:-24px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 3px var(--accent)}
+.mb-timeline li[data-done]::before{background:var(--accent)}
+.mb-timeline__date{font:500 12px/16px var(--font-sans);color:var(--accent-text)}
+.mb-timeline__title{margin:2px 0 0;font:600 16px/1.5 var(--font-sans);color:var(--text)}
+.mb-timeline__text{margin:2px 0 0;font:400 14px/20px var(--font-sans);color:var(--text-muted)}
+
+/* ScrollView (carousel) */
+.mb-scrollview{position:relative;border-radius:var(--radius-xxl);overflow:hidden;background:var(--surface)}
+.mb-scrollview__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.mb-scrollview__slide{flex:0 0 100%;scroll-snap-align:start}
+.mb-scrollview__nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:color-mix(in srgb,var(--bg) 70%,transparent);color:var(--text);cursor:pointer;display:grid;place-items:center}
+.mb-scrollview__nav--prev{left:8px}.mb-scrollview__nav--next{right:8px}
+.mb-scrollview__dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+.mb-scrollview__dots button{width:8px;height:8px;padding:0;border:0;border-radius:var(--radius-full);background:color-mix(in srgb,var(--text) 45%,transparent);cursor:pointer;transition:width 250ms}
+.mb-scrollview__dots button[aria-current]{width:20px;background:var(--text)}
+
+/* Dialog / Window / ActionSheet / Popover / Tooltip / Toast */
+.mb-scrim{position:fixed;inset:0;background:var(--scrim)}
+.mb-dialog{display:flex;flex-direction:column;width:min(480px,100%);max-height:calc(100vh - 48px);box-sizing:border-box;border:1px solid var(--border);border-radius:var(--radius-xxl);background:var(--raised);color:var(--text);box-shadow:var(--elevation-4);font-family:var(--font-sans);overflow:hidden}
+.mb-dialog__head{display:flex;align-items:center;gap:8px;padding:16px}
+.mb-dialog__title{margin:0;font:600 18px/22px var(--font-sans);flex:1}
+.mb-dialog__body{padding:0 16px 16px;font:400 16px/1.5 var(--font-sans);color:var(--text-subtle);overflow:auto}
+.mb-dialog__actions{display:flex;justify-content:flex-end;gap:8px;padding:12px 16px;border-top:1px solid var(--border)}
+.mb-dialog__actions--stretched>.mb-btn{flex:1}
+.mb-sheet{width:100%;max-width:420px;box-sizing:border-box;border-radius:var(--radius-xxl) var(--radius-xxl) 0 0;background:var(--raised);color:var(--text);box-shadow:var(--elevation-5);font-family:var(--font-sans);padding-bottom:8px}
+.mb-sheet__grip{width:36px;height:4px;margin:8px auto 4px;border-radius:var(--radius-full);background:var(--border-control)}
+.mb-sheet__title{margin:0;padding:8px 16px;font:600 16px/1.5 var(--font-sans)}
+.mb-sheet .mb-menu{border:0;box-shadow:none;background:transparent;padding:0 8px}
+.mb-sheet .mb-menu__item{padding:12px 8px;font-size:16px}
+.mb-popover{max-width:300px;box-sizing:border-box;border:1px solid var(--border);border-radius:var(--radius-xxl);background:var(--floating);color:var(--text);box-shadow:var(--elevation-3);font-family:var(--font-sans);position:relative}
+.mb-popover__head{padding:12px 16px 0;font:600 16px/1.5 var(--font-sans)}
+.mb-popover__body{padding:4px 16px 12px;font:400 14px/20px var(--font-sans);color:var(--text-subtle)}
+.mb-popover__actions{display:flex;gap:8px;padding:0 16px 12px}
+.mb-tooltip{display:inline-block;max-width:240px;padding:6px 10px;border-radius:var(--radius-md);background:var(--inverse);color:var(--on-inverse);font:400 14px/20px var(--font-sans);box-shadow:var(--elevation-2);position:relative}
+.mb-tooltip::after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;margin-left:-4px;background:inherit;transform:rotate(45deg)}
+.mb-toast{display:flex;align-items:center;gap:10px;min-width:280px;max-width:420px;box-sizing:border-box;padding:10px 10px 10px 14px;border-radius:var(--radius-md);background:var(--inverse);color:var(--on-inverse);box-shadow:var(--elevation-4);font:400 14px/20px var(--font-sans)}
+.mb-toast__msg{flex:1}
+.mb-toast__action{border:0;background:none;padding:4px 8px;border-radius:var(--radius-sm);font:600 14px/20px var(--font-sans);color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.mb-toast svg{width:18px;height:18px;flex:none}
+
+/* Progress, Loader, Skeleton, Empty state */
+.mb-progress{position:relative;height:6px;border-radius:var(--radius-full);background:var(--base);overflow:hidden}
+.mb-progress__bar{height:100%;border-radius:inherit;background:var(--accent);width:calc(var(--v,0)*1%);transition:width 350ms cubic-bezier(.42,0,.58,1)}
+.mb-progress--indeterminate .mb-progress__bar{width:35%;animation:mb-indet 1.4s cubic-bezier(.42,0,.58,1) infinite}
+@keyframes mb-indet{0%{transform:translateX(-100%)}100%{transform:translateX(300%)}}
+.mb-progress-row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;font:400 14px/20px var(--font-sans);color:var(--text)}
+.mb-progress-row .mb-progress{grid-column:1/-1}
+.mb-progress-ring{--v:0;width:40px;height:40px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--v)*1%),var(--base) 0);mask:radial-gradient(circle,transparent 14px,#000 15px)}
+.mb-loader{display:inline-flex;gap:4px;align-items:center}
+.mb-loader span{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:mb-pulse 1s cubic-bezier(.42,0,.58,1) infinite}
+.mb-loader span:nth-child(2){animation-delay:.15s}.mb-loader span:nth-child(3){animation-delay:.3s}
+@keyframes mb-pulse{0%,80%,100%{opacity:.25;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.mb-spinner{width:20px;height:20px;border-radius:50%;border:2px solid var(--base);border-top-color:var(--accent);animation:mb-spin 700ms linear infinite}
+@keyframes mb-spin{to{transform:rotate(360deg)}}
+.mb-skeleton{display:block;border-radius:var(--radius-sm);background:linear-gradient(90deg,var(--base) 0%,var(--base-hover) 50%,var(--base) 100%);background-size:200% 100%;animation:mb-shimmer 1.4s linear infinite}
+.mb-skeleton--text{height:12px}.mb-skeleton--circle{border-radius:50%}
+@keyframes mb-shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.mb-skeleton,.mb-loader span,.mb-spinner,.mb-progress--indeterminate .mb-progress__bar{animation-duration:3s}}
+.mb-empty{display:grid;justify-items:center;gap:8px;padding:32px 24px;text-align:center;font-family:var(--font-sans)}
+.mb-empty__art{width:56px;height:56px;border-radius:var(--radius-xl);display:grid;place-items:center;background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-empty__art svg{width:28px;height:28px}
+.mb-empty__title{margin:4px 0 0;font:600 18px/22px var(--font-sans);color:var(--text)}
+.mb-empty__text{margin:0;max-width:320px;font:400 14px/20px var(--font-sans);color:var(--text-muted)}
+
+/* Avatar */
+.mb-avatar{width:32px;height:32px;flex:none;border-radius:50%;display:inline-grid;place-items:center;overflow:hidden;background:var(--accent-subtle);color:var(--accent-on-subtle);font:600 13px/1 var(--font-sans)}
+.mb-avatar img{width:100%;height:100%;object-fit:cover}
+.mb-avatar--sm{width:24px;height:24px;font-size:11px}.mb-avatar--lg{width:48px;height:48px;font-size:18px}
+.mb-avatar--square{border-radius:var(--radius-md)}
+.mb-avatar--base{background:var(--base);color:var(--text)}
+.mb-avatar-stack{display:flex}.mb-avatar-stack .mb-avatar{box-shadow:0 0 0 2px var(--bg)}.mb-avatar-stack .mb-avatar+.mb-avatar{margin-inline-start:-8px}
+.mb-avatar-wrap{position:relative;display:inline-flex}
+.mb-presence{position:absolute;right:0;bottom:0;width:10px;height:10px;border-radius:50%;background:var(--success-text);box-shadow:0 0 0 2px var(--bg)}
+
+/* Table (Grid, TreeList) */
+.mb-table-wrap{border:1px solid var(--border);border-radius:var(--radius-xl);overflow:auto;background:var(--card)}
+.mb-table{width:100%;border-collapse:collapse;font:400 14px/20px var(--font-sans);color:var(--text)}
+.mb-table th,.mb-table td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.mb-table thead th{position:sticky;top:0;background:var(--surface-alt);color:var(--text-muted);font-weight:500;font-size:13px;z-index:1}
+.mb-table th[aria-sort]{cursor:pointer;color:var(--text)}
+.mb-table th[aria-sort] .mb-sort{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-inline-start:4px;color:var(--accent-text)}
+.mb-table tbody tr:hover{background:color-mix(in srgb,var(--base) 45%,transparent)}
+.mb-table tbody tr[aria-selected="true"]{background:var(--accent-subtle);color:var(--accent-on-subtle)}
+.mb-table tbody tr:last-child td{border-bottom:0}
+.mb-table .num{text-align:right;font-variant-numeric:tabular-nums}
+.mb-table--striped tbody tr:nth-child(even){background:color-mix(in srgb,var(--surface) 50%,transparent)}
+.mb-table--compact th,.mb-table--compact td{padding:6px 8px}
+.mb-table__toggle{display:inline-grid;place-items:center;width:18px;height:18px;margin-inline-end:4px;color:var(--text-muted);vertical-align:-3px}
+.mb-table__group td{background:var(--surface);font-weight:600;color:var(--text-subtle)}
+
+/* List / ListView / ListGroup / ListBox */
+.mb-listgroup{margin:0;padding:0;list-style:none;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--card);font-family:var(--font-sans)}
+.mb-listgroup>li{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.mb-listgroup>li+li{border-top:1px solid var(--border)}
+.mb-listgroup__main{flex:1;min-width:0}
+.mb-listgroup__title{margin:0;font:500 16px/1.5 var(--font-sans);color:var(--text)}
+.mb-listgroup__sub{margin:0;font:400 14px/20px var(--font-sans);color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mb-listgroup__end{font:400 14px/20px var(--font-sans);color:var(--text-muted);font-variant-numeric:tabular-nums}
+.mb-listgroup--interactive>li{cursor:pointer}.mb-listgroup--interactive>li:hover{background:color-mix(in srgb,var(--base) 45%,transparent)}
+.mb-listbox{display:flex;gap:8px;align-items:center}
+.mb-listbox .mb-popup{margin:0;width:180px;min-height:150px;box-shadow:none;background:var(--surface-alt)}
+.mb-listbox__tools{display:grid;gap:4px}
+
+/* TaskBoard */
+.mb-board{display:grid;grid-auto-flow:column;grid-auto-columns:240px;gap:12px;overflow-x:auto;font-family:var(--font-sans)}
+.mb-board__col{display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:var(--radius-xl);background:var(--surface-alt);border:1px solid var(--border)}
+.mb-board__head{display:flex;align-items:center;gap:8px;font:600 14px/20px var(--font-sans);color:var(--text)}
+.mb-board__count{margin-inline-start:auto;font-weight:500;color:var(--text-muted)}
+.mb-task{display:grid;gap:6px;padding:12px;border:1px solid var(--border);border-radius:var(--radius-xxl);background:var(--card);box-shadow:var(--elevation-1);cursor:grab}
+.mb-task__title{margin:0;font:500 14px/20px var(--font-sans);color:var(--text)}
+.mb-task__meta{display:flex;align-items:center;gap:6px;font:400 12px/16px var(--font-sans);color:var(--text-muted)}
+.mb-task__cat{display:inline-flex;align-items:center;gap:6px;font:500 12px/16px var(--font-sans);color:var(--text-subtle)}
+.mb-task__cat::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--cat,var(--accent))}
+
+/* Charts (Dataviz) */
+.mb-chart{font:400 12px/16px var(--font-sans);color:var(--text-muted)}
+.mb-chart .grid{stroke:color-mix(in srgb,var(--text) 8%,transparent)}
+.mb-chart .axis{fill:var(--text-muted)}
+.mb-chart .s1{fill:var(--series-1)}.mb-chart .s2{fill:var(--series-2)}.mb-chart .s3{fill:var(--series-3)}.mb-chart .s4{fill:var(--series-4)}.mb-chart .s5{fill:var(--series-5)}.mb-chart .s6{fill:var(--series-6)}
+.mb-chart .l1{stroke:var(--series-1)}.mb-chart .l2{stroke:var(--series-2)}.mb-chart .l4{stroke:var(--series-4)}
+.mb-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;padding:0;list-style:none;font:400 12px/16px var(--font-sans);color:var(--text-subtle)}
+.mb-legend li{display:inline-flex;align-items:center;gap:6px}
+.mb-legend li::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--c)}
+.mb-stat{display:grid;gap:2px}
+.mb-stat__label{font:400 14px/20px var(--font-sans);color:var(--text-muted)}
+.mb-stat__value{font:300 40px/1.1 var(--font-sans);color:var(--text);font-variant-numeric:tabular-nums}
+.mb-stat__delta{font:500 13px/18px var(--font-sans)}
+.mb-stat__delta--up{color:var(--success-text)}.mb-stat__delta--down{color:var(--error-text)}
+
+/* Chat + AI (Chat, Bubble, PromptBox, Suggestion, Citation, AgentResponse, SpeechToText) */
+.mb-chat{display:flex;flex-direction:column;gap:12px;font-family:var(--font-sans)}
+.mb-msg{display:flex;gap:8px;align-items:flex-end;max-width:85%}
+.mb-msg--me{align-self:flex-end;flex-direction:row-reverse}
+.mb-bubble{padding:12px;border-radius:var(--radius-xxl) var(--radius-xxl) var(--radius-xxl) var(--radius-sm);background:var(--base);color:var(--text);font:400 15px/1.5 var(--font-sans)}
+.mb-msg--me .mb-bubble{border-radius:var(--radius-xxl) var(--radius-sm) var(--radius-xxl) var(--radius-xxl);background:var(--accent);color:var(--on-accent)}
+.mb-msg__time{font:400 11px/14px var(--font-sans);color:var(--text-muted);margin-top:4px}
+.mb-agent{display:grid;gap:8px;max-width:90%;font:400 15px/1.55 var(--font-sans);color:var(--text)}
+.mb-agent__steps{display:flex;flex-wrap:wrap;gap:6px;font:400 12px/16px var(--font-sans);color:var(--text-muted)}
+.mb-agent__step{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:var(--radius-full);background:var(--surface)}
+.mb-agent__step svg{width:12px;height:12px;color:var(--success-text)}
+.mb-cite{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 4px;margin:0 2px;border-radius:var(--radius-sm);background:var(--accent-subtle);color:var(--accent-on-subtle);font:600 11px/1 var(--font-sans);vertical-align:2px;text-decoration:none}
+.mb-sources{display:flex;flex-wrap:wrap;gap:6px}
+.mb-source{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border:1px solid var(--border);border-radius:var(--radius-full);background:var(--card);color:var(--text-subtle);font:400 12px/16px var(--font-sans);text-decoration:none}
+.mb-source .mb-cite{margin:0}
+.mb-suggestions{display:flex;flex-wrap:wrap;gap:6px}
+.mb-suggestion{padding:6px 12px;border:1px solid var(--border-strong);border-radius:var(--radius-full);background:transparent;color:var(--text);font:400 14px/20px var(--font-sans);cursor:pointer}
+.mb-suggestion:hover{background:var(--base);border-color:var(--accent)}
+.mb-prompt{display:grid;gap:6px;padding:10px;border:1px solid var(--border-control);border-radius:var(--radius-xxl);background:var(--surface-alt);box-shadow:var(--elevation-2)}
+.mb-prompt:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring)}
+.mb-prompt textarea{border:0;background:transparent;color:var(--text);font:400 16px/1.5 var(--font-sans);resize:none;outline:none;min-height:48px;padding:2px 4px}
+.mb-prompt textarea::placeholder{color:var(--text-muted)}
+.mb-prompt__bar{display:flex;align-items:center;gap:4px}
+.mb-prompt__send{margin-inline-start:auto;border-radius:var(--radius-full)!important}
+.mb-mic[aria-pressed="true"]{background:var(--error);color:#fff;border-color:var(--error);animation:mb-pulse-ring 1.4s infinite}
+@keyframes mb-pulse-ring{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--error) 50%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+
+/* Layout helpers (StackLayout, GridLayout, TileLayout, Splitter, Panel) */
+.mb-stack{display:flex;flex-direction:column;gap:var(--gap,16px)}
+.mb-stack--h{flex-direction:row;align-items:center}
+.mb-grid{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:var(--gap,16px)}
+.mb-tile{border:1px solid var(--border);border-radius:var(--radius-xxl);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
+.mb-tile__head{display:flex;align-items:center;gap:8px;padding:12px 16px;font:600 14px/20px var(--font-sans);color:var(--text);cursor:grab}
+.mb-tile__body{padding:0 16px 16px;flex:1}
+.mb-splitter{display:flex;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--card)}
+.mb-splitter__pane{padding:16px;overflow:auto;font:400 14px/20px var(--font-sans);color:var(--text-subtle)}
+.mb-splitter__bar{flex:none;width:6px;background:var(--surface);cursor:col-resize;display:grid;place-items:center;border-inline:1px solid var(--border)}
+.mb-splitter__bar::before{content:"";width:2px;height:24px;border-radius:2px;background:var(--border-control)}
+.mb-splitter__bar:hover{background:var(--accent-subtle)}
+
+
+/* ---------- page layer (tokens only) ---------- */
+*{box-sizing:border-box}
+html{scroll-padding-top:120px}
+body{min-height:100vh;background:
+  radial-gradient(1200px 500px at 85% -120px, oklch(from var(--accent) 0.30 0.10 h / 0.55), transparent 70%),
+  radial-gradient(900px 400px at -10% -80px, oklch(from var(--series-4) 0.30 0.07 h / 0.45), transparent 70%),
+  var(--bg);
+  background-repeat:no-repeat}
+a{color:var(--accent-text)}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 96px}
+.topbar{position:sticky;top:0;z-index:20;background:oklch(from var(--bg) l c h / 0.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.topbar__in{max-width:880px;margin:0 auto;padding:calc(10px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+body{overflow-x:clip}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.brand__mark{width:28px;height:28px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--accent),var(--series-4));flex:none}
+.brand__t{font:600 16px/20px var(--font-sans);margin:0}
+.brand__s{font:400 12px/16px var(--font-sans);color:var(--text-muted);margin:0}
+.brand__sp{flex:1}
+.tabs-scroll{overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.mb-tabs{border-bottom:0;white-space:nowrap}
+.mb-tab{flex:none;padding:10px 10px}
+
+h1.hero{font:300 40px/48px var(--font-sans);letter-spacing:-0.01em;margin:32px 0 8px}
+h1.hero b{font-weight:600;background:linear-gradient(90deg,var(--accent-text),var(--series-4));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font:400 18px/1.55 var(--font-sans);color:var(--text-subtle);margin:0 0 20px;max-width:640px}
+.tldr{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:var(--radius-xl);background:var(--accent-subtle);color:var(--accent-on-subtle);font:400 15px/22px var(--font-sans);margin-bottom:20px}
+.tldr b{font-weight:600}
+h2.sec{font:600 22px/30px var(--font-sans);margin:40px 0 4px;display:flex;align-items:center;gap:10px}
+h2.sec .num{font:500 12px/16px var(--font-mono);color:var(--accent-text);border:1px solid var(--border-strong);border-radius:var(--radius-full);padding:2px 8px}
+p.sub{margin:0 0 16px;color:var(--text-muted);font:400 14px/20px var(--font-sans)}
+h3.h6{font:600 18px/22px var(--font-sans);margin:0 0 6px}
+.grid2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.mb-card{background:var(--card)}
+.tip{padding:16px;border-radius:var(--radius-xxl);background:var(--card);border:1px solid var(--border)}
+.tip p{margin:0 0 8px;font:400 15px/22px var(--font-sans);color:var(--text-subtle)}
+.tip p:last-child{margin-bottom:0}
+.tip b,.tip strong{color:var(--text);font-weight:600}
+.tip ul{margin:4px 0 0;padding-left:18px;color:var(--text-subtle);font:400 15px/22px var(--font-sans)}
+.tip li{margin-bottom:6px}
+.kbd{display:inline-block;font:500 12px/18px var(--font-mono);padding:0 6px;border-radius:var(--radius-sm);background:var(--base);border:1px solid var(--border-strong);color:var(--text);white-space:nowrap}
+.panel{display:none}
+.panel.on{display:block}
+.mute{color:var(--text-muted)}
+.small{font:400 13px/18px var(--font-sans)}
+
+/* status panel */
+.status{display:grid;gap:14px;padding:16px;border-radius:var(--radius-xxl);background:var(--card);border:1px solid var(--border);margin-bottom:8px}
+.status__row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.status>*{min-width:0}
+.status .mb-segmented{display:flex;width:auto;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.status .mb-segmented::-webkit-scrollbar{display:none}
+.status .mb-segmented button{flex:1 0 auto;padding:6px 12px}
+.next{display:grid;gap:10px}
+.next__head{display:flex;align-items:center;gap:8px;font:600 14px/20px var(--font-sans);color:var(--text)}
+.pnr{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:var(--radius-lg);border:1px solid oklch(from var(--error) l c h / 0.6);background:oklch(from var(--error) 0.24 0.06 h / 0.5)}
+.pnr__ic{color:var(--error-text);flex:none;margin-top:2px}
+.pnr__t{font:600 14px/20px var(--font-sans);margin:0;color:var(--text)}
+.pnr__d{font:400 14px/20px var(--font-sans);margin:2px 0 0;color:var(--text-subtle)}
+.mini{display:flex;gap:8px;align-items:baseline;font:400 14px/20px var(--font-sans);color:var(--text-subtle);margin:0;padding:0;list-style:none}
+.minis{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.minis li{display:flex;gap:8px;font:400 14px/20px var(--font-sans);color:var(--text-subtle)}
+.minis li::before{content:"";flex:none;width:6px;height:6px;margin-top:7px;border-radius:50%;background:var(--accent)}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;justify-content:space-between;margin:12px 0}
+.switchline{display:flex;align-items:center;gap:10px;font:500 14px/20px var(--font-sans);color:var(--text-subtle)}
+.mb-switch{width:44px;height:24px;flex:none}
+.mb-switch::after{top:2px;left:2px;width:18px;height:18px}
+.mb-switch[aria-checked="true"]::after{transform:translateX(20px)}
+
+/* chapter block */
+.chap{margin:28px 0 0;position:relative}
+.chap__head{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;margin-bottom:12px}
+.chap__n{grid-row:span 2;width:44px;height:44px;border-radius:var(--radius-xl);display:grid;place-items:center;font:600 18px/1 var(--font-sans);background:var(--surface);border:1px solid var(--border-strong);color:var(--accent-text)}
+.chap__t{font:600 18px/22px var(--font-sans);margin:0}
+.chap__s{font:400 13px/18px var(--font-sans);color:var(--text-muted);margin:0}
+.chap__c{grid-row:span 2;font:500 13px/18px var(--font-mono);color:var(--text-muted);text-align:right}
+.chap__bar{grid-column:1/-1;margin-top:6px}
+.chap.now .chap__n{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.items{display:grid;gap:10px}
+.shield{position:relative}
+.shield.locked .items,.shield.locked .chap__s{filter:blur(7px);pointer-events:none;user-select:none}
+.shield__btn{display:none}
+.shield.locked .shield__btn{display:flex;position:absolute;inset:56px 0 0 0;align-items:flex-start;justify-content:center;padding-top:24px;z-index:2}
+
+/* missable item */
+.it{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:14px;border-radius:var(--radius-xxl);background:var(--card);border:1px solid var(--border);transition:opacity 200ms cubic-bezier(.42,0,.58,1),border-color 200ms}
+.it:has(.mb-check:checked){opacity:.55}
+.it:has(.mb-check:checked) .it__t{text-decoration:line-through;text-decoration-color:var(--text-muted)}
+.it.hot{border-color:oklch(from var(--warning) l c h / 0.55)}
+.it .mb-check{margin-top:3px;width:20px;height:20px}
+.it__t{font:600 16px/22px var(--font-sans);margin:0;cursor:pointer}
+.it__tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.it__win{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:8px 0 0;font:400 14px/20px var(--font-sans)}
+.it__win dt{color:var(--text-muted);font-weight:500;white-space:nowrap}
+.it__win dd{margin:0;color:var(--text-subtle)}
+.it__win dd.gone{color:var(--error-text)}
+.it__win dd.open{color:var(--success-text)}
+.it__body{grid-column:2}
+.it__src{margin-top:8px;font:400 12px/16px var(--font-sans);color:var(--text-muted)}
+.it__src a{color:var(--text-muted)}
+.mb-badge{font-size:12px}
+.b-cyan{background:oklch(from var(--series-4) 0.30 0.06 h);color:oklch(from var(--series-4) 0.92 0.05 h)}
+
+/* checklists */
+.list{display:grid;gap:2px;padding:6px;border-radius:var(--radius-xxl);background:var(--card);border:1px solid var(--border)}
+.row{display:flex;gap:12px;align-items:flex-start;padding:10px;border-radius:var(--radius-lg);cursor:pointer}
+.row:hover{background:var(--surface-alt)}
+.row .mb-check{margin-top:2px;width:20px;height:20px;flex:none}
+.row__t{font:500 15px/22px var(--font-sans);color:var(--text)}
+.row__d{font:400 13px/18px var(--font-sans);color:var(--text-muted);margin-top:2px}
+.row:has(.mb-check:checked) .row__t{color:var(--text-muted);text-decoration:line-through}
+.list__head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 10px 6px}
+.list__head h3{margin:0;font:600 16px/22px var(--font-sans)}
+.when{font:500 12px/16px var(--font-sans);color:var(--error-text)}
+
+/* 100% counters */
+.req{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:10px;border-radius:var(--radius-lg)}
+.req:nth-child(odd){background:var(--surface-alt)}
+.req__t{font:500 15px/20px var(--font-sans)}
+.req__d{grid-column:1;font:400 13px/18px var(--font-sans);color:var(--text-muted)}
+.req__ctl{grid-row:span 2;display:flex;align-items:center;gap:6px;font:500 14px/20px var(--font-mono);color:var(--text-muted)}
+.req__ctl input{width:64px;text-align:right;padding:4px 6px;font:500 14px/20px var(--font-mono);background:var(--surface-alt);color:var(--text);border:1px solid var(--border-control);border-radius:var(--radius-md)}
+.req__ctl input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.req.done .req__t{color:var(--success-text)}
+.req .mb-check{width:20px;height:20px}
+.grp{margin:20px 0 8px;font:600 14px/20px var(--font-sans);color:var(--text-muted);text-transform:none;display:flex;justify-content:space-between}
+
+table.mb-table td,table.mb-table th{vertical-align:top}
+.ctl-table td:first-child{white-space:nowrap}
+
+.foot{margin-top:48px;padding-top:16px;border-top:1px solid var(--border);font:400 13px/18px var(--font-sans);color:var(--text-muted)}
+.src{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.src li{padding:12px 14px;border-radius:var(--radius-lg);background:var(--card);border:1px solid var(--border);font:400 14px/20px var(--font-sans)}
+.src li span{display:block;color:var(--text-muted);font-size:13px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:30}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);opacity:0;transition:opacity 250ms,transform 250ms cubic-bezier(0,0,.58,1);background:var(--inverse);color:var(--on-inverse);padding:8px 14px;border-radius:var(--radius-full);font:500 14px/20px var(--font-sans);z-index:40;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.empty{padding:24px;text-align:center;color:var(--text-muted);border:1px dashed var(--border-strong);border-radius:var(--radius-xxl)}
+@media (max-width:560px){h1.hero{font-size:32px;line-height:40px}.it{padding:12px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar__in">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <div><p class="brand__t">Leonida Field Guide</p><p class="brand__s">GTA 6 beginner guide</p></div>
+      <span class="brand__sp"></span>
+      <span class="mb-badge mb-badge--outline mb-badge--pill" id="overall">0% tracked</span>
+    </div>
+    <div class="tabs-scroll"><div class="mb-tabs" role="tablist" id="tabs">
+      <button class="mb-tab" role="tab" aria-selected="true" data-p="start">Start here</button>
+      <button class="mb-tab" role="tab" aria-selected="false" data-p="miss">Missables</button>
+      <button class="mb-tab" role="tab" aria-selected="false" data-p="pre">Before you go</button>
+      <button class="mb-tab" role="tab" aria-selected="false" data-p="full">100%</button>
+      <button class="mb-tab" role="tab" aria-selected="false" data-p="src">Sources</button>
+    </div></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="hero">Play <b>GTA 6</b> without losing anything for good.</h1>
+  <p class="lede">The game has <strong>no mission replay</strong>, and most of what you can lose sits in Chapter 1. Set where you are below, and this guide shows only what still matters.</p>
+
+  <section class="status" aria-label="Your progress">
+    <div class="status__row">
+      <div><div class="next__head">Where are you in the story?</div><div class="small mute">Saved on this device. Later chapters stay blurred so nothing gets spoiled.</div></div>
+    </div>
+    <div class="mb-segmented" role="group" aria-label="Current chapter" id="chapSel"></div>
+    <div class="next" id="nextBox"></div>
+  </section>
+
+  <!-- ================= START HERE ================= -->
+  <section class="panel on" id="p-start" role="tabpanel">
+    <div class="tldr" style="margin-top:24px"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M8 1.5l1.9 4 4.3.5-3.2 3 .9 4.3L8 11.1 4.1 13.3l.9-4.3-3.2-3 4.3-.5z"/></svg><div><b>TL;DR:</b> save by hand before every chapter finale, bank your cash, buy (don't loot) the guns you love, and don't chase big money until Chapter 3.</div></div>
+
+    <h2 class="sec"><span class="num">01</span>First 10 minutes</h2>
+    <p class="sub">Fix these settings before you play.</p>
+    <div class="grid2">
+      <div class="tip"><h3 class="h6">Camera and controls</h3><ul>
+        <li><b>Motion Blur Strength → 0</b> (Settings › Display).</li>
+        <li><b>Look and Aim Sensitivity → 9 or 10</b> (Settings › Controller).</li>
+        <li><b>Movement Speed → Run</b> (Settings › Gameplay).</li>
+        <li><b>Lock the minimap</b> on screen, and switch units (feet/meters, °F/°C) under Unit Settings.</li></ul></div>
+      <div class="tip"><h3 class="h6">The prologue</h3><p><b>Play it in one sitting.</b> Save Game is grayed out for the whole prologue.</p><p><b>Make your first manual save</b> the moment it unlocks.</p><p class="small mute">Fun extra: escape the store robbery on a Seashark jet ski instead of the road for unique dialogue.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">02</span>Saving: your only undo</h2>
+    <p class="sub">There's no mission replay. Your saves are the replay.</p>
+    <div class="grid2">
+      <div class="tip"><p><b>Autosave only runs after a mission ends.</b> You can't save mid-mission.</p><p><b>Save manually:</b> Pause › Game › Save Game. There are <b>15 slots</b>.</p><p><b>Use a fresh slot every chapter</b>, and one more right before each finale.</p></div>
+      <div class="tip"><p><b>Save before random encounters, too.</b> Dying in a side event costs the cash you carry.</p><p><b>Cheats unlock after the story.</b> They switch off trophies and saving for that session, so use a throwaway save.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">03</span>Money: three pockets</h2>
+    <p class="sub">Where your money sits decides whether you keep it.</p>
+    <div class="mb-table-wrap"><table class="mb-table">
+      <thead><tr><th>Pocket</th><th>Safe?</th><th>What to know</th></tr></thead>
+      <tbody>
+        <tr><td><b>Cash on you</b></td><td><span class="mb-badge mb-badge--error">No</span></td><td>Lost when you're <b>busted or downed</b>. Cap is about <b>$20,000</b>; you can't pick up more. Shops take cash only up to about $1,000.</td></tr>
+        <tr><td><b>Jason's floor stash → BuckMe</b></td><td><span class="mb-badge mb-badge--success">Yes</span></td><td>Drop cash under Jason's bedroom floor. After the <b>Buck Me</b> mission, deposit at any ATM. Big buys come out of BuckMe.</td></tr>
+        <tr><td><b>Family Savings</b></td><td><span class="mb-badge mb-badge--info">Locked</span></td><td>The <b>only money that survives Chapter 1</b>. You can't withdraw it. Put at least <b>$5,000</b> in before Tourist Trap.</td></tr>
+      </tbody></table></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="tip"><h3 class="h6">Early money that's worth it</h3><ul>
+        <li><b>Shirley's rum errand: about $2,600.</b> Parrot cage vent (~$1,300) plus the back-room safe (~$1,300).</li>
+        <li><b>Kenton's treasure dives</b> after Island Dreams: the first wreck pays about $1,400.</li>
+        <li><b>Check Jason's mailbox.</b> Mission pay and Brian's lockup payouts land there.</li>
+        <li><b>Brian's lockup code: 7700.</b> Drop loot in his strongbox; he pays later.</li></ul></div>
+      <div class="tip"><h3 class="h6">When the real money starts</h3><ul>
+        <li><b>Chapters 1–2:</b> enough for guns and clothes. Don't grind.</li>
+        <li><b>Chapter 3:</b> jewelry stores ($10,000–25,000), Randy's Wish List cars ($30,000+), small banks after <i>Credit Check</i>.</li>
+        <li><b>End of Chapter 4:</b> large bank vaults, reported up to $205,000 each.</li>
+        <li><b>Fences pay differently.</b> Compare offers in the map's robbery index, or ask your partner to sell (a bit less, no trip).</li></ul></div>
+    </div>
+
+    <h2 class="sec"><span class="num">04</span>Guns and gear</h2>
+    <div class="grid2">
+      <div class="tip"><p><b>Only guns you buy at Ammu-Nation are yours.</b> They come back after death and sit in every store's weapon locker.</p><p><b>Looted guns vanish</b> when you're busted or downed. Keep favorites in your car's trunk.</p><p><b>Carry limit:</b> two sidearms and two long guns.</p></div>
+      <div class="tip"><p><b>Buy the long gun in <i>Gear Up</i></b> at Chuck's Tackle &amp; Shot in Key Lento. Skipping it can stall the Feng Shui call.</p><p><b>Holster with <span class="kbd">L1</span>/<span class="kbd">LB</span>.</b> A drawn gun makes bystanders call the cops.</p><p><b>Suppressors</b> delay the police, but don't stop every report.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">05</span>Police and heat</h2>
+    <p class="sub">Stars are back (up to six), and cops now track what they know about you.</p>
+    <div class="grid2">
+      <div class="tip"><h3 class="h6">Don't get reported</h3><ul>
+        <li><b>Rob stores clean:</b> cut the back-room alarm and destroy the tapes.</li>
+        <li><b>Cloud cameras can't be destroyed.</b> Police can ID you from them later.</li>
+        <li><b>Wear a mask</b> until you're out of the area.</li>
+        <li><b>Shower after a shootout.</b> Blood makes cops suspicious; shop restrooms work too.</li></ul></div>
+      <div class="tip"><h3 class="h6">Lose them fast</h3><ul>
+        <li><b>Leave while police are still en route</b> to the scene.</li>
+        <li><b>Change your look:</b> keep a spare outfit in the trunk (up to five), respray or swap the car, holster.</li>
+        <li><b>Drive off a bridge into water.</b> Your personal car survives sinking.</li>
+        <li><b>Disable, don't kill:</b> shoot tires, or aim at yellow zones in combat Focus.</li></ul></div>
+    </div>
+
+    <h2 class="sec"><span class="num">06</span>Criminal Profile</h2>
+    <p class="sub">A hidden rating per character, like RDR2's honor. <b>One tier is permanent.</b></p>
+    <div class="mb-table-wrap"><table class="mb-table">
+      <thead><tr><th>Tier</th><th>You get here by</th><th>What changes</th></tr></thead>
+      <tbody>
+        <tr><td><span class="mb-badge mb-badge--success">Professional</span></td><td>Quiet jobs, non-lethal takedowns, limb shots, kind acts</td><td>Normal cops. You can surrender.</td></tr>
+        <tr><td><span class="mb-badge mb-badge--base">Hardened</span></td><td>Killing armed enemies who fight back</td><td>Normal cops. You can surrender.</td></tr>
+        <tr><td><span class="mb-badge mb-badge--warning">Violent</span></td><td>Headshots, finishing downed enemies, killing cops</td><td>Still recoverable, but the climb back is slower.</td></tr>
+        <tr><td><span class="mb-badge mb-badge--error">Psycho</span></td><td>Killing pets, crowds of civilians or police</td><td><b>No surrender.</b> Cops may shoot on sight.</td></tr>
+        <tr><td><span class="mb-badge mb-badge--error">Irredeemable</span></td><td>Staying Psycho too long</td><td><b>Permanent</b> for that character. Strains Jason and Lucia.</td></tr>
+      </tbody></table></div>
+    <p class="small mute" style="margin-top:8px">Mission-required kills and true self-defense don't count. Watch for the warning mark on the Psycho icon: Irredeemable is close.</p>
+
+    <h2 class="sec"><span class="num">07</span>Your body: Health, Stamina, Focus</h2>
+    <div class="grid2">
+      <div class="tip"><p><b>Train a little every day.</b> Strength and cardio have daily caps, so short daily sessions beat one long one. Skipping too long loses levels.</p><p><b>Protein shake or bar</b> from Jason's kitchen, then sleep, speeds recovery.</p><p><b>Each character trains separately.</b></p></div>
+      <div class="tip"><p><b>Focus is the slow stat.</b> Fishing gives about 10 per catch. Basketball, pool, mini golf and the shooting range help too.</p><p><b>Press <span class="kbd">L3</span>+<span class="kbd">R3</span></b> to scan: it highlights cash, loot, safe-code notes and tracks, and points you at strange sounds.</p><p><b>Coffee and tea</b> refill Focus faster.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">08</span>Cars and getting around</h2>
+    <div class="grid2">
+      <div class="tip"><p><b>Your personal car is your horse.</b> It holds long guns, outfits and loot, and its trunk is safe when you go down.</p><p><b>After <i>Just a Scratch</i>, call Joey</b> (Coastal Auto Care). He delivers it repaired, free, even from the bottom of the sea.</p><p><b>Pick the color carefully:</b> that respray is the only free one.</p></div>
+      <div class="tip"><p><b>Scan before you steal</b> with the WAiNK app: tracker, sell value, and register cost.</p><p><b>Register only cars you love</b> through Moses (Chapter 2). Unregistered cars are gone if lost. Buy garages after <i>Daily Driver</i>.</p><p><b>The Slim Jim</b> is slower but silent and keeps the car's value.</p></div>
+      <div class="tip"><p><b>No fast-travel menu.</b> Hail a ride in the RideMe app: tip $5 (up to twice) to go faster, or <b>pay $100 to skip the trip</b>.</p><p><b>Autopilot:</b> hold <span class="kbd">↓</span> on the D-pad for the cinematic camera and the car drives to your waypoint.</p></div>
+      <div class="tip"><p><b>Scooter Bros app</b> delivers, repairs or pulls your car from impound. One player paid $121 for a delivery and $698 for an impound pickup.</p><p><b>Watch fuel and engine condition.</b> Gas stations fix small damage; auto shops fix the rest.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">09</span>Jason and Lucia</h2>
+    <div class="grid2">
+      <div class="tip"><p><b>Hold <span class="kbd">→</span> on the D-pad</b> for partner commands: create a distraction, take the wheel, or sell your stash.</p><p><b>Switch characters</b> after <i>Breakfast Run</i>: hold <span class="kbd">→</span> and press <span class="kbd">R1</span>/<span class="kbd">RB</span>.</p></div>
+      <div class="tip"><p><b>Inventories are separate.</b> Ammo and healing items don't share. A bought gun works for both, but each customizes it.</p><p><b>Relationship goes up</b> with greetings, drinks, holding hands and time together. Ignored calls and long splits lower it.</p></div>
+    </div>
+
+    <h2 class="sec"><span class="num">10</span>Controls cheat sheet</h2>
+    <div class="mb-table-wrap"><table class="mb-table ctl-table">
+      <thead><tr><th>Action</th><th>PlayStation</th><th>Xbox</th></tr></thead>
+      <tbody>
+        <tr><td>Focus scan / locate sound</td><td><span class="kbd">L3</span>+<span class="kbd">R3</span></td><td><span class="kbd">LS</span>+<span class="kbd">RS</span></td></tr>
+        <tr><td>Holster / draw</td><td><span class="kbd">L1</span></td><td><span class="kbd">LB</span></td></tr>
+        <tr><td>Partner menu, contextual help</td><td>hold <span class="kbd">→</span></td><td>hold <span class="kbd">→</span></td></tr>
+        <tr><td>Switch character</td><td>hold <span class="kbd">→</span> + <span class="kbd">R1</span></td><td>hold <span class="kbd">→</span> + <span class="kbd">RB</span></td></tr>
+        <tr><td>Cinematic camera / autopilot</td><td>hold <span class="kbd">↓</span></td><td>hold <span class="kbd">↓</span></td></tr>
+        <tr><td>Save</td><td colspan="2">Pause › Game › Save Game</td></tr>
+      </tbody></table></div>
+
+    <h2 class="sec"><span class="num">11</span>Explore like you mean it</h2>
+    <div class="tip"><ul>
+      <li><b>Stop for weird sights and sounds.</b> A car with an open door and a trail of clothes led one player to a UFO mission.</li>
+      <li><b>Scan every car and animal you pass.</b> It counts toward trophies and 100% later.</li>
+      <li><b>Sell collectible cards</b> at the pawn shop, or keep sets for the trophy.</li>
+      <li><b>Hold off on robberies</b> until you can play as both. One does crowd control while the other empties the safe.</li></ul></div>
+  </section>
+
+  <!-- ================= MISSABLES ================= -->
+  <section class="panel" id="p-miss" role="tabpanel">
+    <h2 class="sec" style="margin-top:24px">Every missable, by chapter</h2>
+    <p class="sub">Each card shows <b>when it opens</b> and <b>when it's gone</b>. Tick it when it's done. <span class="mb-badge mb-badge--info">Disputed</span> means guides disagree, so grab it early anyway.</p>
+    <div class="filters" role="group" aria-label="Filter" id="filters"></div>
+    <div class="toolbar">
+      <div class="switchline"><button class="mb-switch" role="switch" aria-checked="false" id="hideDone" aria-label="Hide done"></button>Hide done</div>
+      <div class="switchline"><button class="mb-switch" role="switch" aria-checked="true" id="shieldSw" aria-label="Spoiler shield"></button>Spoiler shield</div>
+    </div>
+    <div id="chapters"></div>
+  </section>
+
+  <!-- ================= BEFORE YOU GO ================= -->
+  <section class="panel" id="p-pre" role="tabpanel">
+    <h2 class="sec" style="margin-top:24px">Before you hit a point of no return</h2>
+    <p class="sub">Run the matching list right before each finale. Every one starts with a save.</p>
+    <div id="preflight" style="display:grid;gap:16px"></div>
+  </section>
+
+  <!-- ================= 100% ================= -->
+  <section class="panel" id="p-full" role="tabpanel">
+    <h2 class="sec" style="margin-top:24px">100% completion tracker</h2>
+    <p class="sub"><b>Nothing on the 100% list is missable</b>, and most items need only part of the total. The in-game list appears after the story under Progress › Stats › 100% Completion; story progress already counts.</p>
+    <div class="tldr"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" style="flex:none;margin-top:2px"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 4.8v.1" stroke-linecap="round"/></svg><div>Reaching 100% unlocks <b>A Long Road</b> (Gold), which the Platinum needs. Type your counts in as you go.</div></div>
+    <div id="hundred"></div>
+
+    <h2 class="sec">Trophies you can lose</h2>
+    <p class="sub">55 trophies in total, all single-player. Only a few can slip away.</p>
+    <div class="items" id="trophies"></div>
+  </section>
+
+  <!-- ================= SOURCES ================= -->
+  <section class="panel" id="p-src" role="tabpanel">
+    <h2 class="sec" style="margin-top:24px">Sources</h2>
+    <p class="sub">Compiled on Nov 23, 2026, four days after launch. Guides are still updating, so items with one source or conflicting reports are marked Disputed.</p>
+    <ul class="src" id="srcList"></ul>
+  </section>
+
+  <p class="foot">Progress saves in this browser only. <button class="mb-btn mb-btn--flat mb-btn--sm" id="resetBtn">Reset all progress</button></p>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const SRC = {
+  gc:  ["Game Checklists — GTA 6 Missables", "https://game-checklists.com/gta6/guides/missables/"],
+  ol:  ["Output Lag — GTA 6 Missables", "https://outputlag.com/guides/gta-6-missables/"],
+  cv:  ["Cultured Vultures — Everything You Can Miss", "https://culturedvultures.com/gta-6-missable-missions-content/"],
+  gs:  ["GTAside — Missables", "https://gtaside.com/tips/gta6/missables/"],
+  hg:  ["Happy Gamer — Missables", "https://happygamer.com/gta-6-missables-176406/"],
+  sk:  ["Skycoach — Chapter 1 Missables", "https://skycoach.gg/blog/gta-6/articles/all-missables"],
+  vc2: ["VICE — Chapter 2 Missables", "https://www.vice.com/en/article/gta-6-chapter-2-length-missions-missables/"],
+  vc3: ["VICE — Chapter 3 Missables", "https://www.vice.com/en/article/gta-6-chapter-3-length-missions-missables/"],
+  dk:  ["Dork — Full Walkthrough (91 missions)", "https://readdork.com/gaming/gta-6-walkthrough"],
+  olt: ["Output Lag — 20 Beginner Tips", "https://outputlag.com/guides/gta-6-beginner-tips/"],
+  gct: ["Game Checklists — 12 Beginner Tips", "https://game-checklists.com/gta6/guides/beginner-tips/"],
+  inv: ["Inven Global — 13 Tips", "https://www.invenglobal.com/articles/28810/13-beginner-tips-for-gta-6-i-wish-i-knew-from-the-start"],
+  s4g: ["Space4Games — 20 Beginner Tips", "https://space4games.com/en/games-en/gta-6-beginner-tips-guide/"],
+  ppx: ["PowerPyx — 100% Completion Checklist", "https://www.powerpyx.com/gta-6-100-completion-checklist/"],
+  ozc: ["Of Zen and Computing — Trophy List", "https://www.ofzenandcomputing.com/gta-6-trophy-list-trophies-achievements/"],
+  mfp: ["MetaForge — Criminal Profile", "https://metaforge.app/gta-6/gta-6-criminal-profile-explained-all-5-levels-and-how-to-change-them"],
+  alc: ["AlcastHQ — Strangers & Freaks", "https://alcasthq.com/?p=87611"],
+  gsp: ["GameSpot — Tips I Wish I Knew", "https://www.gamespot.com/articles/gta-6-tips-everything-i-wish-i-knew-before-i-started-playing/"],
+  bb:  ["Beebom — Wanted System Explained", "https://beebom.com/gta-6-wanted-system-explained/"],
+  g2a: ["G2A News — Mission & chapter list", "https://www.g2a.com/news/gta-6-news/gta-6-mission-and-chapter-list/"]
+};
+
+const CHAPTERS = [
+  {n:0, k:"P", t:"Prologue", s:"Lucia's opening job. Can't save."},
+  {n:1, k:"1", t:"Just Like Paradise", s:"Key Lento. Most missables live here.", pnr:"Tourist Trap", pnrD:"Starts the end of the chapter and chains into Home Sweet Home and Discharge Time with no free roam. Wipes carried cash, the floor stash, BuckMe checking and Jason's car. Keeps Family Savings, bought guns, clothes and tattoos."},
+  {n:2, k:"2", t:"Paradise Lost", s:"Port Gellhorn and the Starlet Motel.", pnr:"Checking Out", pnrD:"Ends the Starlet Motel as a safehouse. Go in with $15,000+, beat the Delights Cabaret pool player and sell loot to Dunk first."},
+  {n:3, k:"3", t:"Tits Ass Drug Money", s:"Vice City opens up. Real money starts.", pnr:"The Cartel Heist", pnrD:"Ends Chapter 3. Halifax's offer, the Del Rio garage and some fences close. Payout depends on vault speed, so save right before."},
+  {n:4, k:"4", t:"Vice City, Baby", s:"The biggest jobs and side chains.", pnr:"The last Chapter 4 mission", pnrD:"No replay, and your ending may limit who you can play. Finish Andy, Bret, Tyrone and Pilot Pete chains and the partner trophies first."},
+  {n:5, k:"5", t:"Top of the World, Ma", s:"Seven missions to the end.", pnr:"The final mission", pnrD:"Your ending is set by your choices and play style. Keep a manual save from just before it."},
+  {n:6, k:"✓", t:"After the credits", s:"Free roam, 100% list and cheats."}
+];
+
+/* kind: mission | item | weapon | outfit | vehicle | money | collectible | choice | activity
+   f: flags — timed, trophy, ue (Ultimate Edition), disp (disputed), low (low stakes), choice */
+const M = [
+  // ---------- Prologue
+  {id:"p-jetski", ch:0, k:"choice", t:"Lucia's jet-ski escape dialogue", opens:"During the store-robbery escape", gone:"End of the prologue escape", how:"Head for the water and flee on a Seashark jet ski instead of the road. A later cutscene changes to mention it.", reward:"Alternate dialogue", f:["low"], s:["gc"]},
+
+  // ---------- Chapter 1
+  {id:"c1-trailer", ch:1, k:"money", t:"Cash in the Kingfisher trailer", m:"Gone Fishing", opens:"On the way to the plane in Gone Fishing", gone:"When Gone Fishing ends", how:"Enter the white-and-red trailer on the left when Donnie mentions the cash.", reward:"Optional cash", s:["cv","sk","dk"]},
+  {id:"c1-cigars", ch:1, k:"item", t:"Macizo cigars from Mandy", m:"Pipework", opens:"After you fix Mandy's sink", gone:"When you leave Mandy's", how:"Pick up the box she throws into the street.", reward:"3 Macizo cigars (also sold in grocery stores)", f:["low"], s:["cv","sk","gc"]},
+  {id:"c1-rum", ch:1, k:"mission", t:"Get Shirley's Rum", opens:"When Shirley calls Jason over (around Pipework)", gone:"The moment Tourist Trap starts", how:"Fetch her bottle from Three Sheets Liquor. While there, climb the store's left wall into the backyard, talk to the red macaw, and take the cash from the white vent by the yellow generator plus the back-room safe.", reward:"About $2,600 total. Unlocks Steal the Scooter", f:["timed"], s:["gct","olt","gc","sk"]},
+  {id:"c1-scooter", ch:1, k:"mission", t:"Steal the Scooter", opens:"About a day after the rum errand", gone:"The moment Tourist Trap starts", how:"Take neighbor Peggy's mobility scooter and park it on Shirley's porch.", reward:"You can borrow Shirley's car later", s:["gs","sk","cv"]},
+  {id:"c1-bell", ch:1, k:"mission", t:"Ring the Bell!", m:"Swamped", opens:"Cal texts as Swamped starts", gone:"Safest: before you meet Brian. Some players started it after Swamped", how:"Detour to the Rusty Anchor in Key Lento, then drive Cal home.", reward:"Rusty Anchor T-shirt and cap unlock to buy", f:["disp"], s:["cv","sk","gc"]},
+  {id:"c1-drugs", ch:1, k:"mission", t:"Find the Lost Drugs", opens:"A phone call after Down to Earth", gone:"Tourist Trap; Donnie stops buying earlier (around Swamped / Clear Skies)", how:"Clear all four zones: Recreation Area, Burned Houses, Pelican Valley, Thorpe Adventures. Sell to Donnie before Swamped to be safe.", reward:"Cash from Donnie", f:["disp"], s:["sk","cv","gc"]},
+  {id:"c1-donniefence", ch:1, k:"money", t:"Sell loot at Donnie's trailer", opens:"Early Chapter 1, trailer south of Key Lento", gone:"Before Clear Skies / after Swamped", how:"Unload narcotics there before the fence closes for good.", reward:"Cash", s:["sk","gc"]},
+  {id:"c1-38", ch:1, k:"weapon", t:"Donnie's H&L .38 revolver", m:"Don Gone", opens:"In the trunk of Donnie's red Blista", gone:"When you burn or sink the car", how:"Open the trunk and take it before you destroy the car.", reward:"Unique revolver", s:["cv","sk","gc","dk"]},
+  {id:"c1-aviators", ch:1, k:"outfit", t:"Donnie's aviator sunglasses", m:"Don Gone", opens:"In Donnie's trailer bathroom, by the sink", gone:"When the trailer burns", how:"Grab them, then claim them at your wardrobe when prompted.", reward:"Aviators", s:["cv","sk","gc"]},
+  {id:"c1-necklace", ch:1, k:"outfit", t:"Tomás necklace for Lucia ($475)", opens:"Prep errands after Feng Shui", gone:"Coming Home (prison pickup)", how:"Buy it at The Siren's Chest in southwest Key Lento.", reward:"Necklace. In Chapter 2, pay Linda $900 during Behind on Payments to get it back", s:["cv","sk","gc","vc2"]},
+  {id:"c1-clothes", ch:1, k:"mission", t:"Get Lucia's Clothes", opens:"Andy calls after Feng Shui", gone:"Coming Home (prison pickup)", how:"Put the bag in Jason's trunk and bring it when you collect Lucia. Getting busted on the way loses the bag.", reward:"Avoids a relationship penalty", s:["sk","cv","dk"]},
+  {id:"c1-homecoming", ch:1, k:"mission", t:"Homecoming errands: flowers, groceries, haircut", opens:"Between Feng Shui and Coming Home", gone:"Coming Home (prison pickup)", how:"Buy Flowers, Pick Up / Drop Off Groceries, and Get the Chop at a barber. All carry hourglass icons.", reward:"Lucia's homecoming prep", f:["timed"], s:["sk","gc"]},
+  {id:"c1-repairs", ch:1, k:"activity", t:"Repair Jason's house", opens:"Between Feng Shui and Coming Home", gone:"Coming Home (prison pickup)", how:"Fix the stairs, leaking roof, balcony railing and bedroom wall. All free.", reward:"Each repair raises Lucia's relationship", s:["gc","olt","sk"]},
+  {id:"c1-sunglasses", ch:1, k:"outfit", t:"Lucia's sunglasses from the yacht couple", m:"Day Release", opens:"Middle deck of the yacht, while looking for Mattia", gone:"When Day Release ends", how:"Talk to the couple by the stairs/railing.", reward:"Sunglasses for Lucia", s:["cv","sk","gc"]},
+  {id:"c1-clockout", ch:1, k:"mission", t:"Clock Out", opens:"Lucia calls the day after Day Release (may need high relationship)", gone:"4 pm in-game that day, or if you decline", how:"Accept the call and pick her up by car at the Key Lento Community Center before 4 pm.", reward:"A side moment with Lucia", f:["timed"], s:["gc","sk","dk"]},
+  {id:"c1-meditate", ch:1, k:"activity", t:"Balcony meditation with Lucia", m:"Down to Earth", opens:"The morning after Down to Earth: find Lucia in the kitchen", gone:"End of Chapter 1", how:"Follow her to the balcony and accept the optional task.", reward:"Lore and Focus. 100% needs only 15 of 18 meditations", f:["disp","trophy"], note:"Trophy impact disputed: a Nov 21 update on Game Checklists says Positive Mental Attitude unlocks without it; other guides still list it. Do it to be safe.", s:["gc","gs","hg","cv"]},
+  {id:"c1-mags", ch:1, k:"collectible", t:"Five publications in Jason's house", opens:"All of Chapter 1", gone:"When you lose the house (end of Chapter 1)", how:"Ashes of Glory (bedroom dresser) · Lethal By Design (main table) · Orca: A Whole Different Animal (sideboard by the radio) · Body Copy (back deck by the grill and weights) · Off the Hook (downstairs shed counter).", reward:"Collection progress. Copies spawn elsewhere; 100% needs 30 of 34", f:["low"], s:["sk","cv","gc","hg"]},
+  {id:"c1-ue", ch:1, k:"vehicle", t:"Ultimate Edition: Dinka Enduro, Crest Kayak, Ganado Retro Build", opens:"At and under Jason's house", gone:"End of Chapter 1, when the house goes", how:"Ride them while you can. Apply the free Retro Build at Coastal Auto Care › Pro Builds.", reward:"Bonus vehicles", f:["ue"], s:["ol","olt","gc","gs"]},
+  {id:"c1-money", ch:1, k:"money", t:"Bank or spend your Chapter 1 money", opens:"All of Chapter 1", gone:"The moment Tourist Trap starts", how:"Move at least $5,000 into Family Savings. Spend the rest on guns, attachments, clothes and tattoos, which carry over.", reward:"Keeps your progress. The separate $5,000 Rainy Day Fund can be picked up as Lucia in Chapter 2", s:["cv","gc","olt","ol"]},
+  {id:"c1-ganado", ch:1, k:"vehicle", t:"Don't upgrade the Ganado", opens:"All of Chapter 1", gone:"Tourist Trap (Jason loses the car)", how:"Take only the free respray and cheap engine fix. Save upgrades for a Chapter 2 car. Unique cars you find can't be registered until Moses.", reward:"Saves money", f:["low"], s:["ol","gc"]},
+  {id:"c1-arnold", ch:1, k:"choice", t:"Hey Arnold!: kill or spare", opens:"During the mission", gone:"Locked in when the mission ends", how:"Save first. The choice is permanent and logged on Jason's Criminal Profile; the mission ends the same either way.", reward:"Criminal Profile", f:["choice"], s:["ol","dk"]},
+  {id:"c1-photo", ch:1, k:"item", t:"Tomás's photo", m:"Home Sweet Home", opens:"During the escape", gone:"When the escape ends", how:"Grab it from the small shelf on the way to the front door.", reward:"Keepsake", f:["disp"], s:["sk"]},
+  {id:"c1-jacket", ch:1, k:"outfit", t:"Andy's jacket for Lucia", m:"Home Sweet Home", opens:"During the escape", gone:"Reportedly not missable: you can call Andy back after escaping", how:"Call Andy for a pickup and reach her car undetected.", reward:"Jacket for Lucia", f:["disp","low"], s:["cv","sk","gc"]},
+
+  // ---------- Chapter 2
+  {id:"c2-cards", ch:2, k:"collectible", t:"Three Starlet Motel cards", opens:"When you move into the Starlet Motel", gone:"Possibly after Checking Out (parts get boarded up)", how:"Victor Maravilla on the common-area fridge · Bryson Powers on the laundry-room washer · Vicki by the toilet in the office bathroom.", reward:"Card-set progress. Other copies exist", f:["disp"], s:["vc2","cv","gc"]},
+  {id:"c2-mags", ch:2, k:"collectible", t:"Two Starlet Motel magazines", opens:"When you move into the motel", gone:"Checking Out", how:"Help Me Help You Help Me at the reception desk · Wizard Wang in the cafeteria.", reward:"Collection progress", s:["vc2","cv"]},
+  {id:"c2-necklace", ch:2, k:"outfit", t:"Get Lucia's necklace back from Linda", m:"Behind on Payments", opens:"If you bought it in Chapter 1", gone:"Behind on Payments", how:"Pay Linda the $900 owed at reception, as Lucia.", reward:"Necklace", s:["vc2","dk"]},
+  {id:"c2-wyman", ch:2, k:"vehicle", t:"Wyman's Mud Club task ('67 Dominator Buggy)", opens:"After helping Wyman in the motel parking lot", gone:"May vanish if skipped; not seen returning", how:"Visit the Mud Club with Wyman, then take the Exploration task from the map index to Paradise Garage in Watson Bay.", reward:"'67 Dominator Buggy, then his classic-car text", f:["ue","disp"], s:["ol","vc2"]},
+  {id:"c2-missing", ch:2, k:"mission", t:"Kelly County Missing Persons case", opens:"Hotline on missing-persons posters, and a Port Gellhorn warehouse near Moses's garage", gone:"Finish in Chapter 2. Starting it in Chapter 3 has soft-locked some saves", how:"Save first, then complete the whole case before Checking Out.", reward:"Side story", f:["disp"], s:["ol"]},
+  {id:"c2-pool", ch:2, k:"activity", t:"Beat the Delights Cabaret pool player", opens:"Chapter 2", gone:"Checking Out (club closes until later)", how:"Win the match before the finale.", reward:"100% progress", s:["gc"]},
+  {id:"c2-hat", ch:2, k:"outfit", t:"Genuine Cowboy Hat ($35, yard sale)", opens:"When you reach Port Gellhorn", gone:"Reported gone by Chapter 4; others say yard sales return", how:"South-side yard sale with balloons. It's on the couch.", reward:"A familiar-looking cowboy hat", f:["disp"], s:["gc"]},
+  {id:"c2-thrill", ch:2, k:"activity", t:"Thrillbillies at the Mud Club", opens:"Chapter 2", gone:"One player says the first mission never came back, and vendors stopped selling", how:"Play the first Thrillbillies job and buy any Mud Club outfits now.", reward:"Outfits, race prizes", f:["disp"], s:["gc","vc2"]},
+  {id:"c2-impound", ch:2, k:"vehicle", t:"Pick up impounded cars in Port Gellhorn", opens:"Chapter 2", gone:"Not lost, but the area becomes a police search zone for a few Chapter 3 missions", how:"Grab them before Checking Out to skip the heat.", reward:"Your cars", f:["low"], s:["ol"]},
+  {id:"c2-dunk", ch:2, k:"money", t:"Sell stolen goods to Dunk", opens:"Chapter 2", gone:"Checking Out", how:"Empty your loot bag at Dunk before the finale.", reward:"Cash", s:["dk"]},
+  {id:"c2-girls", ch:2, k:"choice", t:"Girls' Trip: car-wash fight", opens:"During Girls' Trip", gone:"Mission end", how:"Pick Defuse both times to avoid a fight.", reward:"Calmer outcome", f:["choice","low"], s:["dk"]},
+
+  // ---------- Chapter 3
+  {id:"c3-yago", ch:3, k:"mission", t:"Race Against Yago", opens:"A few in-game days after Bumper to Bumper (Jason only)", gone:"Shortly after the hourglass appears", how:"Save, then start it right away. Don't push the story first.", reward:"Keeps Yago's strand alive for Strangers & Freaks", f:["timed","trophy"], note:"The one missable most guides agree can cost a trophy.", s:["gc","ol","cv","vc3","dk","g2a"]},
+  {id:"c3-halifax", ch:3, k:"mission", t:"Dubious Provenance: give Halifax the statue", opens:"Halifax's offer at the antique store", gone:"End of Chapter 3 (parts 2 and 3 with it)", how:"Hand over the statue, or call him back before the chapter ends. Spare him in the last part for the full reward.", reward:"Vapid '32 Hustler, about $2,500, storage-unit loot", s:["gc","cv","vc3","dk"]},
+  {id:"c3-growler", ch:3, k:"vehicle", t:"Vanessa's pink Pfister Growler", opens:"Boobie's apartment safehouse", gone:"After Chapter 3: the garage stays locked", how:"Check Boobie's laptop and notes for garage code 92665, then open the Del Rio Boulevard Garage.", reward:"Free Growler", s:["vc3","gc"]},
+  {id:"c3-monty", ch:3, k:"weapon", t:"Monty's 1992 Pistol", m:"The Missing Link", opens:"On the photo-room floor during the mission", gone:"When The Missing Link ends", how:"Pick it up before you leave.", reward:"Unique pistol", s:["gc","vc3","dk"]},
+  {id:"c3-gil", ch:3, k:"weapon", t:"Gil's Kalinga .50", m:"Safe Word", opens:"In the practice safe during the mission", gone:"When Safe Word ends", how:"Open the practice safe and take it.", reward:"Unique pistol", s:["vc3"]},
+  {id:"c3-bricks", ch:3, k:"money", t:"Boobie's bricks", m:"Bricked Up", opens:"Red bag near the end of the table, first room", gone:"When you leave without it", how:"Take the bag before heading out.", reward:"$3,500 extra", s:["cv","dk"]},
+  {id:"c3-bayside", ch:3, k:"collectible", t:"Two Bayside Apartments magazines", opens:"Chapter 3", gone:"The Cartel Heist", how:"One by the bath, one on the table in front of the TV.", reward:"Collection progress", s:["cv"]},
+  {id:"c3-choices", ch:3, k:"choice", t:"Chapter 3 choices (no replay)", opens:"Through the chapter", gone:"Each locks when its mission ends", how:"Dealer's Choice: pure or cut. Buddy?: Kyle or the police. The Missing Link: Monty's fate. Ride or Die: pay $1,580 or take the sneakers. Brother to Brother: save Yago or not.", reward:"Story and Criminal Profile", f:["choice"], s:["dk"]},
+
+  // ---------- Chapter 4
+  {id:"c4-felipe", ch:4, k:"mission", t:"Bad Driver!: find Felipe", opens:"Andrea's tip around Party Hard", gone:"The moment Power Play starts", how:"Check the bars in Millport. Kill Felipe for $20,000, or spare him to unlock Collect Felipe's Gift.", reward:"$20,000 or a follow-up job", f:["choice"], s:["gc","cv","ol","dk"]},
+  {id:"c4-shayna", ch:4, k:"mission", t:"This Is a Free Call From… (pick up Shayna)", opens:"A Lucia-only call after Child's Play; can trigger near Hamlet after Lawyer Up", gone:"Shortly after the call", how:"Drive over immediately as Lucia.", reward:"Side story. Not needed for 100%", f:["timed"], s:["gc","cv","ol","dk"]},
+  {id:"c4-lmg", ch:4, k:"weapon", t:"Francisco's LMG-6", m:"VCIA Takedown", opens:"During the final fight, as Jason", gone:"When you get into the van", how:"Pick it up before you leave.", reward:"Unique LMG", s:["cv"]},
+  {id:"c4-chains", ch:4, k:"mission", t:"Finish side chains before the last mission", opens:"Through Chapter 4", gone:"Safest before the last Chapter 4 mission", how:"Complete Andy, Bret, Tyrone and Pilot Pete. Pete's timed delivery runs have in-game deadlines.", reward:"Their character trophies", f:["trophy"], s:["gc"]},
+  {id:"c4-partner", ch:4, k:"activity", t:"Do the partner trophies while both are playable", opens:"Once you can play as a pair", gone:"Safest before the final missions", how:"Hot Together: hit 4 stars with your partner, then lose the cops together. Retail Therapy: rob three shops back-to-back without the wanted level dropping. Failures can be retried.", reward:"Two trophies", f:["trophy"], s:["gc","ozc"]},
+  {id:"c4-crypto", ch:4, k:"choice", t:"Eddie Acosta's $50,000 crypto offer", opens:"At Eddie's party", gone:"Party ends", how:"Pay or refuse. Save first if you want to see both.", reward:"Your call", f:["choice"], s:["dk"]},
+
+  // ---------- Chapter 5
+  {id:"c5-ending", ch:5, k:"choice", t:"Keep a save before the finale", opens:"Chapter 5", gone:"Once the final mission is played", how:"Save before Protective Custody. Accepting the prompt to wrap up the story starts the last missions. One guide reports an ending tied to having $2 million in BuckMe savings, so don't rush that prompt.", reward:"Other endings", f:["disp"], s:["cv","gc","ol"]},
+
+  // ---------- Any chapter
+  {id:"x-hourglass", ch:9, k:"mission", t:"Hourglass side missions", opens:"Whenever one appears", gone:"After a while on the map", how:"Start them right away, ideally from a fresh save.", reward:"Varies", f:["timed"], s:["gc","gs"]},
+  {id:"x-optional", ch:9, k:"mission", t:"Black-icon, pink-letter optional jobs", opens:"As the story offers them", gone:"After the next few story missions", how:"Clear them before you push the story much further.", reward:"Varies; no trophy needs them", s:["gc","gs","hg"]},
+  {id:"x-fences", ch:9, k:"money", t:"Fences that close with the story", opens:"Varies", gone:"Before their related story mission", how:"Sell your stolen goods before each chapter finale.", reward:"Cash", s:["gc","dk"]},
+  {id:"x-interiors", ch:9, k:"collectible", t:"Magazines inside story locations", opens:"During the mission", gone:"When the location locks after its mission", how:"Use Focus to scan rooms before you leave.", reward:"Collection progress", f:["low"], s:["gc"]},
+  {id:"x-profile", ch:9, k:"choice", t:"A clean Criminal Profile", opens:"Always", gone:"When a character hits Irredeemable", how:"Ease off once you see Psycho. Jason and Lucia are tracked separately.", reward:"Surrender option, calmer cops", s:["gc","gs","mfp"]}
+];
+
+const PRE = [
+  {id:"pre1", ch:1, t:"Before Tourist Trap", items:[
+    ["Make a manual save in a new slot","Also keep one from before Recalibration."],
+    ["Do Shirley's rum and scooter errands","Grab the parrot cash and the safe."],
+    ["Finish Find the Lost Drugs and sell to Donnie",""],
+    ["Meditate on the balcony with Lucia",""],
+    ["Read the five magazines in Jason's house",""],
+    ["Ultimate Edition: ride the Enduro and Kayak, apply the Ganado Retro Build",""],
+    ["Put $5,000+ into Family Savings","Everything else you carry is wiped."],
+    ["Spend leftover cash on guns, attachments, clothes, tattoos","These carry over."],
+    ["Store favorite guns as owned (buy them)","Looted guns don't come back."]
+  ]},
+  {id:"pre2", ch:2, t:"Before Checking Out", items:[
+    ["Make a manual save in a new slot",""],
+    ["Have $15,000 or more","Unlocks Vicki's last job and the call that sets up the finale."],
+    ["Grab the three motel cards and two magazines",""],
+    ["Finish the Kelly County Missing Persons case",""],
+    ["Beat the Delights Cabaret pool player",""],
+    ["Sell loot to Dunk",""],
+    ["Collect impounded cars in Port Gellhorn",""],
+    ["Buy the cowboy hat at the yard sale",""]
+  ]},
+  {id:"pre3", ch:3, t:"Before The Cartel Heist", items:[
+    ["Make a manual save in a new slot","The payout depends on vault speed."],
+    ["Race Against Yago done (or check it's still on the map)",""],
+    ["Halifax has the statue, or you've called him back",""],
+    ["Vanessa's Growler is out of the Del Rio garage","Code 92665."],
+    ["Read both Bayside Apartments magazines",""],
+    ["Sell everything to your current fences",""]
+  ]},
+  {id:"pre4", ch:4, t:"Before the last Chapter 4 mission", items:[
+    ["Make a manual save in a new slot","Save again before Starting From Zero."],
+    ["Bad Driver! resolved before Power Play",""],
+    ["Shayna's pickup call done",""],
+    ["Andy, Bret, Tyrone and Pilot Pete chains finished",""],
+    ["Hot Together and Retail Therapy unlocked",""]
+  ]},
+  {id:"pre5", ch:5, t:"Before the final mission", items:[
+    ["Make a manual save before Protective Custody","Lets you reload for other endings."],
+    ["Decide on BuckMe savings before taking the wrap-up prompt",""],
+    ["After credits: use a separate save for cheats","Cheats disable trophies and saving."]
+  ]}
+];
+
+const HUNDRED = [
+  {g:"Story & tasks", r:[
+    ["Story completion",1,"Finish the main story."],
+    ["Optional tasks",100,"Meditations, deliveries, Cal's fishing, Strangers & Freaks all count."]]},
+  {g:"Robberies", r:[
+    ["Gang Operations",39,"All required. Loot every key valuable at each yellow icon."],
+    ["Bank Jobs",22,"All required. Small banks: cash drawer and safe."],
+    ["Payday Loans",7,"All required. Counter cash, then the back safe."],
+    ["Smash 'N' Grabs",34,"34 of 35. Include the back-room safe."],
+    ["Stick Ups",50,"50 of 91 different stores."],
+    ["Narcotics fenced ($k)",100,"$100,000. Enter thousands."],
+    ["Jewelry fenced ($k)",100,"$100,000. Enter thousands."],
+    ["Marked bills fenced ($k)",250,"$250,000. Happens naturally."],
+    ["Vaults hit",8,"All required. Unlocks late in the story."],
+    ["Vehicles fenced ($k)",200,"$200,000. Randy's Wish List pays best."]]},
+  {g:"Exploration & activities", r:[
+    ["Kenton sets",5,"5 of 7 shipwreck sets."],
+    ["Collectible card sets",15,"15 of 18 full sets."],
+    ["WAiNK locations",100,"Landmarks, sculptures and more."],
+    ["Underwater discoveries",33,"All 33 of Kenton's wrecks."],
+    ["Magazines, books & comics",30,"30 of 34, incl. 7 book swaps."],
+    ["Meditation spots",15,"15 of 18. Jason and Lucia each count."],
+    ["Cocaine Flamingos",100,"100 of 125. Black-and-white beaks."],
+    ["Unique playlists",2,"Scan the posters."],
+    ["Discovered styles",70,"70 of 79: tattoo scans and watches."],
+    ["Unique races won",30,"30 of 40."],
+    ["Race challenge golds",10,"10 of 13."],
+    ["Shooting range golds",42,"All 42. $5 waiver at Griffin and Rodgers Ranch."],
+    ["Video games",4,"Start and quit each. One is at arcades."],
+    ["Pool opponents",5,"5 of 7."],
+    ["Mini golf courses",2,"2 of 3 small courses."],
+    ["Basketball hoops",90,"90 of 100 different hoops."],
+    ["Drone time trials",42,"All 42 across 14 locations."],
+    ["Stunts",300,"300 of 397. Under-bridge flights are quickest."],
+    ["Challenges",70,"70 of 80. Leave for last."],
+    ["Bret's Target Decks",15,"All 15, as Jason."]]},
+  {g:"Discovery", r:[
+    ["Base vehicles scanned",200,"200 of 277. Standouts don't count."],
+    ["Standard weapons held",50,"50 of 66. Holding each once is enough."],
+    ["Animals studied",100,"100 of 255, with binoculars. No hunting needed."]]}
+];
+
+const TROPHIES = [
+  {id:"t-sf", t:"Strangers & Freaks (Silver)", d:"Finish 8 stranger strands. Kirk, Kyle, Yago and Pilot Pete count; Moses, Billy, Andy, Yasmani, Tyrone and Eddie don't.", risk:"Missing Race Against Yago can cost Yago's strand.", lvl:"error", s:["alc","gc"]},
+  {id:"t-pma", t:"Positive Mental Attitude (Bronze)", d:"Meditate at every meditation spot.", risk:"Disputed whether the Chapter 1 balcony session counts. Do it anyway.", lvl:"warning", s:["gc","gs","hg"]},
+  {id:"t-chains", t:"Character chain trophies", d:"Andy, Bret, Tyrone, Pilot Pete and others.", risk:"Finish before the final missions, in case your ending limits who you can play.", lvl:"warning", s:["gc"]},
+  {id:"t-partner", t:"Hot Together · Retail Therapy (Bronze)", d:"Partner wanted-level and back-to-back robbery trophies.", risk:"Not permanent if failed, but do them while both characters are playable.", lvl:"info", s:["gc","ozc"]},
+  {id:"t-cheat", t:"Every trophy", d:"Cheats unlock after the story.", risk:"Any session with cheats on disables trophies and saving.", lvl:"info", s:["gc","ol"]}
+];
+
+</script>
+<script>
+(function(){
+const KEY = "lfg-gta6-v1";
+let S = {ch:1, done:{}, counts:{}, hideDone:false, shield:true, filter:"all", tab:"start"};
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e) {}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const IC = {
+  lock:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></svg>',
+  stop:'<svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.2 1.5h5.6l3.7 3.7v5.6l-3.7 3.7H5.2l-3.7-3.7V5.2z"/><path d="M8 5v3.5M8 10.8v.1"/></svg>',
+  clock:'<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="vertical-align:-1px;margin-right:3px"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 1.5"/></svg>',
+  ok:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.9 1.8 3.6-3.8"/></svg>'
+};
+const KIND = {mission:"Mission", item:"Item", weapon:"Weapon", outfit:"Outfit", vehicle:"Vehicle", money:"Money", collectible:"Collectible", choice:"Choice", activity:"Activity"};
+
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("show"),1400); }
+
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll("#tabs .mb-tab")];
+function showTab(p){ S.tab=p; save(); tabs.forEach(b=>b.setAttribute("aria-selected", b.dataset.p===p)); document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("on", x.id==="p-"+p)); }
+tabs.forEach(b=>b.addEventListener("click",()=>{ showTab(b.dataset.p); window.scrollTo({top:document.querySelector(".status").offsetTop+document.querySelector(".status").offsetHeight-60, behavior:"smooth"}); }));
+
+/* ---------- chapter selector ---------- */
+function renderChapSel(){
+  $("#chapSel").innerHTML = CHAPTERS.map(c=>`<button aria-pressed="${S.ch===c.n}" data-c="${c.n}" title="${esc(c.t)}">${c.n===0?"Prologue":c.n===6?"Post-game":"Ch "+c.k}</button>`).join("");
+  $("#chapSel").querySelectorAll("button").forEach(b=>b.onclick=()=>{ S.ch=+b.dataset.c; save(); renderAll(); });
+}
+
+/* ---------- helpers ---------- */
+const isDone = id => !!S.done[id];
+function setDone(id,v){ if(v) S.done[id]=true; else delete S.done[id]; save(); }
+function srcLinks(keys){ return (keys||[]).map(k=>SRC[k]?`<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0].split(" — ")[0])}</a>`:"").join(" · "); }
+function locked(ch){ return S.shield && ch!==9 && ch> S.ch && S.ch!==6; }
+
+/* ---------- next-up box ---------- */
+function renderNext(){
+  const box=$("#nextBox");
+  if(S.ch===6){ box.innerHTML=`<div class="mb-alert mb-alert--success" role="status">${IC.ok}<div><p class="mb-alert__title">Story missables are behind you</p><p class="mb-alert__text">Everything on the 100% list is still open in free roam. Keep cheats on a spare save.</p></div></div>`; return; }
+  const c=CHAPTERS[S.ch];
+  const open=M.filter(m=>m.ch===S.ch && !isDone(m.id));
+  const total=M.filter(m=>m.ch===S.ch).length;
+  const urgent=open.filter(m=>(m.f||[]).some(f=>f==="timed"||f==="trophy")).concat(open.filter(m=>!(m.f||[]).some(f=>f==="timed"||f==="trophy"||f==="low"))).slice(0,3);
+  let h="";
+  if(c.pnr) h+=`<div class="pnr">${'<span class="pnr__ic">'+IC.stop+'</span>'}<div><p class="pnr__t">Point of no return: ${esc(c.pnr)}</p><p class="pnr__d">${esc(c.pnrD)}</p></div></div>`;
+  else h+=`<div class="pnr" style="border-color:var(--border-strong);background:var(--surface-alt)"><span class="pnr__ic" style="color:var(--info-text)">${IC.stop}</span><div><p class="pnr__t">Nothing to lose yet</p><p class="pnr__d">${esc(c.s)} Finish it in one go, then save as soon as you can.</p></div></div>`;
+  if(total){
+    h+=`<div class="mb-progress-row"><span><b>${total-open.length} of ${total}</b> missables done this chapter</span><span class="mute">${Math.round((total-open.length)/total*100)}%</span><div class="mb-progress" role="progressbar" aria-valuenow="${total-open.length}" aria-valuemin="0" aria-valuemax="${total}"><div class="mb-progress__bar" style="--v:${(total-open.length)/total*100}"></div></div></div>`;
+    if(urgent.length) h+=`<div><div class="small mute" style="margin-bottom:6px">Do these first</div><ul class="minis">${urgent.map(m=>`<li><span><b style="color:var(--text)">${esc(m.t)}</b> <span class="mute"> · gone: ${esc(m.gone)}</span></span></li>`).join("")}</ul></div>`;
+    h+=`<div><button class="mb-btn mb-btn--accent mb-btn--sm" id="goMiss">Open the Chapter ${esc(c.k)} checklist</button></div>`;
+  }
+  box.innerHTML=h;
+  const g=$("#goMiss"); if(g) g.onclick=()=>{ showTab("miss"); setTimeout(()=>{ const el=document.getElementById("chap-"+S.ch); if(el) el.scrollIntoView({behavior:"smooth"}); },30); };
+}
+function lc(s){ return s.charAt(0).toLowerCase()+s.slice(1); }
+
+/* ---------- filters ---------- */
+const FILTERS=[["all","All"],["timed","Timed"],["trophy","Trophy risk"],["gear","Items, guns & outfits"],["mission","Missions"],["money","Money"],["choice","Choices"],["ue","Ultimate Edition"]];
+function passes(m){
+  const f=m.f||[];
+  switch(S.filter){
+    case "timed": return f.includes("timed");
+    case "trophy": return f.includes("trophy");
+    case "gear": return ["item","weapon","outfit","vehicle","collectible"].includes(m.k);
+    case "mission": return m.k==="mission"||m.k==="activity";
+    case "money": return m.k==="money";
+    case "choice": return m.k==="choice";
+    case "ue": return f.includes("ue");
+    default: return true;
+  }
+}
+function renderFilters(){
+  $("#filters").innerHTML=FILTERS.map(([k,l])=>`<button class="mb-chip" aria-pressed="${S.filter===k}" data-f="${k}">${l}</button>`).join("");
+  $("#filters").querySelectorAll(".mb-chip").forEach(b=>b.onclick=()=>{ S.filter=b.dataset.f; save(); renderFilters(); renderMiss(); });
+}
+
+/* ---------- missables ---------- */
+function itemHTML(m){
+  const f=m.f||[];
+  const tags=[`<span class="mb-badge mb-badge--base">${KIND[m.k]}</span>`];
+  if(m.m) tags.push(`<span class="mb-badge b-cyan">${esc(m.m)}</span>`);
+  if(f.includes("timed")) tags.push(`<span class="mb-badge mb-badge--warning">${IC.clock}Timed</span>`);
+  if(f.includes("trophy")) tags.push(`<span class="mb-badge mb-badge--error">Trophy risk</span>`);
+  if(f.includes("ue")) tags.push(`<span class="mb-badge mb-badge--accent">Ultimate Ed.</span>`);
+  if(f.includes("disp")) tags.push(`<span class="mb-badge mb-badge--info">Disputed</span>`);
+  if(f.includes("low")) tags.push(`<span class="mb-badge mb-badge--outline">Low stakes</span>`);
+  const hot = f.includes("timed")||f.includes("trophy");
+  return `<article class="it${hot?" hot":""}" data-id="${m.id}">
+    <input type="checkbox" class="mb-check" id="ck-${m.id}" ${isDone(m.id)?"checked":""} aria-label="Done: ${esc(m.t)}">
+    <div class="it__body">
+      <label class="it__t" for="ck-${m.id}">${esc(m.t)}</label>
+      <div class="it__tags">${tags.join("")}</div>
+      <dl class="it__win"><dt>Opens</dt><dd class="open">${esc(m.opens)}</dd><dt>Gone</dt><dd class="gone">${esc(m.gone)}</dd><dt>Do</dt><dd>${esc(m.how)}</dd><dt>Get</dt><dd>${esc(m.reward)}</dd>${m.note?`<dt>Note</dt><dd>${esc(m.note)}</dd>`:""}</dl>
+      <div class="it__src">Sources: ${srcLinks(m.s)}</div>
+    </div></article>`;
+}
+function renderMiss(){
+  const groups=[0,1,2,3,4,5,9];
+  let out="";
+  groups.forEach(ch=>{
+    const all=M.filter(m=>m.ch===ch);
+    const done=all.filter(m=>isDone(m.id)).length;
+    let list=all.filter(passes); if(S.hideDone) list=list.filter(m=>!isDone(m.id));
+    const c=ch===9?{k:"∞",t:"Any chapter",s:"Rules that apply the whole game."}:CHAPTERS[ch];
+    const lock=locked(ch);
+    const past=ch!==9 && S.ch!==6 && ch<S.ch;
+    const pnr=c.pnr?`<div class="pnr" style="margin-top:10px">${'<span class="pnr__ic">'+IC.stop+'</span>'}<div><p class="pnr__t">Point of no return: ${esc(c.pnr)}</p><p class="pnr__d">${esc(c.pnrD)}</p></div></div>`:"";
+    out+=`<section class="chap shield${lock?" locked":""}${ch===S.ch?" now":""}" id="chap-${ch}">
+      <div class="chap__head"><div class="chap__n">${c.k}</div><h3 class="chap__t">${ch===9||ch===0?"":"Chapter "+c.k+": "}${esc(c.t)}${past?' <span class="mb-badge mb-badge--base" style="vertical-align:2px">Passed</span>':""}${ch===S.ch?' <span class="mb-badge mb-badge--accent" style="vertical-align:2px">You are here</span>':""}</h3><div class="chap__c">${done}/${all.length}</div><p class="chap__s">${esc(c.s)}</p>
+      <div class="chap__bar mb-progress"><div class="mb-progress__bar" style="--v:${all.length?done/all.length*100:0}"></div></div></div>
+      <div class="shield__btn"><button class="mb-btn mb-btn--base" data-reveal="${ch}">${IC.lock} Reveal Chapter ${esc(c.k)} (spoilers)</button></div>
+      <div class="items">${list.length?list.map(itemHTML).join(""):`<div class="empty">Nothing here for this filter.</div>`}${S.filter==="all"?pnr:""}</div>
+    </section>`;
+  });
+  $("#chapters").innerHTML=out;
+  $("#chapters").querySelectorAll(".mb-check").forEach(cb=>cb.onchange=()=>{ setDone(cb.closest(".it").dataset.id, cb.checked); toast(cb.checked?"Marked done":"Unmarked"); refreshCounts(); if(S.hideDone) setTimeout(renderMiss,350); });
+  $("#chapters").querySelectorAll("[data-reveal]").forEach(b=>b.onclick=()=>{ b.closest(".shield").classList.remove("locked"); });
+}
+
+/* ---------- pre-flight ---------- */
+function renderPre(){
+  $("#preflight").innerHTML=PRE.map(p=>{
+    const lock=locked(p.ch);
+    const ids=p.items.map((_,i)=>p.id+"-"+i);
+    const d=ids.filter(isDone).length;
+    return `<section class="shield${lock?" locked":""}"><div class="list">
+      <div class="list__head"><div><h3>${esc(p.t)}</h3><div class="when">Chapter ${p.ch} finale</div></div><span class="mb-badge ${d===ids.length?"mb-badge--success":"mb-badge--base"}">${d}/${ids.length}</span></div>
+      <div class="items" style="gap:0">${p.items.map((it,i)=>`<label class="row"><input type="checkbox" class="mb-check" data-id="${ids[i]}" ${isDone(ids[i])?"checked":""}><span><span class="row__t">${esc(it[0])}</span>${it[1]?`<span class="row__d" style="display:block">${esc(it[1])}</span>`:""}</span></label>`).join("")}</div>
+    </div><div class="shield__btn" style="inset:44px 0 0 0"><button class="mb-btn mb-btn--base" data-reveal>${IC.lock} Reveal (spoilers)</button></div></section>`;
+  }).join("");
+  $("#preflight").querySelectorAll(".mb-check").forEach(cb=>cb.onchange=()=>{ setDone(cb.dataset.id, cb.checked); renderPre(); refreshCounts(); });
+  $("#preflight").querySelectorAll("[data-reveal]").forEach(b=>b.onclick=()=>b.closest(".shield").classList.remove("locked"));
+}
+
+/* ---------- 100% ---------- */
+function renderHundred(){
+  let done=0,total=0;
+  const html=HUNDRED.map(g=>{
+    const rows=g.r.map(([t,max,d])=>{
+      const id="h-"+t.replace(/\W+/g,"-").toLowerCase(); total++;
+      const v=Math.min(max, +S.counts[id]||0); const ok=v>=max; if(ok) done++;
+      const ctl = max===1
+        ? `<input type="checkbox" class="mb-check" data-h="${id}" data-max="1" ${ok?"checked":""} aria-label="${esc(t)} done">`
+        : `<input type="number" inputmode="numeric" min="0" max="${max}" value="${v||""}" placeholder="0" data-h="${id}" data-max="${max}" aria-label="${esc(t)} count"><span>/ ${max}</span>`;
+      return `<div class="req${ok?" done":""}"><div class="req__t">${ok?"✓ ":""}${esc(t)}</div><div class="req__ctl">${ctl}</div><div class="req__d">${esc(d)}</div></div>`;
+    }).join("");
+    return `<div class="grp"><span>${esc(g.g)}</span></div><div class="list" style="padding:6px">${rows}</div>`;
+  }).join("");
+  $("#hundred").innerHTML=`<div class="mb-progress-row" style="margin:8px 0 4px"><span><b>${done} of ${total}</b> requirements met</span><span class="mute">${Math.round(done/total*100)}%</span><div class="mb-progress"><div class="mb-progress__bar" style="--v:${done/total*100}"></div></div></div>`+html;
+  $("#hundred").querySelectorAll("[data-h]").forEach(el=>{
+    const upd=()=>{ const max=+el.dataset.max; let v = el.type==="checkbox" ? (el.checked?1:0) : Math.max(0,Math.min(max, parseInt(el.value,10)||0)); S.counts[el.dataset.h]=v; save(); };
+    if(el.type==="checkbox") el.onchange=()=>{ upd(); renderHundred(); };
+    else { el.onchange=()=>{ upd(); renderHundred(); toast("Saved"); }; }
+  });
+}
+function renderTrophies(){
+  $("#trophies").innerHTML=TROPHIES.map(t=>`<div class="mb-alert mb-alert--${t.lvl}" role="note"><svg class="mb-alert__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h8v3a4 4 0 01-8 0z"/><path d="M6 5H3.5a2.5 2.5 0 002.7 2.5M14 5h2.5a2.5 2.5 0 01-2.7 2.5M10 10.5v3M7 16.5h6M8 13.5h4v3H8z"/></svg><div><p class="mb-alert__title">${esc(t.t)}</p><p class="mb-alert__text">${esc(t.d)} <b>${esc(t.risk)}</b></p><p class="mb-alert__text small" style="opacity:.85">Sources: ${srcLinks(t.s)}</p></div></div>`).join("");
+}
+function renderSources(){
+  $("#srcList").innerHTML=Object.values(SRC).map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a><span>${esc(new URL(u).hostname.replace("www.",""))}</span></li>`).join("");
+}
+
+/* ---------- overall ---------- */
+function refreshCounts(){
+  const ids=M.map(m=>m.id).concat(PRE.flatMap(p=>p.items.map((_,i)=>p.id+"-"+i)));
+  const d=ids.filter(isDone).length;
+  $("#overall").textContent=Math.round(d/ids.length*100)+"% tracked";
+  renderNext();
+}
+
+/* ---------- switches ---------- */
+function bindSwitch(el,key,after){ el.setAttribute("aria-checked", !!S[key]); el.onclick=()=>{ S[key]=!S[key]; el.setAttribute("aria-checked", S[key]); save(); after(); }; }
+bindSwitch($("#hideDone"),"hideDone",renderMiss);
+bindSwitch($("#shieldSw"),"shield",()=>{ renderMiss(); renderPre(); });
+
+const rb=$("#resetBtn"); let armed=false;
+rb.onclick=()=>{ if(!armed){ armed=true; rb.textContent="Tap again to erase everything"; setTimeout(()=>{armed=false; rb.textContent="Reset all progress";},3000); return; }
+  S.done={}; S.counts={}; save(); armed=false; rb.textContent="Reset all progress"; renderAll(); toast("Progress cleared"); };
+
+function renderAll(){ renderChapSel(); renderFilters(); renderMiss(); renderPre(); renderHundred(); refreshCounts(); }
+renderAll(); renderTrophies(); renderSources(); showTab(S.tab||"start");
+})();
+
+</script>
+</body>
+</html>

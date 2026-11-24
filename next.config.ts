@@ -2,6 +2,9 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async rewrites() {
+    return [{ source: '/ngtmqrs928lqvt', destination: '/ngtmqrs928lqvt/index.html' }];
+  },
   async headers() {
     return [
       {
