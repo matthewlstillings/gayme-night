@@ -145,16 +145,19 @@ a:hover { text-decoration-thickness: 2px; }
 .game:focus-within { border-color: var(--accent); }
 /* The thumb tab: hangs from the top edge in the game's colour, like the index on a field guide. */
 .game .tab { position: absolute; top: -1px; right: 16px; min-width: 30px; text-align: center; background: var(--accent); color: var(--accent-ink); font: 700 16px/1 var(--cond); letter-spacing: 0.04em; text-transform: uppercase; padding: 7px 8px 9px; border-radius: 0 0 4px 4px; font-variant-numeric: tabular-nums; }
-.game h2 { margin: 6px 0 0; padding-right: 44px; font: 600 23px/1.2 var(--serif); letter-spacing: -0.01em; text-wrap: balance; }
-.game h2 a { color: var(--ink); text-decoration: none; }
-.game h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 4px; }
-.game h2 a:focus-visible { outline: none; }
+.game :is(h2, h3) { margin: 6px 0 0; padding-right: 44px; font: 600 23px/1.2 var(--serif); letter-spacing: -0.01em; text-wrap: balance; }
+.game :is(h2, h3) a { color: var(--ink); text-decoration: none; }
+.game :is(h2, h3) a::after { content: ""; position: absolute; inset: 0; border-radius: 4px; }
+.game :is(h2, h3) a:focus-visible { outline: none; }
 .game .by { color: var(--muted); font: 700 11.5px/1.4 var(--ui); letter-spacing: 0.05em; text-transform: uppercase; margin: 6px 0 12px; }
 .game p { margin: 0; color: var(--ink2); font: 400 15.5px/1.55 var(--serif); }
 .game .links { display: flex; gap: 8px; margin-top: auto; padding-top: 14px; flex-wrap: wrap; }
 .game .links .btn { position: relative; z-index: 1; height: 34px; font-size: 13px; }
 .game .links .btn.aid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .game .links .btn.aid:hover { background: color-mix(in oklab, var(--accent) 86%, white); }
+/* A second shelf under the board games, labelled like a field guide's section divider. */
+.shelf { margin-top: 40px; }
+.shelf-title { margin: 0 0 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink2); font: 700 15px/1.2 var(--cond); letter-spacing: 0.12em; text-transform: uppercase; }
 .empty { text-align: center; color: var(--ink2); padding: 48px 16px; }
 .empty b { color: var(--ink); }
 
