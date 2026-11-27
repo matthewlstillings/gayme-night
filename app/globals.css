@@ -158,6 +158,8 @@ a:hover { text-decoration-thickness: 2px; }
 /* A second shelf under the board games, labelled like a field guide's section divider. */
 .shelf { margin-top: 40px; }
 .shelf-title { margin: 0 0 14px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--ink2); font: 700 15px/1.2 var(--cond); letter-spacing: 0.12em; text-transform: uppercase; }
+.shelf:first-child { margin-top: 0; }
+.shelf:first-child .shelf-title { border-top: 0; padding-top: 0; }
 .empty { text-align: center; color: var(--ink2); padding: 48px 16px; }
 .empty b { color: var(--ink); }
 

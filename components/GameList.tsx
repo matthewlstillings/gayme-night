@@ -63,7 +63,10 @@ export function GameList({ games, guides = [] }: { games: ListGame[]; guides?: V
           </div>
           <div className="meta" aria-live="polite">
             {terms.length ? (
-              <><b>{shown.length}</b> of {total} {total === 1 ? 'game' : 'games'}</>
+              <>
+                <b>{shown.length}</b> of {total} {total === 1 ? 'game' : 'games'}
+                {shownGuides.length > 0 && <> · <b>{shownGuides.length}</b> video game {shownGuides.length === 1 ? 'guide' : 'guides'}</>}
+              </>
             ) : (
               <><b>{total}</b> {total === 1 ? 'game' : 'games'}, A to Z</>
             )}
